@@ -69,17 +69,36 @@ quadrante_usina <- function(usinas, coords) {
 #' @param usinas \code{data.table} contendo informacoes das usinas. Ver Detalhes
 #' @param coords \code{data.table} contendo informacoes dos vertices da grade. Ver Detalhes
 #' @param conn conexao ao banco contendo o dado de reanalise
+#' @param anos string no padrao do \code{xts} indicando quais datas deve ser extraidos 
+#' @param agr string indicando algum tipo de agregacao a ser feito no dado, um entre "dia", "mes",
+#'     "ano"; "none" nao faz nenhuma agregacao
 #' 
 #' @return \code{data.table} de tres colunas: \code{data_hora}, \code{vento_reanalise} e 
 #'     \code{codigo}. O dado nao estara ordenado conforme as ordem em \code{usinas} e possivelmente
 #'     nao contera todas as usinas, caso alguma esteja fora da grade de reanalise
 
-interp_usina <- function(usinas, coords, conn, datas = "2017/") {
+interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
 
     usinas <- as.data.table(usinas)
 
-    datas <- dbrenovaveis:::parsedatas(datas, "", FALSE)
-    anos  <- c(year(datas[[1]][1]), year(datas[[2]][2]))
+    anos <- dbrenovaveis:::parsedatas(anos, "", FALSE)
+    anos <- c(year(anos[[1]][1]), year(anos[[2]][2]))
+
+    agr_fun <- switch(agr,
+        "none" = function(d) d,
+        "dia" = function(d) d[, mean(V2), by = .(V1 = as.Date(V1))],
+        "mes" = function(d) d[, mean(V2), by = .(V1 = format(V1, "%Y-%m"))],
+        "ano" = function(d) d[, mean(V2), by = .(V1 = format(V1, "%Y"))]
+    )
+
+    datas <- dbGetQuery(conn, paste0("SELECT id_ano,id_mes,id_dia,id_hora FROM FT_MERRA2",
+        " WHERE id_lon = ", coords$longitude[1], " AND id_lat = ", coords$latitude[1],
+        " AND id_ano >= ", anos[1], " AND id_ano <= ", anos[2]))
+    datas <- as.data.table(datas)
+    datas[, c("id_mes", "id_dia", "id_hora") := lapply(.SD, formatC, width = 2, flag = "0"),
+        .SDcols = c("id_mes", "id_dia", "id_hora")]
+    datas <- datas[, paste0(paste(id_ano, id_mes, id_dia, sep = "-"), " ", id_hora, ":00:00")]
+    datas <- as.POSIXct(datas, "GMT")
 
     quads <- quadrante_usina(usinas, coords)
     quads <- as.data.table(do.call(rbind, quads))
@@ -120,21 +139,16 @@ interp_usina <- function(usinas, coords, conn, datas = "2017/") {
             deltax2 * deltay1, deltax1 * deltay1)
 
         vec <- rowSums(mapply("*", series, pesos))
-        unname(vec)
+        out <- data.table(V1 = datas, V2 = vec)
+        out <- agr_fun(out)
+        colnames(out) <- c("data_hora", "vento_reanalise")
+
+        out[, codigo := rep(usinas_vert[i, codigo], .N)]
+
+        out
     })
     interps <- interps[!sapply(interps, is.null)]
 
-    datas <- dbGetQuery(conn, paste0("SELECT id_ano,id_mes,id_dia,id_hora FROM FT_MERRA2",
-        " WHERE id_lon = ", coords$longitude[1], " AND id_lat = ", coords$latitude[1],
-        " AND id_ano >= ", anos[1], " AND id_ano <= ", anos[2]))
-    datas <- as.data.table(datas)
-    datas[, c("id_mes", "id_dia", "id_hora") := lapply(.SD, formatC, width = 2, flag = "0"),
-        .SDcols = c("id_mes", "id_dia", "id_hora")]
-    datas <- datas[, paste0(paste(id_ano, id_mes, id_dia, sep = "-"), " ", id_hora, ":00:00")]
-    datas <- as.POSIXct(datas, "GMT")
-
-    interps <- lapply(interps, function(v) data.table(data_hora = datas, vento_reanalise = v))
-    interps <- lapply(seq(interps), function(i) cbind(interps[[i]], codigo = usinas_vert$codigo[i]))
     interps <- rbindlist(interps)
 
     return(interps)
