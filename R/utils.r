@@ -141,6 +141,7 @@ interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
         vec <- rowSums(mapply("*", series, pesos))
         out <- data.table(V1 = datas, V2 = vec)
         out <- agr_fun(out)
+        out[, V1 := as.Date(paste0(V1, "-01"))]
         colnames(out) <- c("data_hora", "vento_reanalise")
 
         out[, codigo := rep(usinas_vert[i, codigo], .N)]

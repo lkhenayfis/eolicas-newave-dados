@@ -11,10 +11,13 @@ convertehora <- function(s, diff = 2) {
 
 ndias <- structure(c(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31), names = 1:12)
 
+usinas <- readRDS("data/usinas.rds")
+
 # MONTA O DADO A PARTIR DO BACKUP ------------------------------------------------------------------
 
 p_verif <- "C:/Users/lucas/Downloads/Geração Verificada"
-arqs    <- list.files(p_verif, pattern = "_Ger_Verif_Consis.txt$", full.names = TRUE)
+if(!dir.exists(p_verif)) p_verif <- "C:/Users/lucask/Downloads/Geração Verificada"
+arqs <- list.files(p_verif, pattern = "_Ger_Verif_Consis.txt$", full.names = TRUE)
 
 for(arq in arqs) {
     usi <- sub(".*/", "", sub("_.*", "", arq))
@@ -27,15 +30,14 @@ for(arq in arqs) {
     dat[, V1 := NULL]
     dat[, variable := NULL]
     dat <- dat[, .(geracao = mean(geracao, na.rm = TRUE), count = mean(!is.na(geracao))),
-        by = .(anomes = format(data_hora, "%Y-%m"))]
+        by = .(data_hora = format(data_hora, "%Y-%m"))]
+    dat[, data_hora := as.Date(paste0(data_hora, "-01"))]
     dat[, usina := usi]
-    
+
     saveRDS(dat, file.path("data/mhg", paste0(usi, ".rds")))
 }
 
 # COMPLETA COM O MELHOR HISTORICO OPERACIONAL ------------------------------------------------------
-
-usinas <- readRDS("data/usinas.rds")
 
 usi_backup <- sub(".rds", "", list.files("data/mhg"))
 usi_faltante <- usinas[!(codigo %in% usi_backup) & (A == 1), codigo]
@@ -56,8 +58,9 @@ for(arq in arqs) {
     dat[, V1 := NULL]
     dat[, variable := NULL]
     dat <- dat[, .(geracao = mean(geracao, na.rm = TRUE), count = mean(!is.na(geracao))),
-        by = .(anomes = format(data_hora, "%Y-%m"))]
+        by = .(data_hora = format(data_hora, "%Y-%m"))]
+    dat[, data_hora := as.Date(paste0(data_hora, "-01"))]
     dat[, usina := usi]
-    
+
     saveRDS(dat, file.path("data/mhg", paste0(usi, ".rds")))
 }
