@@ -130,15 +130,7 @@ interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
             series <- lapply(seq(queries), function(i) unlist(dbGetQuery(conn, queries[i])))
         }
 
-        deltax1 <- usinas_vert[i, longitude] - min(coords_quad$longitude)
-        deltax2 <- max(coords_quad$longitude) - usinas_vert[i, longitude]
-        deltay1 <- usinas_vert[i, latitude] - min(coords_quad$latitude)
-        deltay2 <- max(coords_quad$latitude) - usinas_vert[i, latitude]
-
-        pesos <- 1 / (deltax * deltay) * c(deltax2 * deltay2, deltax1 * deltay2,
-            deltax2 * deltay1, deltax1 * deltay1)
-
-        vec <- rowSums(mapply("*", series, pesos))
+        vec <- interp_bilin(usinas_vert[i], series, coords_quad)
         out <- data.table(V1 = datas, V2 = vec)
         out <- agr_fun(out)
         out[, V1 := as.Date(paste0(V1, "-01"))]
@@ -153,4 +145,22 @@ interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
     interps <- rbindlist(interps)
 
     return(interps)
+}
+
+interp_bilin <- function(x, vals, verts) {
+
+    deltax <- diff(sort(unique(verts$longitude)))
+    deltay <- diff(sort(unique(verts$latitude)))
+
+    deltax1 <- x$longitude - min(verts$longitude)
+    deltax2 <- max(verts$longitude) - x$longitude
+    deltay1 <- x$latitude - min(verts$latitude)
+    deltay2 <- max(verts$latitude) - x$latitude
+
+    pesos <- 1 / (deltax * deltay) * c(deltax2 * deltay2, deltax1 * deltay2,
+        deltax2 * deltay1, deltax1 * deltay1)
+
+    vec <- rowSums(mapply("*", vals, pesos))
+
+    return(vec)
 }
