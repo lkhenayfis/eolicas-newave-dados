@@ -1,0 +1,19 @@
+{
+    // Vetor de subsistemas para rodar
+    "Subsistemas": ["NE", "S"],
+
+    // Lista de modelos de clusterizacao. Cada elemento deve ser uma lista contendo, na primeira 
+    // posicao, o nome do metodo (um dos implementados em clustcens) e os demais os argumentos
+    // da funcao de clusterizacao. O dado a ser clusterizado nao precisa ser informado aqui, pois 
+    // sera automaticamente definido dentro do script
+    "Modelos": {
+        "EM_2": {"fun": "EM", "n": 2},
+        "EM_3": {"fun": "EM", "n": 3},
+        "EM_4": {"fun": "EM", "n": 4},
+        "EM_5": {"fun": "EM", "n": 5},
+        "kmeans_2": {"fun": "kmeans", "n": 2, "nstart": 200},
+        "kmeans_3": {"fun": "kmeans", "n": 3, "nstart": 200},
+        "kmeans_4": {"fun": "kmeans", "n": 4, "nstart": 200},
+        "kmeans_5": {"fun": "kmeans", "n": 5, "nstart": 200}
+    }
+}
