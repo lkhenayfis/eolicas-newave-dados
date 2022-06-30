@@ -54,7 +54,7 @@ for(i in seq(nrow(index_loop))) {
 
     usiplot <- merge(dat_usinas,
         data.table(codigo = unique(rean_mensal$cenarios$cenario),
-            cluster = paste0("cluster_", classe = classe)))
+            cluster = paste0("cluster_", subsist, "_", classe)))
 
     gg <- ggplot() +
         geom_polygon(data = shape, aes(long, lat, group = group), fill = NA, color = "grey60") +
@@ -64,4 +64,7 @@ for(i in seq(nrow(index_loop))) {
         theme_bw()
     ggsave(file.path("out/clusteriza_usinas", paste0(index_loop$mod[i], "_", subsist, ".png")), gg,
         width = 8, height = 8)
+
+    fwrite(usiplot[, .(codigo, cluster)],
+        file.path("out/clusteriza_usinas", paste0(index_loop$mod[i], "_", subsist, ".csv")))
 }
