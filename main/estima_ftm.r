@@ -79,7 +79,9 @@ prevs <- rbindlist(prevs)
 gg1 <- ggplot(regdata, aes(vento_medio, fator_cap, color = peso)) + geom_point() +
     scale_x_continuous(limits = c(0, 10)) +
     scale_y_continuous(limits = c(0, 1)) +
-    facet_wrap(~cluster, scales = "free_y")
+    scale_color_viridis_c() +
+    facet_wrap(~cluster, scales = "free_y") +
+    theme_bw()
 ggsave("out/estima_ftm/scatter_clust.png", gg1, width = 9, height = 6)
 
 gg2 <- ggplot() +
@@ -87,5 +89,7 @@ gg2 <- ggplot() +
     geom_line(data = prevs, aes(vento_medio, fator_cap)) +
     scale_x_continuous(limits = c(0, 10)) +
     scale_y_continuous(limits = c(0, 1)) +
-    facet_wrap(~cluster, scales = "free_y")
+    scale_color_viridis_c() +
+    facet_wrap(~cluster, scales = "free_y") +
+    theme_bw()
 ggsave("out/estima_ftm/scatter_clust_ftm.png", gg2, width = 9, height = 6)
