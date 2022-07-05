@@ -1,5 +1,6 @@
 library(data.table)
 library(clustcens)
+library(mclust) # Nao e necessario chamar diretamente, esta aqui so pro renv ver
 library(ggplot2)
 
 source("R/utils.r")
