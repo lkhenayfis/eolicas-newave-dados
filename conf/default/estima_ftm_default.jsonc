@@ -1,4 +1,7 @@
 {
+    // Nome do estudo, sera usado para gerar uma pasta em out/estima_ftm com os resultados
+    "tag": "DEFAULT",
+
     // arquivo de associacao entre usinas (codigos) e seus clusters. Pode ser um vetor apontando 
     // para diferentes arquivos; neste caso, usinas repetidas serao associadas ao cluster 
     // especificado no arquivo mais ao final do vetor

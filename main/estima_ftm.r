@@ -13,7 +13,8 @@ CONF$janela <- lapply(seq(2), function(i) as.Date(CONF$janela[[i]][i]))
 
 dat_usinas <- readRDS("data/usinas.rds")
 
-dir.create("out/estima_ftm")
+outdir <- file.path("out/estima_ftm", CONF$tag)
+dir.create(outdir)
 
 # LEITURA DOS CLUSTERS -----------------------------------------------------------------------------
 
@@ -40,7 +41,8 @@ pot_evol <- rbindlist(pot_evol)
 gg <- ggplot(pot_evol, aes(data_hora, capinst)) + geom_line() + geom_point() +
     facet_wrap(~ cluster, scales = "free_y") +
     theme_bw()
-ggsave("out/estima_ftm/pot_evol_cluster.png", gg, width = 9, height = 6)
+outarq <- file.path(outdir, "pot_evol_cluster.png")
+ggsave(outarq, gg, width = 9, height = 6)
 
 # EXECUCAO PRINCIPAL -------------------------------------------------------------------------------
 
@@ -82,7 +84,8 @@ gg1 <- ggplot(regdata, aes(vento_medio, fator_cap, color = peso)) + geom_point()
     scale_color_viridis_c() +
     facet_wrap(~cluster, scales = "free_y") +
     theme_bw()
-ggsave("out/estima_ftm/scatter_clust.png", gg1, width = 9, height = 6)
+outarq <- file.path(outdir, "scatter_clust.png")
+ggsave(outarq, gg1, width = 9, height = 6)
 
 gg2 <- ggplot() +
     geom_point(data = regdata, aes(vento_medio, fator_cap, color = peso)) +
@@ -92,4 +95,5 @@ gg2 <- ggplot() +
     scale_color_viridis_c() +
     facet_wrap(~cluster, scales = "free_y") +
     theme_bw()
-ggsave("out/estima_ftm/scatter_clust_ftm.png", gg2, width = 9, height = 6)
+outarq <- file.path(outdir, "scatter_clust_ftm.png")
+ggsave(outarq, gg2, width = 9, height = 6)
