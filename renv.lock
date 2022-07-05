@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.1.0",
+    "Version": "4.1.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -235,6 +235,17 @@
         "rlang"
       ]
     },
+    "logr": {
+      "Package": "logr",
+      "Version": "1.2.9",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "228160cab9c1cbc120d2aadc0ca60283",
+      "Requirements": [
+        "this.path",
+        "withr"
+      ]
+    },
     "magrittr": {
       "Package": "magrittr",
       "Version": "2.0.1",
@@ -339,6 +350,14 @@
         "viridisLite"
       ]
     },
+    "this.path": {
+      "Package": "this.path",
+      "Version": "0.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "adbfb7339a8ac79f1357cba9e1abd516",
+      "Requirements": []
+    },
     "tibble": {
       "Package": "tibble",
       "Version": "3.1.6",
@@ -390,6 +409,14 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "a376b424c4817cda4920bbbeb3364e85",
+      "Requirements": []
+    },
+    "yaml": {
+      "Package": "yaml",
+      "Version": "2.3.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "458bb38374d73bf83b1bb85e353da200",
       "Requirements": []
     }
   }

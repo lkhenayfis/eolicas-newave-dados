@@ -1,16 +1,23 @@
-library(data.table)
-library(clustcens)
-library(mclust) # Nao e necessario chamar diretamente, esta aqui so pro renv ver
-library(ggplot2)
+suppressPackageStartupMessages(library(data.table))
+suppressPackageStartupMessages(library(clustcens))
+suppressPackageStartupMessages(library(mclust)) # Nao e necessario chamar diretamente, esta aqui so pro renv ver
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(logr))
 
 source("R/utils.r")
 
 # INICIALIZACAO ------------------------------------------------------------------------------------
 
+timestamp <- format(Sys.time(), format = "%Y%m%d_%H%M%S")
+timestamp <- paste0("clusteriza_usinas_", timestamp)
+log_open(timestamp)
+
 arq_conf <- commandArgs(trailingOnly = TRUE)[1]
 if(is.na(arq_conf)) arq_conf <- "conf/default/clusteriza_usinas_default.jsonc"
 
 CONF <- jsonlite::read_json(arq_conf, TRUE)
+cat(yaml::as.yaml(CONF))
+
 CONF$mod_cluster <- lapply(CONF$mod_cluster, function(l) {
     l[[1]] <- paste0("clust", l[[1]])
     l[[1]] <- str2lang(l[[1]])
@@ -42,7 +49,7 @@ track_c <- ""
 
 for(i in seq(nrow(index_loop))) {
 
-    print(index_loop[i, , drop = FALSE])
+    log_print(index_loop[i, , drop = FALSE])
 
     subsist <- index_loop$subsist[i]
     compac  <- index_loop$compac[i]
@@ -85,3 +92,5 @@ for(i in seq(nrow(index_loop))) {
     outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$clst[i], ".csv"))
     fwrite(usiplot[, .(codigo, cluster)], outarq)
 }
+
+log_close()
