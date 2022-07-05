@@ -90,6 +90,12 @@ interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
         "mes" = function(d) d[, mean(V2), by = .(V1 = format(V1, "%Y-%m"))],
         "ano" = function(d) d[, mean(V2), by = .(V1 = format(V1, "%Y"))]
     )
+    date_fun <- switch(agr,
+        "none" = function(v) v,
+        "dia" = function(v) v,
+        "mes" = function(v) as.Date(paste0(v, "-01")),
+        "ano" = function(v) as.Date(paste0(v, "-01-01"))
+    )
 
     datas <- dbGetQuery(conn, paste0("SELECT id_ano,id_mes,id_dia,id_hora FROM FT_MERRA2",
         " WHERE id_lon = ", coords$longitude[1], " AND id_lat = ", coords$latitude[1],
@@ -133,7 +139,7 @@ interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
         vec <- interp_bilin(usinas_vert[i], series, coords_quad)
         out <- data.table(V1 = datas, V2 = vec)
         out <- agr_fun(out)
-        out[, V1 := as.Date(paste0(V1, "-01"))]
+        out[, V1 := date_fun(V1)]
         colnames(out) <- c("data_hora", "vento_reanalise")
 
         out[, codigo := rep(usinas_vert[i, codigo], .N)]
