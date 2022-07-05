@@ -36,8 +36,8 @@ usi_comhist <- sub(".rds", "", list.files("data/mhg"))
 dat_usinas <- dat_usinas[codigo %in% usi_comhist]
 
 outdir <- file.path("out/clusteriza_usinas", CONF$tag)
-dir.create(outdir, recursive = TRUE)
-if(CONF$limpadir) file.remove(list.files(outdir, full.names = TRUE))
+if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
+if(CONF$limpadir) inv <- file.remove(list.files(outdir, full.names = TRUE))
 
 # EXECUCAO PRINCIPAL -------------------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ track_c <- ""
 
 for(i in seq(nrow(index_loop))) {
 
-    log_print(index_loop[i, , drop = FALSE])
+    log_print(unname(unlist(index_loop[i, ])))
 
     subsist <- index_loop$subsist[i]
     compac  <- index_loop$compac[i]
@@ -78,19 +78,20 @@ for(i in seq(nrow(index_loop))) {
 
     usiplot <- merge(dat_usinas,
         data.table(codigo = unique(rean_mensal$cenarios$cenario),
-            cluster = paste0("cluster_", subsist, "_", classe)))
+            Cluster = paste0("cluster_", subsist, "_", classe)))
 
     gg <- ggplot() +
         geom_polygon(data = shape, aes(long, lat, group = group), fill = NA, color = "grey60") +
-        geom_point(data = usiplot, aes(longitude, latitude, color = cluster)) +
+        geom_point(data = usiplot, aes(longitude, latitude, color = Cluster)) +
         coord_cartesian(xlim = range(usiplot$longitude), ylim = range(usiplot$latitude)) +
-        labs(title = index_loop$clst[i]) +
-        theme_bw()
+        labs(x = "Longitude", y = "Latitude") +
+        theme_bw() +
+        theme(text = element_text(size = 14))
     outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$clst[i], ".png"))
     ggsave(outarq, gg, width = 8, height = 8)
 
     outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$clst[i], ".csv"))
-    fwrite(usiplot[, .(codigo, cluster)], outarq)
+    fwrite(usiplot[, .(codigo, Cluster)], outarq)
 }
 
 log_close()
