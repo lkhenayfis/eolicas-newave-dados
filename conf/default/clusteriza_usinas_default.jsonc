@@ -1,4 +1,10 @@
 {
+    // Nome do estudo, sera usado para gerar uma pasta em out/estima_ftm com os resultados
+    "tag": "DEFAULT",
+    
+    // Booleano indicando se o diretorio deve ser limpo antes de salvar novos resultados
+    "limpadir": false,
+
     // Vetor de subsistemas para rodar
     "Subsistemas": ["NE", "S"],
 

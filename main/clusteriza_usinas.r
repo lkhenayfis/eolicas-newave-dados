@@ -23,7 +23,9 @@ dat_usinas <- readRDS("data/usinas.rds")
 usi_comhist <- sub(".rds", "", list.files("data/mhg"))
 dat_usinas <- dat_usinas[codigo %in% usi_comhist]
 
-dir.create("out/clusteriza_usinas", recursive = TRUE)
+outdir <- file.path("out/clusteriza_usinas", CONF$tag)
+dir.create(outdir, recursive = TRUE)
+if(CONF$limpadir) file.remove(list.files(outdir, full.names = TRUE))
 
 # EXECUCAO PRINCIPAL -------------------------------------------------------------------------------
 
@@ -63,9 +65,9 @@ for(i in seq(nrow(index_loop))) {
         coord_cartesian(xlim = range(usiplot$longitude), ylim = range(usiplot$latitude)) +
         labs(title = index_loop$mod[i]) +
         theme_bw()
-    ggsave(file.path("out/clusteriza_usinas", paste0(index_loop$mod[i], "_", subsist, ".png")), gg,
-        width = 8, height = 8)
+    outarq <- file.path(outdir, paste0(subsist, "_", index_loop$mod[i], ".png"))
+    ggsave(outarq, gg, width = 8, height = 8)
 
-    fwrite(usiplot[, .(codigo, cluster)],
-        file.path("out/clusteriza_usinas", paste0(index_loop$mod[i], "_", subsist, ".csv")))
+    outarq <- file.path(outdir, paste0(subsist, "_", index_loop$mod[i], ".csv"))
+    fwrite(usiplot[, .(codigo, cluster)], outarq)
 }
