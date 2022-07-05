@@ -40,6 +40,7 @@ pot_evol <- rbindlist(pot_evol)
 
 gg <- ggplot(pot_evol, aes(data_hora, capinst)) + geom_line() + geom_point() +
     facet_wrap(~ cluster, scales = "free_y") +
+    labs(x = "Data", y = "Capacidade instalada") +
     theme_bw()
 outarq <- file.path(outdir, "pot_evol_cluster.png")
 ggsave(outarq, gg, width = 9, height = 6)
@@ -81,8 +82,9 @@ prevs <- rbindlist(prevs)
 gg1 <- ggplot(regdata, aes(vento_medio, fator_cap, color = peso)) + geom_point() +
     scale_x_continuous(limits = c(0, 10)) +
     scale_y_continuous(limits = c(0, 1)) +
-    scale_color_viridis_c() +
-    facet_wrap(~cluster, scales = "free_y") +
+    labs(x = "Vento m\u00e9dio [m/s]", y = "Fator de Capacidade [%]") +
+    scale_color_viridis_c(name = "Peso") +
+    facet_wrap(~cluster) +
     theme_bw()
 outarq <- file.path(outdir, "scatter_clust.png")
 ggsave(outarq, gg1, width = 9, height = 6)
@@ -92,8 +94,9 @@ gg2 <- ggplot() +
     geom_line(data = prevs, aes(vento_medio, fator_cap)) +
     scale_x_continuous(limits = c(0, 10)) +
     scale_y_continuous(limits = c(0, 1)) +
-    scale_color_viridis_c() +
-    facet_wrap(~cluster, scales = "free_y") +
+    labs(x = "Vento m\u00e9dio [m/s]", y = "Fator de Capacidade [%]") +
+    scale_color_viridis_c(name = "Peso") +
+    facet_wrap(~cluster) +
     theme_bw()
 outarq <- file.path(outdir, "scatter_clust_ftm.png")
 ggsave(outarq, gg2, width = 9, height = 6)
