@@ -8,11 +8,21 @@
     // Vetor de subsistemas para rodar
     "Subsistemas": ["NE", "S"],
 
+    // Lista de modelos de compactacao. Cada elemento deve ser uma lista contendo, na primeira 
+    // posicao, o nome do metodo (um dos implementados em clustcens) e os demais os argumentos
+    // da funcao de compactacao. O dado a ser compactado nao precisa ser informado aqui, pois 
+    // sera automaticamente definido dentro do script
+    "mod_compact": {
+        "PCA_07": {"fun": "PCA", "vartot": 0.7},
+        "PCA_08": {"fun": "PCA", "vartot": 0.8},
+        "PCA_09": {"fun": "PCA", "vartot": 0.9}
+    },
+
     // Lista de modelos de clusterizacao. Cada elemento deve ser uma lista contendo, na primeira 
     // posicao, o nome do metodo (um dos implementados em clustcens) e os demais os argumentos
     // da funcao de clusterizacao. O dado a ser clusterizado nao precisa ser informado aqui, pois 
     // sera automaticamente definido dentro do script
-    "Modelos": {
+    "mod_cluster": {
         "EM_2": {"fun": "EM", "n": 2},
         "EM_3": {"fun": "EM", "n": 3},
         "EM_4": {"fun": "EM", "n": 4},
