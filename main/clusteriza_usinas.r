@@ -12,11 +12,15 @@ timestamp <- format(Sys.time(), format = "%Y%m%d_%H%M%S")
 timestamp <- paste0("clusteriza_usinas_", timestamp)
 log_open(timestamp)
 
-arq_conf <- commandArgs(trailingOnly = TRUE)[1]
-if(is.na(arq_conf)) arq_conf <- "conf/default/clusteriza_usinas_default.jsonc"
+arq_conf <- commandArgs(trailingOnly = TRUE)
+arq_conf <- arq_conf[grep("jsonc?$", arq_conf)]
+if(length(arq_conf) == 0) arq_conf <- "conf/default/clusteriza_usinas_default.jsonc"
+
+log_print(paste0("Arquivo de configuracao: ", arq_conf))
 
 CONF <- jsonlite::read_json(arq_conf, TRUE)
-cat(yaml::as.yaml(CONF))
+log_print(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
+cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
 
 CONF$mod_cluster <- lapply(CONF$mod_cluster, function(l) {
     l[[1]] <- paste0("clust", l[[1]])
@@ -60,15 +64,15 @@ for(i in seq(nrow(index_loop))) {
         rean_mensal[, grupo := subsist]
         colnames(rean_mensal)[1:3] <- c("indice", "valor", "cenario")
         rean_mensal <- clustcens:::new_cenarios(rean_mensal)
-        track_s <- subsist
     }
-    if(track_c != compac) {
+    if((track_s != subsist) | (track_c != compac)) {
         rean_compac <- CONF$mod_compac[[index_loop$compac[i]]]
         rean_compac$cenarios <- quote(rean_mensal)
         rean_compac <- eval(rean_compac)
         rean_compac$compact[, valor := scale(valor), by = .(ind)]
-        track_c <- compac
     }
+    track_s <- subsist
+    track_c <- compac
 
     clusters <- CONF$mod_cluster[[index_loop$clst[i]]]
     clusters$compact <- quote(rean_compac)
