@@ -1,12 +1,22 @@
-library(data.table)
-library(ggplot2)
+suppressPackageStartupMessages(library(data.table))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(logr))
 
 # INICIALIZACAO ------------------------------------------------------------------------------------
 
-arq_conf <- commandArgs(trailingOnly = TRUE)[1]
-if(is.na(arq_conf)) arq_conf <- "conf/default/estima_ftm_default.jsonc"
+timestamp <- format(Sys.time(), format = "%Y%m%d_%H%M%S")
+timestamp <- paste0("estima_ftm_", timestamp)
+log_open(timestamp)
 
-CONF <- jsonlite::read_json(arq_conf, simplifyVector = TRUE)
+arq_conf <- commandArgs(trailingOnly = TRUE)
+arq_conf <- arq_conf[grep("jsonc?$", arq_conf)]
+if(length(arq_conf) == 0) arq_conf <- "conf/default/estima_ftm_default.jsonc"
+
+log_print(paste0("Arquivo de configuracao: ", arq_conf))
+
+CONF <- jsonlite::read_json(arq_conf, TRUE)
+log_print(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
+cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
 
 CONF$janela <- dbrenovaveis:::parsedatas(CONF$janela, "", FALSE)
 CONF$janela <- lapply(seq(2), function(i) as.Date(CONF$janela[[i]][i]))
@@ -38,10 +48,12 @@ pot_evol <- lapply(split(dat_usinas, dat_usinas$cluster), function(dat) {
 pot_evol <- lapply(names(pot_evol), function(n) cbind(pot_evol[[n]], cluster = n))
 pot_evol <- rbindlist(pot_evol)
 
-gg <- ggplot(pot_evol, aes(data_hora, capinst)) + geom_line() + geom_point() +
+gg <- ggplot(pot_evol, aes(data_hora, capinst, color = cluster)) + geom_line() + geom_point() +
+    scale_color_discrete(name = "Cluster") +
     facet_wrap(~ cluster, scales = "free_y") +
     labs(x = "Data", y = "Capacidade instalada") +
-    theme_bw()
+    theme_bw() +
+    theme(text = element_text(size = 14))
 outarq <- file.path(outdir, "pot_evol_cluster.png")
 ggsave(outarq, gg, width = 9, height = 6)
 
