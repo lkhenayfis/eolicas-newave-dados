@@ -5,7 +5,10 @@
     // arquivo de associacao entre usinas (codigos) e seus clusters. Pode ser um vetor apontando 
     // para diferentes arquivos; neste caso, usinas repetidas serao associadas ao cluster 
     // especificado no arquivo mais ao final do vetor
-    "clusters": ["out/clusteriza_usinas/kmeans_3_NE.csv" ,"out/clusteriza_usinas/kmeans_2_S.csv"],
+    "clusters": [
+        "out/clusteriza_usinas/DEFAULT/NE_PCA_09_kmeans_2.csv",
+        "out/clusteriza_usinas/DEFAULT/S_PCA_09_kmeans_2.csv"
+    ],
 
     // Janela temporal para considerar na estimacao das funcoes no padrao xts
     "janela": "2017/2021",

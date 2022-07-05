@@ -34,7 +34,7 @@ usi_cluster <- usi_cluster[!duplicated(usi_cluster, fromLast = TRUE)]
 
 dat_usinas <- merge(dat_usinas, usi_cluster)
 
-pot_evol <- lapply(split(dat_usinas, dat_usinas$cluster), function(dat) {
+pot_evol <- lapply(split(dat_usinas, dat_usinas$Cluster), function(dat) {
     setorder(dat, iniop)
     datas_ini <- dat$iniop
     pot_evol  <- cumsum(dat$capinst)
@@ -45,12 +45,11 @@ pot_evol <- lapply(split(dat_usinas, dat_usinas$cluster), function(dat) {
     data.table(data_hora = datas, capinst = pot_evol_meses)
 })
 
-pot_evol <- lapply(names(pot_evol), function(n) cbind(pot_evol[[n]], cluster = n))
+pot_evol <- lapply(names(pot_evol), function(n) cbind(pot_evol[[n]], Cluster = n))
 pot_evol <- rbindlist(pot_evol)
 
-gg <- ggplot(pot_evol, aes(data_hora, capinst, color = cluster)) + geom_line() + geom_point() +
-    scale_color_discrete(name = "Cluster") +
-    facet_wrap(~ cluster, scales = "free_y") +
+gg <- ggplot(pot_evol, aes(data_hora, capinst)) + geom_line() + geom_point() +
+    facet_wrap(~ Cluster, scales = "free_y") +
     labs(x = "Data", y = "Capacidade instalada") +
     theme_bw() +
     theme(text = element_text(size = 14))
@@ -63,31 +62,31 @@ reanalise <- list.files("data", pattern = "reanalise", full.names = TRUE)
 reanalise <- lapply(reanalise, readRDS)
 reanalise <- rbindlist(reanalise)
 
-reanalise <- merge(reanalise, dat_usinas[, .(codigo, cluster)], by = "codigo")
-reanalise <- reanalise[, .(vento_medio = mean(vento_reanalise)), by = .(cluster, data_hora)]
+reanalise <- merge(reanalise, dat_usinas[, .(codigo, Cluster)], by = "codigo")
+reanalise <- reanalise[, .(vento_medio = mean(vento_reanalise)), by = .(Cluster, data_hora)]
 
-vento_obs <- lapply(split(dat_usinas, dat_usinas$cluster), function(dat) {
+vento_obs <- lapply(split(dat_usinas, dat_usinas$Cluster), function(dat) {
     arqs <- paste0("data/mhg/", dat$codigo, ".rds")
     out <- rbindlist(lapply(arqs, readRDS))
     out <- out[, .(geracao = sum(geracao, na.rm = TRUE), count = mean(count)), by = .(data_hora)]
-    out[, cluster := rep(dat$cluster[1], .N)]
+    out[, Cluster := rep(dat$Cluster[1], .N)]
     setorder(out, data_hora)
     out
 })
 vento_obs <- rbindlist(vento_obs)
 
 regdata <- Reduce(merge, list(vento_obs, reanalise, pot_evol))
-regdata[, fator_cap := geracao / max(capinst), by = cluster]
-regdata[, peso := (capinst / max(capinst))^3 * count, by = cluster]
-setorder(regdata, cluster, data_hora)
+regdata[, fator_cap := geracao / max(capinst), by = Cluster]
+regdata[, peso := (capinst / max(capinst))^3 * count, by = Cluster]
+setorder(regdata, Cluster, data_hora)
 
-mods <- lapply(split(regdata, regdata$cluster), function(dat) {
+mods <- lapply(split(regdata, regdata$Cluster), function(dat) {
     lm(fator_cap ~ vento_medio, dat, weights = dat$peso)
 })
 prevs <- lapply(names(mods), function(n) {
     xx <- data.frame(vento_medio = seq(0, 10, by = .1))
     pred <- predict(mods[[n]], newdata = xx)
-    data.table(vento_medio = xx[[1]], fator_cap = pred, cluster = n)
+    data.table(vento_medio = xx[[1]], fator_cap = pred, Cluster = n)
 })
 prevs <- rbindlist(prevs)
 
@@ -96,8 +95,9 @@ gg1 <- ggplot(regdata, aes(vento_medio, fator_cap, color = peso)) + geom_point()
     scale_y_continuous(limits = c(0, 1)) +
     labs(x = "Vento m\u00e9dio [m/s]", y = "Fator de Capacidade [%]") +
     scale_color_viridis_c(name = "Peso") +
-    facet_wrap(~cluster) +
-    theme_bw()
+    facet_wrap(~Cluster) +
+    theme_bw() +
+    theme(text = element_text(size = 14))
 outarq <- file.path(outdir, "scatter_clust.png")
 ggsave(outarq, gg1, width = 9, height = 6)
 
@@ -108,7 +108,8 @@ gg2 <- ggplot() +
     scale_y_continuous(limits = c(0, 1)) +
     labs(x = "Vento m\u00e9dio [m/s]", y = "Fator de Capacidade [%]") +
     scale_color_viridis_c(name = "Peso") +
-    facet_wrap(~cluster) +
-    theme_bw()
+    facet_wrap(~Cluster) +
+    theme_bw() +
+    theme(text = element_text(size = 14))
 outarq <- file.path(outdir, "scatter_clust_ftm.png")
 ggsave(outarq, gg2, width = 9, height = 6)
