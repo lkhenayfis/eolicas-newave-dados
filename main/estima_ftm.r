@@ -83,6 +83,15 @@ setorder(regdata, Cluster, data_hora)
 mods <- lapply(split(regdata, regdata$Cluster), function(dat) {
     lm(fator_cap ~ vento_medio, dat, weights = dat$peso)
 })
+outmod <- lapply(mods, function(mod) coef(mod))
+outmod <- lapply(names(outmod), function(nome)
+    data.table(Cluster = nome, b0 = outmod[[nome]][1], b1 = outmod[[nome]][2])
+)
+outmod <- rbindlist(outmod)
+
+outarq <- file.path(outdir, "ftm.csv")
+fwrite(outmod, outarq)
+
 prevs <- lapply(names(mods), function(n) {
     xx <- data.frame(vento_medio = seq(0, 10, by = .1))
     pred <- predict(mods[[n]], newdata = xx)
