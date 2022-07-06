@@ -1,0 +1,10 @@
+{
+    // Nome do estudo, sera usado para gerar uma pasta em out/estima_ftm com os resultados
+    "tag": "DEFAULT",
+
+    // arquivos de clusters aos quais adicionar as usinas faltantes
+    "clusters": [
+        "out/clusteriza_usinas/PCA09_EM_kmeans/NE_PCA_09_kmeans_5.csv",
+        "out/clusteriza_usinas/PCA09_EM_kmeans/S_PCA_09_kmeans_1.csv"
+    ]
+}
