@@ -2,6 +2,9 @@
     // Nome do estudo, sera usado para gerar uma pasta em out/estima_ftm com os resultados
     "tag": "DEFAULT",
 
+    // Janela para contrucao das capacidades instaladas evolutivas (formato ano-mes)
+    "janela": ["2017-01", "2026-12"],
+
     // arquivos de clusters aos quais adicionar as usinas faltantes
     "clusters": [
         "out/clusteriza_usinas/PCA09_EM_kmeans/NE_PCA_09_kmeans_5.csv",

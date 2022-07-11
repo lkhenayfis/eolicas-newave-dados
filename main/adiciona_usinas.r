@@ -1,6 +1,6 @@
-library(ggplot2)
-library(data.table)
-library(ggplot2)
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(data.table))
+suppressPackageStartupMessages(library(ggplot2))
 
 shape <- readRDS("data/shape.rds")
 usinas <- readRDS("data/usinas.rds")
@@ -13,6 +13,10 @@ arq_conf <- arq_conf[grep("jsonc?$", arq_conf)]
 if(length(arq_conf) == 0) arq_conf <- "conf/default/adiciona_usinas_default.jsonc"
 
 CONF <- jsonlite::read_json(arq_conf, TRUE)
+
+CONF$janela <- paste0(CONF$janela, collapse = "/")
+CONF$janela <- dbrenovaveis:::parsedatas(CONF$janela, "", FALSE)
+CONF$janela <- lapply(seq(2), function(i) as.Date(CONF$janela[[i]][i]))
 
 outdir <- file.path("out/adiciona_usinas", CONF$tag)
 dir.create(outdir, recursive = TRUE)
@@ -45,9 +49,18 @@ gg <- ggplot(shape, aes(long, lat)) + geom_polygon(aes(group = group), fill = NA
 ggsave(file.path(outdir, "clusters_finais.png"), gg, width = 10, height = 8)
 
 out <- usinas_total[, .(Cluster, iniop, capinst)]
-setorder(out, Cluster, iniop)
-out[, capinst_acum := cumsum(capinst), by = Cluster]
-out[, capinst := NULL]
+out <- lapply(split(out, out$Cluster), function(dat) {
+    setorder(dat, iniop)
+    datas_ini <- dat$iniop
+    pot_evol  <- cumsum(dat$capinst)
+
+    datas <- seq(CONF$janela[[1]], CONF$janela[[2]], by = "month")
+    datas <- structure(datas[-1], names = format(datas[-length(datas)], "%Y-%m"))
+    pot_evol_meses <- sapply(datas, function(dt) max(pot_evol[datas_ini <= dt]))
+
+    data.table(Cluster = dat$Cluster[1], ano_mes = names(pot_evol_meses), capinst = pot_evol_meses)
+})
+out <- rbindlist(out)
 colnames(out) <- c("Cluster", "Data", "CapInst_acum")
 
 fwrite(out, file.path(outdir, "capinst_acum_cluster.csv"))
