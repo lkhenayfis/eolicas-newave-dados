@@ -65,6 +65,9 @@ reanalise <- rbindlist(reanalise)
 reanalise <- merge(reanalise, dat_usinas[, .(codigo, Cluster)], by = "codigo")
 reanalise <- reanalise[, .(vento_medio = mean(vento_reanalise)), by = .(Cluster, data_hora)]
 
+outarq <- file.path(outdir, "vento_medio.csv")
+fwrite(reanalise, outarq)
+
 vento_obs <- lapply(split(dat_usinas, dat_usinas$Cluster), function(dat) {
     arqs <- paste0("data/mhg/", dat$codigo, ".rds")
     out <- rbindlist(lapply(arqs, readRDS))
