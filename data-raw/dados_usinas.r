@@ -7,5 +7,8 @@ usinas[, 2:5] <- lapply(usinas[, 2:5], as.numeric)
 names(usinas) <- c("codigo", "capinst", "latitude", "longitude", "iniop", "A", "sub", "iniop2", "sub2", "B")
 usinas[, iniop  := as.Date(as.character(iniop),  format = "%Y%m%d")]
 usinas[, iniop2 := as.Date(as.character(iniop2), format = "%Y%m%d")]
+usinas <- usinas[, .(codigo, longitude, latitude, iniop, capinst, sub)]
+colnames(usinas)[4:6] <- c("inicio_operacao", "capacidade_instalada", "subsistema")
 
+fwrite(usinas, "data/usinas.csv")
 saveRDS(usinas, "data/usinas.rds")
