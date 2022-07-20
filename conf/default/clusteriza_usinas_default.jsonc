@@ -1,35 +1,86 @@
 {
-    // Nome do estudo, sera usado para gerar uma pasta em out/estima_ftm com os resultados
+    // CONFIGURACOES GERAIS ------------------------------------------------------------------------
+
+    // Nome do estudo, sera usado para gerar uma pasta em "outdir" chamada "tag" para salvamento dos
+    // resultados
     "tag": "DEFAULT",
-    
-    // Booleano indicando se o diretorio deve ser limpo antes de salvar novos resultados
-    "limpadir": false,
 
-    // Vetor de subsistemas para rodar
-    "Subsistemas": ["NE", "S"],
-
-    // Lista de modelos de compactacao. Cada elemento deve ser uma lista contendo, na primeira 
-    // posicao, o nome do metodo (um dos implementados em clustcens) e os demais os argumentos
-    // da funcao de compactacao. O dado a ser compactado nao precisa ser informado aqui, pois 
-    // sera automaticamente definido dentro do script
-    "mod_compact": {
-        "PCA_07": {"fun": "PCA", "vartot": 0.7},
-        "PCA_08": {"fun": "PCA", "vartot": 0.8},
-        "PCA_09": {"fun": "PCA", "vartot": 0.9}
+    // Informacoes acerca do registro de um log de execucao
+    "log_info": {
+        // Booleano indicando se deve ser registrado um log da execucao
+        "dolog": true,
+        // Diretorio onde salvar o log. Sera criado um diretorio chamado "log" em logdir
+        "logdir": "."
     },
 
-    // Lista de modelos de clusterizacao. Cada elemento deve ser uma lista contendo, na primeira 
-    // posicao, o nome do metodo (um dos implementados em clustcens) e os demais os argumentos
-    // da funcao de clusterizacao. O dado a ser clusterizado nao precisa ser informado aqui, pois 
-    // sera automaticamente definido dentro do script
+    // Diretorio onde salvar resultados da clusterizacao. Se nao existir, sera criado
+    "outdir": "out",
+    
+    // Booleano indicando se o diretorio de saida "outdir"/"tag" deve ser limpo antes de salvar 
+    // novos resultados
+    "limpadir": false,
+
+    // FONTE DE DADOS ------------------------------------------------------------------------------
+
+    // Informacoes da fonte de dados
+    "datasource": {
+        // Tipo de fonte de dados. Se "csv", indica leitura de arquivos locais; se "odbc", indica 
+        // leitura a partir de um banco de dados. Ate o momento apenas "csv" foi implementado
+        "tipo": "csv",
+
+        // Caso "tipo" seja "csv" deve ser informado um diretorio que contenha todos os arquivos
+        // necessarios para clusterizacao:
+        // - "usinas.csv" contendo os dados das usinas
+        // - "hist_reanalise" contendo dados historicos de reanalise
+        // - "pontos_reanalise" contendo indexacao dos pontos (lon, lat) da grade de reanalise
+        // Pode ser um vetor contendo os caminhos ate cada um dos tres arquivos individualmente
+        "diretorio": "./data"
+    },
+
+    // CONFIGURACOES DE EXECUCAO -------------------------------------------------------------------
+
+    // Data de referencia. Serao clusterizadas, inicialmente, todas as usinas existentes ate esta
+    // data. Todas aquelas entrando em operacao depois receberao o tratamento de usinas futuras
+    "data_ref": "2022-01-01",
+
+    // Vetor de subsistemas para rodar
+    "subsistemas": ["NE", "S"],
+
+    // Modelos de compactacao. Deve conter tantos elementos quantos ha em "subsistemas", sendo cada 
+    // um uma lista. Os elementos da lista de cada subsistema devem ser listas descrevendo a forma 
+    // de compactacao: deve conter um elemento chamado "fun" indicando a funcao de compactacao e os 
+    // demais elementos correspondendo aos argumentos da funcao, exceto pelo dado a ser compactado
+    // pois este ja sera automaticamente incorporado durante a clusterizacao.
+    // Caso "mod_compact" seja uma lista de apenas um nivel, cada configuracao de compactacao sera 
+    // aplicada a todos os subsistemas em "subsistemas".
+    // Os metodos de compactacao disponiveis sao aqueles implementados em clustcens -- Veja
+    // help("compact_funs", package = "clustcens")
+    "mod_compact": {
+        "NE": {
+            "PCA_09": {"fun": "PCA", "vartot": 0.9}
+        },
+        "S": {
+            "PCA_09": {"fun": "PCA", "vartot": 0.9}
+        }
+    },
+
+    // Modelos de clusterizacao. Deve conter tantos elementos quantos ha em "subsistemas", sendo 
+    // cada um uma lista. Os elementos da lista de cada subsistema devem ser listas descrevendo a 
+    // forma de clusterizacao: deve conter um elemento chamado "fun" indicando a funcao de 
+    // clusterizacao e os demais elementos correspondendo aos argumentos da funcao, exceto pelo dado
+    // a ser compactado pois este ja sera automaticamente incorporado durante a clusterizacao.
+    // Caso "mod_compact" seja uma lista de apenas um nivel, cada configuracao de clusterizacao sera 
+    // aplicada a todos os subsistemas em "subsistemas".
+    // As compactacoes e clusterizacoes serao pareadas para formar o processo completo. Caso haja 
+    // mais de um do que do outro para algum subsistema, o menor e reciclado ate o tamanho do maior
+    // Os metodos de clusterizacao disponiveis sao aqueles implementados em clustcens -- Veja
+    // help("compact_funs", package = "clustcens")
     "mod_cluster": {
-        "EM_2": {"fun": "EM", "n": 2},
-        "EM_3": {"fun": "EM", "n": 3},
-        "EM_4": {"fun": "EM", "n": 4},
-        "EM_5": {"fun": "EM", "n": 5},
-        "kmeans_2": {"fun": "kmeans", "n": 2, "nstart": 200},
-        "kmeans_3": {"fun": "kmeans", "n": 3, "nstart": 200},
-        "kmeans_4": {"fun": "kmeans", "n": 4, "nstart": 200},
-        "kmeans_5": {"fun": "kmeans", "n": 5, "nstart": 200}
+        "NE": {
+            "kmeans_3": {"fun": "kmeans", "n": 3, "nstart": 200}
+        },
+        "S": {
+            "kmeans_2": {"fun": "kmeans", "n": 2, "nstart": 200}
+        }
     }
 }
