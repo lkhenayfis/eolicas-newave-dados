@@ -21,7 +21,7 @@ parseconf_clustusi <- function(arq_conf) {
     }
     CONF$mod_compact <- lapply(CONF$mod_compact, function(l1) {
         lapply(l1, function(cc) {
-            cc[[1]] <- paste0("clust", cc[[1]])
+            cc[[1]] <- paste0(cc[[1]], "cens")
             cc[[1]] <- str2lang(cc[[1]])
             as.call(cc)
         })
