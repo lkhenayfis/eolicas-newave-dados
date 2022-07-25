@@ -5,18 +5,18 @@
 #' Identifica entre quais vertices de \code{coords} esta \code{usina}
 #' 
 #' \code{usinas} deve corresponder a uma ou mais linhas do dado na tabela \code{usinas} do banco ou 
-#' arquivo "Dados das Usinas.txt", com colunas renomeadas para o mesmo padrao do dado no banco. No
-#' minimo, code{usinas} deve ter duas colinas indicando longitude e latitude, com estes nomes. O 
-#' restante das colunas nao tem uso nessa funcao.
+#' arquivo local de mesma estrutura. No minimo, code{usinas} deve ter duas colunas indicando 
+#' longitude e latitude, com estes nomes. O restante das colunas nao tem uso nessa funcao.
 #' 
 #' \code{coords} deve ter tres colunas nomeadas: \code{longitude} e \code{latitude} contendo as 
-#' coordenadas do vertice e \code{ind} contendo o indice do vertice, um valor inteiro nao repetido.
+#' coordenadas do vertice e \code{id} contendo o indice do vertice, um valor inteiro nao repetido.
 #' 
 #' @param usinas \code{data.table} contendo informacoes das usinas. Ver Detalhes
 #' @param coords \code{data.table} contendo informacoes dos vertices da grade. Ver Detalhes
 #' 
-#' @return vetor de indices dos vertices do quadrilatero circulante, em sentido anti-horario a 
-#'     partir do vertice superior direito. Se alguma usina nao estiver dentro da grade, volta NA
+#' @return Lista contendo, para cada linha de \code{usinas}, o vetor de indices dos vertices do 
+#'     quadrilatero circulante, em sentido anti-horario a partir do vertice superior direito.
+#'     Se alguma usina nao estiver dentro da grade ou entre trechos disjuntos, retorna vetor de NAs
 
 quadrante_usina <- function(usinas, coords) {
 
@@ -25,21 +25,26 @@ quadrante_usina <- function(usinas, coords) {
     lons <- sort(unique(coords$longitude))
     lats <- sort(unique(coords$latitude))
 
+    resol_lon <- diff(lons[1:2])
+    resol_lat <- diff(lats[1:2])
+
     out <- lapply(seq(nrow(usinas)), function(i) {
         tryCatch({
         lonusi <- usinas$longitude[i]
         latusi <- usinas$latitude[i]
 
         lon_p <- head(lons[lons >= lonusi], 1)
-        lon_m <- tail(lons[lons <= lonusi], 1)
+        lon_m <- tail(lons[lons < lonusi], 1)
         lat_p <- head(lats[lats >= latusi], 1)
-        lat_m <- tail(lats[lats <= latusi], 1)
+        lat_m <- tail(lats[lats < latusi], 1)
+
+        if(((lon_p - lon_m) != resol_lon) || ((lat_p - lat_m) != resol_lat)) stop("fora da grade")
 
         verts <- vector("double", 4L)
-        verts[1] <- coords[(longitude == lon_p) & (latitude == lat_p), ind]
-        verts[2] <- coords[(longitude == lon_m) & (latitude == lat_p), ind]
-        verts[3] <- coords[(longitude == lon_m) & (latitude == lat_m), ind]
-        verts[4] <- coords[(longitude == lon_p) & (latitude == lat_m), ind]
+        verts[1] <- coords[(longitude == lon_p) & (latitude == lat_p), id]
+        verts[2] <- coords[(longitude == lon_m) & (latitude == lat_p), id]
+        verts[3] <- coords[(longitude == lon_m) & (latitude == lat_m), id]
+        verts[4] <- coords[(longitude == lon_p) & (latitude == lat_m), id]
 
         return(verts)
         }, error = function(e) rep(NA_real_, 4))
