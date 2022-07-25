@@ -4,3 +4,4 @@ out
 log
 conf/*json
 conf/*jsonc
+data/reanalise_grade.csv
