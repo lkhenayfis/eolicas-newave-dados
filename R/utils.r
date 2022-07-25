@@ -74,7 +74,7 @@ quadrante_usina <- function(usinas, coords) {
 #' @param usinas \code{data.table} contendo informacoes das usinas. Ver Detalhes
 #' @param coords \code{data.table} contendo informacoes dos vertices da grade. Ver Detalhes
 #' @param conn conexao ao banco contendo o dado de reanalise
-#' @param anos string no padrao do \code{xts} indicando quais datas deve ser extraidos 
+#' @param datahoras string no padrao do \code{xts} indicando quais datas deve ser extraidos 
 #' @param agr string indicando algum tipo de agregacao a ser feito no dado, um entre "dia", "mes",
 #'     "ano"; "none" nao faz nenhuma agregacao
 #' 
@@ -82,18 +82,18 @@ quadrante_usina <- function(usinas, coords) {
 #'     \code{codigo}. O dado nao estara ordenado conforme as ordem em \code{usinas} e possivelmente
 #'     nao contera todas as usinas, caso alguma esteja fora da grade de reanalise
 
-interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
+interp_usina <- function(usinas, coords, conn, datahoras = "2017/", agr = "none") {
 
     usinas <- as.data.table(usinas)
 
-    anos <- dbrenovaveis:::parsedatas(anos, "", FALSE)
-    anos <- c(year(anos[[1]][1]), year(anos[[2]][2]))
+    datahoras <- dbrenovaveis:::parsedatas(datahoras, "", FALSE)
+    datahoras <- c(year(datahoras[[1]][1]), year(datahoras[[2]][2]))
 
     agr_fun <- switch(agr,
         "none" = function(d) d,
-        "dia" = function(d) d[, mean(V2), by = .(V1 = as.Date(V1))],
-        "mes" = function(d) d[, mean(V2), by = .(V1 = format(V1, "%Y-%m"))],
-        "ano" = function(d) d[, mean(V2), by = .(V1 = format(V1, "%Y"))]
+        "dia" = function(d) d[, mean(vento), by = .(data_hora = as.Date(data_hora))],
+        "mes" = function(d) d[, mean(vento), by = .(data_hora = format(data_hora, "%Y-%m"))],
+        "ano" = function(d) d[, mean(vento), by = .(data_hora = format(data_hora, "%Y"))]
     )
     date_fun <- switch(agr,
         "none" = function(v) v,
@@ -102,14 +102,7 @@ interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
         "ano" = function(v) as.Date(paste0(v, "-01-01"))
     )
 
-    datas <- dbGetQuery(conn, paste0("SELECT id_ano,id_mes,id_dia,id_hora FROM FT_MERRA2",
-        " WHERE id_lon = ", coords$longitude[1], " AND id_lat = ", coords$latitude[1],
-        " AND id_ano >= ", anos[1], " AND id_ano <= ", anos[2]))
-    datas <- as.data.table(datas)
-    datas[, c("id_mes", "id_dia", "id_hora") := lapply(.SD, formatC, width = 2, flag = "0"),
-        .SDcols = c("id_mes", "id_dia", "id_hora")]
-    datas <- datas[, paste0(paste(id_ano, id_mes, id_dia, sep = "-"), " ", id_hora, ":00:00")]
-    datas <- as.POSIXct(datas, "GMT")
+    datas <- getreanalise(conn, longitudes = coords$lon[1], latitudes = coords$lat[1])$data_hora
 
     quads <- quadrante_usina(usinas, coords)
     quads <- as.data.table(do.call(rbind, quads))
@@ -120,6 +113,7 @@ interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
     setorder(usinas_vert, vert1, na.last = TRUE)
 
     quad11 <- 0
+    env_base <- environment()
 
     interps <- lapply(seq(nrow(usinas_vert)), function(i) {
 
@@ -129,27 +123,21 @@ interp_usina <- function(usinas, coords, conn, anos = "2017/", agr = "none") {
         coords_quad <- coords[verts, ]
 
         if(verts[1] != quad11) {
-            quad11 <- verts[1]
+            assign("quad11", verts[1], envir = env_base)
 
-            deltax <- diff(sort(unique(coords_quad$longitude)))
-            deltay <- diff(sort(unique(coords_quad$latitude)))
-
-            queries <- paste0("SELECT vr_velocidade FROM FT_MERRA2",
-                " WHERE id_lon = ", coords_quad$longitude, " AND id_lat = ", coords_quad$latitude,
-                " AND id_ano >= ", anos[1], " AND id_ano <= ", anos[2]
-                )
-            series <- lapply(seq(queries), function(i) unlist(dbGetQuery(conn, queries[i])))
+            series <- getreanalise(conn, longitudes = coords_quad$lon, latitudes = coords_quad$lat)
+            series[, id := factor(id_vertice, levels = verts, ordered = TRUE)]
+            series <- lapply(split(series, series$id), "[[", "vento")
         }
 
         vec <- interp_bilin(usinas_vert[i], series, coords_quad)
-        out <- data.table(V1 = datas, V2 = vec)
+        out <- data.table(data_hora = datas, vento = vec)
         out <- agr_fun(out)
-        out[, V1 := date_fun(V1)]
-        colnames(out) <- c("data_hora", "vento_reanalise")
+        out[, data_hora := date_fun(data_hora)]
 
-        out[, codigo := rep(usinas_vert[i, codigo], .N)]
+        out[, id_usina := rep(usinas_vert[i, id], .N)]
 
-        out
+        return(out)
     })
     interps <- interps[!sapply(interps, is.null)]
 
