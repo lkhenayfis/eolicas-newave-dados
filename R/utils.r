@@ -106,7 +106,6 @@ interp_usina <- function(usinas, coords, conn, datahoras = "2017/", agr = "none"
 
     quads <- quadrante_usina(usinas, coords)
     quads <- as.data.table(do.call(rbind, quads))
-    quads <- quads[, c(3, 2, 4, 1)] # reorndena para uma estrutura adaptada pra interp bilin
     colnames(quads) <- paste0("vert", seq_len(4))
 
     usinas_vert <- cbind(usinas, quads)
@@ -115,14 +114,16 @@ interp_usina <- function(usinas, coords, conn, datahoras = "2017/", agr = "none"
     quad11 <- 0
     env_base <- environment()
 
-    interps <- lapply(seq(nrow(usinas_vert)), function(i) {
+    interps <- vector("list", nrow(usinas_vert))
+    for(i in seq(nrow(usinas_vert))) {
 
         verts <- usinas_vert[i, c(vert1, vert2, vert3, vert4)]
-        if(is.na(verts[1])) return(NULL)
+        if(is.na(verts[1])) next
 
         coords_quad <- coords[verts, ]
 
         if(verts[1] != quad11) {
+            cat("indice ", i, " -- lendo dado\n")
             assign("quad11", verts[1], envir = env_base)
 
             series <- getreanalise(conn, longitudes = coords_quad$lon, latitudes = coords_quad$lat)
@@ -137,8 +138,8 @@ interp_usina <- function(usinas, coords, conn, datahoras = "2017/", agr = "none"
 
         out[, id_usina := rep(usinas_vert[i, id], .N)]
 
-        return(out)
-    })
+        interps[[i]] <- out
+    }
     interps <- interps[!sapply(interps, is.null)]
 
     interps <- rbindlist(interps)
@@ -156,8 +157,8 @@ interp_bilin <- function(x, vals, verts) {
     deltay1 <- x$latitude - min(verts$latitude)
     deltay2 <- max(verts$latitude) - x$latitude
 
-    pesos <- 1 / (deltax * deltay) * c(deltax2 * deltay2, deltax1 * deltay2,
-        deltax2 * deltay1, deltax1 * deltay1)
+    pesos <- 1 / (deltax * deltay) * c(deltax1 * deltay1, deltax2 * deltay1,
+        deltax2 * deltay2, deltax1 * deltay2)
 
     vec <- rowSums(mapply("*", vals, pesos))
 
