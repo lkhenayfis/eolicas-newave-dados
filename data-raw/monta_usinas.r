@@ -62,9 +62,11 @@ confeol[, estado := NULL]
 confeol[, A := NULL]
 confeol[, modalidade := NULL]
 
+confeol[, subsistema := "NE"]
+confeol[grep("^(SC|PR|RS)", codigo), subsistema := "S"]
 confeol[, id := seq(.N)]
 confeol[, data_inicio_operacao := as.Date(as.character(data_inicio_operacao), format = "%Y%m%d")]
 
-setcolorder(confeol, c("id", names(confeol)[-8]))
+setcolorder(confeol, c("id", names(confeol)[-9]))
 
 fwrite(confeol, "data/usinas.csv")
