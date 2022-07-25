@@ -57,53 +57,53 @@ main <- function(arq_conf) {
     # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
 
     index_loop <- lapply(CONF$subs, function(ss) {
-        expand.grid(compact = names(CONF$mod_compact[[ss]]),
+        expand.grid(subsistema = ss,
+                    compact = names(CONF$mod_compact[[ss]]),
                     cluster = names(CONF$mod_cluster[[ss]]),
                     stringsAsFactors = FALSE)
     })
+    index_loop <- rbindlist(index_loop)
 
     track_s <- ""
     track_c <- ""
 
-    for(subsist in names(index_loop)) {
-        subconf <- index_loop[[sub]]
-        for(i in seq(nrow(subconf))) {
+    for(i in seq(nrow(index_loop))) {
 
-            logprint(unname(unlist(index_loop[i, ])))
+        logprint(unname(unlist(index_loop[i, ])))
 
-            compac  <- subconf$compact[i]
-            clst    <- subconf$cluster[i]
+        subsist <- index_loop$subsistema[i]
+        compac  <- index_loop$compact[i]
+        clst    <- index_loop$cluster[i]
 
-            if(track_s != subsist) {
-                rean_mensal <- getreanalise(conn, usinas = usinas[subsistema == subsist, codigo],
-                    modo = "interp")
-                rean_mensal <- merge(rean_mensal, usinas[, .(id, codigo)], by.x = "id_usina", by.y = "id")
-                rean_mensal[, id_usina := NULL]
-                rean_mensal[, grupo := subsist]
-                colnames(rean_mensal)[1:3] <- c("indice", "valor", "cenario")
-                rean_mensal <- clustcens:::new_cenarios(rean_mensal)
-            }
-            if((track_s != subsist) || (track_c != compac)) {
-                rean_compac <- CONF$mod_compac[[subsist]][[subconf$compact[i]]]
-                rean_compac$cenarios <- quote(rean_mensal)
-                rean_compac <- eval(rean_compac)
-                rean_compac$compact[, valor := scale(valor), by = .(ind)]
-            }
-            track_s <- subsist
-            track_c <- compac
-
-            clusters <- CONF$mod_cluster[[subsist]][[subconf$cluster[i]]]
-            clusters$compact <- quote(rean_compac)
-            clusters <- eval(clusters)
-
-            classe <- getclustclass(clusters)
-
-            out <- data.table(codigo = unique(rean_compac$compact$cenario), cluster = factor(classe))
-            out <- merge(out, usinas, by = "codigo")
-
-            outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", subconf$cluster[i], ".csv"))
-            fwrite(out[, .(codigo, Cluster)], outarq)
+        if(track_s != subsist) {
+            rean_mensal <- getreanalise(conn, usinas = usinas[subsistema == subsist, codigo],
+                modo = "interp")
+            rean_mensal <- merge(rean_mensal, usinas[, .(id, codigo)], by.x = "id_usina", by.y = "id")
+            rean_mensal[, id_usina := NULL]
+            rean_mensal[, grupo := subsist]
+            colnames(rean_mensal)[1:3] <- c("indice", "valor", "cenario")
+            rean_mensal <- clustcens:::new_cenarios(rean_mensal)
         }
+        if((track_s != subsist) || (track_c != compac)) {
+            rean_compac <- CONF$mod_compac[[subsist]][[index_loop$compact[i]]]
+            rean_compac$cenarios <- quote(rean_mensal)
+            rean_compac <- eval(rean_compac)
+            rean_compac$compact[, valor := scale(valor), by = .(ind)]
+        }
+        track_s <- subsist
+        track_c <- compac
+
+        clusters <- CONF$mod_cluster[[subsist]][[index_loop$cluster[i]]]
+        clusters$compact <- quote(rean_compac)
+        clusters <- eval(clusters)
+
+        classe <- getclustclass(clusters)
+
+        out <- data.table(codigo = unique(rean_compac$compact$cenario), cluster = factor(classe))
+        out <- merge(out, usinas, by = "codigo")
+
+        outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$cluster[i], ".csv"))
+        fwrite(out[, .(codigo, Cluster)], outarq)
     }
 
     on.exit(logclose())
