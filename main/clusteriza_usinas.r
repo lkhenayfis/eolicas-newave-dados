@@ -1,4 +1,5 @@
 suppressPackageStartupMessages(library(data.table))
+suppressPackageStartupMessages(library(dbrenovaveis))
 suppressPackageStartupMessages(library(clustcens))
 suppressPackageStartupMessages(library(mclust)) # Nao e necessario chamar diretamente, esta aqui so pro renv ver
 suppressPackageStartupMessages(library(logr))
@@ -42,50 +43,67 @@ main <- function(arq_conf) {
     if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
     if(CONF$limpadir) inv <- file.remove(list.files(outdir, full.names = TRUE))
 
+    if(CONF$datasource$tipo == "csv") {
+        conn <- conectalocal(CONF$datasource$diretorio)
+    } else {
+        stop("Tipo de 'datasource' nao reconhecido")
+    }
+
     # LEITURA DOS DADOS NECESSARIOS ----------------------------------------------------------------
 
-    dat_usinas <- readRDS("data/usinas.rds")
-    usi_comhist <- sub(".rds", "", list.files("data/mhg"))
-    dat_usinas <- dat_usinas[codigo %in% usi_comhist]
+    usinas <- getusinas(conn)
+    usinas <- usinas[data_inicio_operacao <= CONF$data_ref]
 
     # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
 
     index_loop <- lapply(CONF$subs, function(ss) {
-        expand.grid(sub = ss, compact = names(CONF$mod_compact[[ss]]), cluster = names(CONF$mod_cluster[[ss]]))
+        expand.grid(compact = names(CONF$mod_compact[[ss]]),
+                    cluster = names(CONF$mod_cluster[[ss]]),
+                    stringsAsFactors = FALSE)
     })
-    index_loop <- rbindlist(index_loop)
 
-    for(i in seq(nrow(index_loop))) {
+    track_s <- ""
+    track_c <- ""
 
-        logprint(unname(unlist(index_loop[i, ])))
+    for(subsist in names(index_loop)) {
+        subconf <- index_loop[[sub]]
+        for(i in seq(nrow(subconf))) {
 
-        subsist <- index_loop$subsist[i]
-        compac  <- index_loop$compac[i]
-        clst    <- index_loop$clst[i]
+            logprint(unname(unlist(index_loop[i, ])))
 
-        if(track_s != subsist) {
-            rean_mensal <- readRDS(file.path("data", paste0("reanalise_", subsist, ".rds")))
-            rean_mensal[, grupo := subsist]
-            colnames(rean_mensal)[1:3] <- c("indice", "valor", "cenario")
-            rean_mensal <- clustcens:::new_cenarios(rean_mensal)
+            compac  <- subconf$compact[i]
+            clst    <- subconf$cluster[i]
+
+            if(track_s != subsist) {
+                rean_mensal <- getreanalise(conn, usinas = usinas[subsistema == subsist, codigo],
+                    modo = "interp")
+                rean_mensal <- merge(rean_mensal, usinas[, .(id, codigo)], by.x = "id_usina", by.y = "id")
+                rean_mensal[, id_usina := NULL]
+                rean_mensal[, grupo := subsist]
+                colnames(rean_mensal)[1:3] <- c("indice", "valor", "cenario")
+                rean_mensal <- clustcens:::new_cenarios(rean_mensal)
+            }
+            if((track_s != subsist) || (track_c != compac)) {
+                rean_compac <- CONF$mod_compac[[subsist]][[subconf$compact[i]]]
+                rean_compac$cenarios <- quote(rean_mensal)
+                rean_compac <- eval(rean_compac)
+                rean_compac$compact[, valor := scale(valor), by = .(ind)]
+            }
+            track_s <- subsist
+            track_c <- compac
+
+            clusters <- CONF$mod_cluster[[subsist]][[subconf$cluster[i]]]
+            clusters$compact <- quote(rean_compac)
+            clusters <- eval(clusters)
+
+            classe <- getclustclass(clusters)
+
+            out <- data.table(codigo = unique(rean_compac$compact$cenario), cluster = factor(classe))
+            out <- merge(out, usinas, by = "codigo")
+
+            outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", subconf$cluster[i], ".csv"))
+            fwrite(out[, .(codigo, Cluster)], outarq)
         }
-        if((track_s != subsist) || (track_c != compac)) {
-            rean_compac <- CONF$mod_compac[[index_loop$compac[i]]]
-            rean_compac$cenarios <- quote(rean_mensal)
-            rean_compac <- eval(rean_compac)
-            rean_compac$compact[, valor := scale(valor), by = .(ind)]
-        }
-        track_s <- subsist
-        track_c <- compac
-
-        clusters <- CONF$mod_cluster[[index_loop$clst[i]]]
-        clusters$compact <- quote(rean_compac)
-        clusters <- eval(clusters)
-
-        classe <- getclustclass(clusters)
-
-        outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$clst[i], ".csv"))
-        fwrite(usiplot[, .(codigo, Cluster)], outarq)
     }
 
     on.exit(logclose())
