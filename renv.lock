@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.1.2",
+    "Version": "4.1.0",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -113,14 +113,19 @@
     },
     "dbrenovaveis": {
       "Package": "dbrenovaveis",
-      "Version": "0.2.0.9000",
-      "Source": "Local",
-      "RemoteType": "local",
-      "RemoteUrl": "C:\\Users\\lucask\\OneDrive - Operador Nacional do Sistema\n        Eletrico\\Documentos\\EOLICA\\dbrenovaveis",
-      "Hash": "00cf7d948c0b789210d89b2204bf5453",
+      "Version": "0.3.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "dbrenovaveis",
+      "RemoteUsername": "lkhenayfis",
+      "RemoteRef": "v0.3.1",
+      "RemoteSha": "f9d1542ad3eb67ac3532e290b88e5756ba479df9",
+      "Hash": "d397e37d92d5b4c39d77702f3b8db17d",
       "Requirements": [
         "DBI",
-        "RPostgreSQL"
+        "RPostgreSQL",
+        "data.table"
       ]
     },
     "digest": {
