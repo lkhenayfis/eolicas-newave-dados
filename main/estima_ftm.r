@@ -93,4 +93,9 @@ main <- function(arq_conf, activate = FALSE) {
     on.exit(logclose())
 }
 
-main()
+ca <- commandArgs()
+ca <- ca[grep("--file", ca)]
+ca <- sub("--file=.*(/|\\\\)", "", ca)
+thisarq <- this.path::this.path()
+
+if(grepl(ca, thisarq) || interactive()) main(activate = TRUE)
