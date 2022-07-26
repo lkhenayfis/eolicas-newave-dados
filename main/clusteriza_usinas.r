@@ -1,7 +1,6 @@
 suppressPackageStartupMessages(library(data.table))
 suppressPackageStartupMessages(library(dbrenovaveis))
 suppressPackageStartupMessages(library(clustcens))
-suppressPackageStartupMessages(library(mclust)) # Nao e necessario chamar diretamente, esta aqui so pro renv ver
 suppressPackageStartupMessages(library(logr))
 
 main <- function(arq_conf) {
