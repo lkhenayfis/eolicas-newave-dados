@@ -8,9 +8,8 @@
 #' 
 #' @return lista contendo as configuracoes ja processadas
 
-parseconf_clustusi <- function(arq_conf) {
+parseconf_clustusi <- function(CONF) {
 
-    CONF <- jsonlite::read_json(arq_conf, TRUE)
     CONF$subsistemas <- structure(CONF$subsistemas, names = CONF$subsistemas)
 
     # Parse dos modelos de compactacao -----------------------------------
