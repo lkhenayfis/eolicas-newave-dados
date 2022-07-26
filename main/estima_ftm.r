@@ -12,10 +12,11 @@ main <- function(arq_conf, activate = FALSE) {
 
     # as chamadas de bibliotecas precisam estar por dentro de main para que haja certeza do ambiente
     # ter sido corretamente carregado
-    suppressPackageStartupMessages(library(data.table))
-    suppressPackageStartupMessages(library(dbrenovaveis))
-    suppressPackageStartupMessages(library(logr))
-
+    suppressWarnings({
+        suppressPackageStartupMessages(library(data.table))
+        suppressPackageStartupMessages(library(dbrenovaveis))
+        suppressPackageStartupMessages(library(logr))
+    })
     source(file.path(root, "R", "utils.r"))
     source(file.path(root, "R", "parseconfs.r"))
     source(file.path(root, "R", "altlogs.r"))
@@ -52,7 +53,7 @@ main <- function(arq_conf, activate = FALSE) {
     }
 
     outdir <- file.path("out/estima_ftm", CONF$tag)
-    dir.create(outdir, recursive = TRUE)
+    if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
 
     # LEITURA DOS DADOS ----------------------------------------------------------------------------
 
