@@ -1,4 +1,7 @@
+library(dbrenovaveis)
 library(data.table)
+
+# FUNCOES AUX --------------------------------------------------------------------------------------
 
 convertehora <- function(s, diff = 2) {
     s    <- as.numeric(sub("V", "", s)) - diff
@@ -9,45 +12,7 @@ convertehora <- function(s, diff = 2) {
     return(out)
 }
 
-ndias <- structure(c(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31), names = 1:12)
-
-usinas <- readRDS("data/usinas.rds")
-
-# MONTA O DADO A PARTIR DO BACKUP ------------------------------------------------------------------
-
-p_verif <- "C:/Users/lucas/Downloads/Geração Verificada"
-if(!dir.exists(p_verif)) p_verif <- "C:/Users/lucask/Downloads/Geração Verificada"
-arqs <- list.files(p_verif, pattern = "_Ger_Verif_Consis.txt$", full.names = TRUE)
-
-for(arq in arqs) {
-    usi <- sub(".*/", "", sub("_.*", "", arq))
-    dat <- fread(arq)
-    dat <- melt(dat, id.vars = "V1", value.name = "geracao")
-    dat[, V1 := as.Date(as.character(V1), format = "%Y%m%d")]
-    dat[, variable := convertehora(variable)]
-    dat[, data_hora := paste(V1, variable)]
-    dat[, data_hora := as.POSIXct(data_hora, format = "%Y-%m-%d %H:%M", tz = "GMT")]
-    dat[, V1 := NULL]
-    dat[, variable := NULL]
-    dat <- dat[, .(geracao = mean(geracao, na.rm = TRUE), count = mean(!is.na(geracao))),
-        by = .(data_hora = format(data_hora, "%Y-%m"))]
-    dat[, data_hora := as.Date(paste0(data_hora, "-01"))]
-    dat[, usina := usi]
-
-    saveRDS(dat, file.path("data/mhg", paste0(usi, ".rds")))
-}
-
-# COMPLETA COM O MELHOR HISTORICO OPERACIONAL ------------------------------------------------------
-
-usi_backup <- sub(".rds", "", list.files("data/mhg"))
-usi_faltante <- usinas[!(codigo %in% usi_backup) & (A == 1), codigo]
-
-p_verif <- "//rj-vd-weol-11/d$/ModeloPrevEolico/ModEolGeral/VersaoAutomatica/Arquivos de Saída/MHG Usinas/Geração Verificada"
-pat  <- paste0(usi_faltante, collapse = "|")
-pat  <- paste0("(", pat, ").*Ger_Verif_Consis.txt$")
-arqs <- list.files(p_verif, pattern = pat, full.names = TRUE)
-
-for(arq in arqs) {
+processa_arquivo <- function(arq) {
     usi <- sub(".*/", "", sub("_.*", "", arq))
     dat <- fread(arq, na.strings = "999")
     dat <- melt(dat, id.vars = "V1", value.name = "geracao")
@@ -62,5 +27,42 @@ for(arq in arqs) {
     dat[, data_hora := as.Date(paste0(data_hora, "-01"))]
     dat[, usina := usi]
 
-    saveRDS(dat, file.path("data/mhg", paste0(usi, ".rds")))
+    return(dat)
 }
+
+# INIT ---------------------------------------------------------------------------------------------
+
+ndias <- structure(c(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31), names = 1:12)
+
+conn <- conectalocal("data")
+usinas <- getusinas(conn)
+
+p_backup <- "C:/Users/lucask/Downloads/Geração Verificada"
+p_mhg <- file.path("//rj-vd-weol-11/d$/ModeloPrevEolico/ModEolGeral", 
+    "VersaoAutomatica/Arquivos de Saída/MHG Usinas/Geração Verificada")
+
+l_verifpath <- lapply(usinas$codigo, function(usi) {
+    c(
+        list.files(p_backup, paste0(usi, ".*Ger_Verif_Consis.txt$"), full.names = TRUE),
+        list.files(p_mhg, paste0(usi, ".*Ger_Verif_Consis.txt$"), full.names = TRUE)
+    )
+})
+names(l_verifpath) <- usinas$codigo
+
+hists <- lapply(names(l_verifpath), function(usi) {
+    print(usi)
+    ld <- lapply(l_verifpath[[usi]], processa_arquivo)
+    out <- rbindlist(ld)
+    out <- out[!duplicated(out$data_hora, fromLast = TRUE)]
+    out
+})
+
+hists <- rbindlist(hists)
+colnames(hists)[4] <- "codigo"
+
+hists <- merge(hists, usinas[, .(codigo, id)])
+hists[, codigo := NULL]
+setcolorder(hists, c("id", "data_hora", "geracao", "count"))
+colnames(hists)[1] <- "id_usina"
+
+fwrite(hists, "data/verificados.csv")
