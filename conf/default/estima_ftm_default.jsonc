@@ -1,6 +1,43 @@
 {
-    // Nome do estudo, sera usado para gerar uma pasta em out/estima_ftm com os resultados
+    // CONFIGURACOES GERAIS ------------------------------------------------------------------------
+
+    // Nome do estudo, sera usado para gerar uma pasta em "outdir" chamada "tag" para salvamento dos
+    // resultados
     "tag": "DEFAULT",
+
+    // Informacoes acerca do registro de um log de execucao
+    "log_info": {
+        // Booleano indicando se deve ser registrado um log da execucao
+        "dolog": true,
+        // Diretorio onde salvar o log. Sera criado um diretorio chamado "log" em logdir
+        "logdir": "."
+    },
+
+    // Diretorio onde salvar resultados da clusterizacao. Se nao existir, sera criado
+    "outdir": "out",
+    
+    // Booleano indicando se o diretorio de saida "outdir"/"tag" deve ser limpo antes de salvar 
+    // novos resultados
+    "limpadir": false,
+
+    // FONTE DE DADOS ------------------------------------------------------------------------------
+
+    // Informacoes da fonte de dados
+    "datasource": {
+        // Tipo de fonte de dados. Se "csv", indica leitura de arquivos locais; se "odbc", indica 
+        // leitura a partir de um banco de dados. Ate o momento apenas "csv" foi implementado
+        "tipo": "csv",
+
+        // Caso "tipo" seja "csv" deve ser informado um diretorio que contenha todos os arquivos
+        // necessarios para clusterizacao:
+        // - "usinas.csv" contendo os dados das usinas
+        // - "hist_reanalise" contendo dados historicos de reanalise
+        // - "pontos_reanalise" contendo indexacao dos pontos (lon, lat) da grade de reanalise
+        // Pode ser um vetor contendo os caminhos ate cada um dos tres arquivos individualmente
+        "diretorio": "./data"
+    },
+
+    // CONFIGURACOES DE EXECUCAO -------------------------------------------------------------------
 
     // arquivo de associacao entre usinas (codigos) e seus clusters. Pode ser um vetor apontando 
     // para diferentes arquivos; neste caso, usinas repetidas serao associadas ao cluster 
@@ -11,8 +48,5 @@
     ],
 
     // Janela temporal para considerar na estimacao das funcoes no padrao xts
-    "janela": "2017/2021",
-
-    // Funcao de pesagem. Uma das funcoes implementadas em R/funcs_peso.r
-    "funcao_peso": "peso_quad"
+    "janela": "/2022-01-01"
 }

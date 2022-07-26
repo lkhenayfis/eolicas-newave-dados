@@ -1,5 +1,7 @@
 ################################ FUNCOES AUXILIARES PARA OS SCRIPTS ################################
 
+# INTERPOLACAO DE REANALISE ------------------------------------------------------------------------
+
 #' Identifica Quadrante Da Usina
 #' 
 #' Identifica entre quais vertices de \code{coords} esta \code{usina}
@@ -163,4 +165,61 @@ interp_bilin <- function(x, vals, verts) {
     vec <- rowSums(mapply("*", vals, pesos))
 
     return(vec)
+}
+
+# AUXILIARES DA ESTIMACAO DE FTMS ------------------------------------------------------------------
+
+#' Determina Capacidade Instalada Evolutiva
+#' 
+#' Calcula a serie de capacidades instaladas evolutivas mes a mes por cluster dentro de uma janela
+#' 
+#' @param usinas um dado de usinas contendo adiconalmente a coluna \code{Cluster}
+#' @param janela uma lista de tamanho dois indicando data incial e final da serie de potencia 
+#'     evolutiva a ser retornada
+#' 
+#' @return data.table de tres colunas: data_hora, capacidade_instalada, Cluster
+
+determina_pot_evol <- function(usinas, janela) {
+
+    out <- lapply(split(usinas, usinas$cluster), function(dat) {
+        setorder(dat, data_inicio_operacao)
+        datas_ini <- dat$data_inicio_operacao
+        pot_evol  <- cumsum(dat$capacidade_instalada)
+
+        datas <- seq(janela[[1]], janela[[2]], by = "month")
+        datas <- datas[datas >= min(datas_ini)]
+        pot_evol_meses <- sapply(datas, function(dt) max(pot_evol[datas_ini <= dt]))
+
+        data.table(data_hora = datas, capacidade_instalada = pot_evol_meses, cluster = dat$cluster[1])
+    })
+    out <- rbindlist(out)
+
+    return(out)
+}
+
+#' Combina Dados Para Estimacao
+#' 
+#' Merges e preparacao de dados para estimacao das FTMs
+#' 
+#' @param usinas um dado de usinas contendo adiconalmente a coluna \code{Cluster}
+#' @param geracao dado de geracao media mensal por usina, no formato como retornado por 
+#' @param reanalise dado de vento medio mensal por usina
+#' @param pot_evol dado de potencia instalada evolutiva no tempo por cluster
+#' 
+#' @return data.table com informacoes necessarias para estimacao das FTMs
+
+monta_regdata <- function(usinas, geracao, reanalise, pot_evol) {
+    geracao[, data_hora := as.Date(data_hora)]
+    reanalise[, data_hora := as.Date(data_hora)]
+
+    regdata <- merge(geracao, reanalise, by = c("id_usina", "data_hora"))
+    regdata <- merge(regdata, usinas[, .(id, cluster)], by.x = "id_usina", by.y = "id")
+    regdata[is.na(geracao), vento := NA]
+    regdata[, id_usina := NULL]
+    regdata <- regdata[, .(geracao = sum(geracao, na.rm = TRUE), vento = mean(vento, na.rm = TRUE),
+        count = mean(count, na.rm = TRUE)), by = .(cluster, data_hora)]
+    regdata <- merge(regdata, pot_evol, by = c("cluster", "data_hora"))
+    regdata[, fator_capacidade := geracao / capacidade_instalada]
+
+    return(regdata)
 }

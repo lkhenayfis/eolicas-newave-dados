@@ -1,127 +1,96 @@
-suppressPackageStartupMessages(library(data.table))
-suppressPackageStartupMessages(library(ggplot2))
-suppressPackageStartupMessages(library(logr))
 
-# INICIALIZACAO ------------------------------------------------------------------------------------
+main <- function(arq_conf, activate = FALSE) {
 
-timestamp <- format(Sys.time(), format = "%Y%m%d_%H%M%S")
-timestamp <- paste0("estima_ftm_", timestamp)
-log_open(timestamp)
+    if(is.null(this.path::this.dir2())) {
+        root <- getwd()
+    } else {
+        root <- this.path::this.dir2()
+        root <- sub("/main", "", root)
+    }
 
-arq_conf <- commandArgs(trailingOnly = TRUE)
-arq_conf <- arq_conf[grep("jsonc?$", arq_conf)]
-if(length(arq_conf) == 0) arq_conf <- "conf/default/estima_ftm_default.jsonc"
+    if(activate) renv::activate(root)
 
-log_print(paste0("Arquivo de configuracao: ", arq_conf))
+    # as chamadas de bibliotecas precisam estar por dentro de main para que haja certeza do ambiente
+    # ter sido corretamente carregado
+    suppressPackageStartupMessages(library(data.table))
+    suppressPackageStartupMessages(library(dbrenovaveis))
+    suppressPackageStartupMessages(library(logr))
 
-CONF <- jsonlite::read_json(arq_conf, TRUE)
-log_print(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
-cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
+    source(file.path(root, "R", "utils.r"))
+    source(file.path(root, "R", "parseconfs.r"))
+    source(file.path(root, "R", "altlogs.r"))
 
-CONF$janela <- dbrenovaveis:::parsedatas(CONF$janela, "", FALSE)
-CONF$janela <- lapply(seq(2), function(i) as.Date(CONF$janela[[i]][i]))
+    # INICIALIZACAO ---------------------------------------------------------------------------------
 
-dat_usinas <- readRDS("data/usinas.rds")
+    if(missing("arq_conf")) {
+        arq_conf <- commandArgs(trailingOnly = TRUE)
+        arq_conf <- arq_conf[grep("jsonc?$", arq_conf)]
+    }
+    if(length(arq_conf) == 0) arq_conf <- file.path(root, "conf", "default", "estima_ftm_default.jsonc")
+    CONF <- jsonlite::read_json(arq_conf, TRUE)
 
-outdir <- file.path("out/estima_ftm", CONF$tag)
-dir.create(outdir)
+    logopen  <- func_logopen(CONF$log_info$dolog)
+    logprint <- func_logprint(CONF$log_info$dolog)
+    logclose <- func_logclose(CONF$log_info$dolog)
 
-# LEITURA DOS CLUSTERS -----------------------------------------------------------------------------
+    timestamp <- format(Sys.time(), format = "%Y%m%d_%H%M%S")
+    timestamp <- paste0("estima_ftm_", timestamp)
+    logopen(timestamp)
 
-usi_cluster <- lapply(CONF$clusters, fread)
-usi_cluster <- rbindlist(usi_cluster)
-usi_cluster <- usi_cluster[!duplicated(usi_cluster, fromLast = TRUE)]
+    logprint(paste0("Arquivo de configuracao: ", arq_conf))
 
-dat_usinas <- merge(dat_usinas, usi_cluster)
+    logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
+    cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
 
-pot_evol <- lapply(split(dat_usinas, dat_usinas$Cluster), function(dat) {
-    setorder(dat, iniop)
-    datas_ini <- dat$iniop
-    pot_evol  <- cumsum(dat$capinst)
+    CONF$janela <- dbrenovaveis:::parsedatas(CONF$janela, "", FALSE)
+    CONF$janela <- lapply(seq(2), function(i) as.Date(CONF$janela[[i]][i]))
 
-    datas <- seq(CONF$janela[[1]], CONF$janela[[2]], by = "month")
-    pot_evol_meses <- sapply(datas, function(dt) max(pot_evol[datas_ini <= dt]))
+    if(CONF$datasource$tipo == "csv") {
+        conn <- conectalocal(CONF$datasource$diretorio)
+    } else {
+        stop("Tipo de 'datasource' nao reconhecido")
+    }
 
-    data.table(data_hora = datas, capinst = pot_evol_meses)
-})
+    outdir <- file.path("out/estima_ftm", CONF$tag)
+    dir.create(outdir, recursive = TRUE)
 
-pot_evol <- lapply(names(pot_evol), function(n) cbind(pot_evol[[n]], Cluster = n))
-pot_evol <- rbindlist(pot_evol)
+    # LEITURA DOS DADOS ----------------------------------------------------------------------------
 
-gg <- ggplot(pot_evol, aes(data_hora, capinst)) + geom_line() + geom_point() +
-    facet_wrap(~ Cluster, scales = "free_y") +
-    labs(x = "Data", y = "Capacidade instalada") +
-    theme_bw() +
-    theme(text = element_text(size = 14))
-outarq <- file.path(outdir, "pot_evol_cluster.png")
-ggsave(outarq, gg, width = 9, height = 6)
+    logprint("Leitura dos dados de entrada")
 
-# EXECUCAO PRINCIPAL -------------------------------------------------------------------------------
+    clusters <- lapply(CONF$clusters, fread)
+    clusters <- rbindlist(clusters)
+    clusters <- clusters[!duplicated(clusters, fromLast = TRUE)]
+    usinas <- getusinas(conn)
+    usinas <- merge(usinas, clusters)
 
-reanalise <- list.files("data", pattern = "reanalise", full.names = TRUE)
-reanalise <- lapply(reanalise, readRDS)
-reanalise <- rbindlist(reanalise)
+    pot_evol <- determina_pot_evol(usinas, CONF$janela)
 
-reanalise <- merge(reanalise, dat_usinas[, .(codigo, Cluster)], by = "codigo")
-reanalise <- reanalise[, .(vento_medio = mean(vento_reanalise)), by = .(Cluster, data_hora)]
+    # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
 
-outarq <- file.path(outdir, "vento_medio.csv")
-fwrite(reanalise, outarq)
+    logprint("Estimacao das FTMs")
 
-vento_obs <- lapply(split(dat_usinas, dat_usinas$Cluster), function(dat) {
-    arqs <- paste0("data/mhg/", dat$codigo, ".rds")
-    out <- rbindlist(lapply(arqs, readRDS))
-    out <- out[, .(geracao = sum(geracao, na.rm = TRUE), count = mean(count)), by = .(data_hora)]
-    out[, Cluster := rep(dat$Cluster[1], .N)]
-    setorder(out, data_hora)
-    out
-})
-vento_obs <- rbindlist(vento_obs)
+    geracao <- getverificado(conn, campos = "*")
+    reanalise <- getreanalise(conn, modo = "interpolado")
 
-regdata <- Reduce(merge, list(vento_obs, reanalise, pot_evol))
-regdata[, fator_cap := geracao / max(capinst), by = Cluster]
-regdata[, peso := (capinst / max(capinst))^3 * count, by = Cluster]
-setorder(regdata, Cluster, data_hora)
+    regdata <- monta_regdata(usinas, geracao, reanalise, pot_evol)
+    ftms    <- lapply(split(regdata, regdata$cluster), lm, formula = fator_capacidade ~ vento)
 
-mods <- lapply(split(regdata, regdata$Cluster), function(dat) {
-    lm(fator_cap ~ vento_medio, dat, weights = dat$peso)
-})
-outmod <- lapply(mods, function(mod) coef(mod))
-outmod <- lapply(names(outmod), function(nome)
-    data.table(Cluster = nome, b0 = outmod[[nome]][1], b1 = outmod[[nome]][2])
-)
-outmod <- rbindlist(outmod)
+    outmod <- lapply(ftms, function(mod) coef(mod))
+    outmod <- lapply(names(outmod), function(nome) {
+        data.table(Cluster = nome, b0 = outmod[[nome]][1], b1 = outmod[[nome]][2])
+    })
+    outmod <- rbindlist(outmod)
 
-outarq <- file.path(outdir, "ftm.csv")
-fwrite(outmod, outarq)
+    outarq <- file.path(outdir, "vento_medio.csv")
+    fwrite(regdata[, .(cluster, vento)], outarq)
 
-prevs <- lapply(names(mods), function(n) {
-    xx <- data.frame(vento_medio = seq(0, 10, by = .1))
-    pred <- predict(mods[[n]], newdata = xx)
-    data.table(vento_medio = xx[[1]], fator_cap = pred, Cluster = n)
-})
-prevs <- rbindlist(prevs)
+    outarq <- file.path(outdir, "ftm.csv")
+    fwrite(outmod, outarq)
 
-gg1 <- ggplot(regdata, aes(vento_medio, fator_cap, color = peso)) + geom_point() +
-    scale_x_continuous(limits = c(0, 10)) +
-    scale_y_continuous(limits = c(0, 1)) +
-    labs(x = "Vento m\u00e9dio [m/s]", y = "Fator de Capacidade [%]") +
-    scale_color_viridis_c(name = "Peso") +
-    facet_wrap(~Cluster) +
-    theme_bw() +
-    theme(text = element_text(size = 14))
-outarq <- file.path(outdir, "scatter_clust.png")
-ggsave(outarq, gg1, width = 9, height = 6)
+    logprint("======== CONCLUIDO ========")
 
-gg2 <- ggplot() +
-    geom_point(data = regdata, aes(vento_medio, fator_cap, color = peso)) +
-    geom_line(data = prevs, aes(vento_medio, fator_cap)) +
-    scale_x_continuous(limits = c(0, 10)) +
-    scale_y_continuous(limits = c(0, 1)) +
-    labs(x = "Vento m\u00e9dio [m/s]", y = "Fator de Capacidade [%]") +
-    scale_color_viridis_c(name = "Peso") +
-    facet_wrap(~Cluster) +
-    theme_bw() +
-    theme(text = element_text(size = 14))
-outarq <- file.path(outdir, "scatter_clust_ftm.png")
-ggsave(outarq, gg2, width = 9, height = 6)
+    on.exit(logclose())
+}
+
+main()
