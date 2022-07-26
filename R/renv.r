@@ -4,3 +4,4 @@
 # Dependendias opcionais do 'clustcens' ------------------------------------------------------------
 
 library(mclust)
+library(cluster)
