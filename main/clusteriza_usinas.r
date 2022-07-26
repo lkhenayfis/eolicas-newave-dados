@@ -1,9 +1,5 @@
-suppressPackageStartupMessages(library(data.table))
-suppressPackageStartupMessages(library(dbrenovaveis))
-suppressPackageStartupMessages(library(clustcens))
-suppressPackageStartupMessages(library(logr))
 
-main <- function(arq_conf) {
+main <- function(arq_conf, activate = FALSE) {
 
     if(is.null(this.path::this.dir2())) {
         root <- getwd()
@@ -11,6 +7,15 @@ main <- function(arq_conf) {
         root <- this.path::this.dir2()
         root <- sub("/main", "", root)
     }
+
+    if(activate) renv::activate(root)
+
+    # as chamadas de bibliotecas precisam estar por dentro de main para que haja certeza do ambiente
+    # ter sido corretamente carregado
+    suppressPackageStartupMessages(library(data.table))
+    suppressPackageStartupMessages(library(dbrenovaveis))
+    suppressPackageStartupMessages(library(clustcens))
+    suppressPackageStartupMessages(library(logr))
 
     source(file.path(root, "R", "utils.r"))
     source(file.path(root, "R", "parseconfs.r"))
@@ -107,3 +112,10 @@ main <- function(arq_conf) {
 
     on.exit(logclose())
 }
+
+ca <- commandArgs()
+ca <- ca[grep("--file", ca)]
+ca <- sub("--file=.*(/|\\\\)", "", ca)
+thisarq <- this.path::this.path()
+
+if(grepl(ca, thisarq) || interactive()) main(activate = TRUE)
