@@ -12,11 +12,12 @@ main <- function(arq_conf, activate = FALSE) {
 
     # as chamadas de bibliotecas precisam estar por dentro de main para que haja certeza do ambiente
     # ter sido corretamente carregado
-    suppressPackageStartupMessages(library(data.table))
-    suppressPackageStartupMessages(library(dbrenovaveis))
-    suppressPackageStartupMessages(library(clustcens))
-    suppressPackageStartupMessages(library(logr))
-
+    suppressWarnings({
+        suppressPackageStartupMessages(library(data.table))
+        suppressPackageStartupMessages(library(dbrenovaveis))
+        suppressPackageStartupMessages(library(clustcens))
+        suppressPackageStartupMessages(library(logr))
+    })
     source(file.path(root, "R", "utils.r"))
     source(file.path(root, "R", "parseconfs.r"))
     source(file.path(root, "R", "altlogs.r"))
@@ -28,7 +29,7 @@ main <- function(arq_conf, activate = FALSE) {
         arq_conf <- arq_conf[grep("jsonc?$", arq_conf)]
     }
     if(length(arq_conf) == 0) arq_conf <- file.path(root, "conf", "default", "clusteriza_usinas_default.jsonc")
-    CONF <- parseconf_clustusi(arq_conf)
+    CONF <- jsonlite::read_json(arq_conf, TRUE)
 
     logopen  <- func_logopen(CONF$log_info$dolog)
     logprint <- func_logprint(CONF$log_info$dolog)
@@ -42,6 +43,8 @@ main <- function(arq_conf, activate = FALSE) {
 
     logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
     cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
+
+    CONF <- parseconf_clustusi(CONF)
 
     outdir <- file.path(CONF$outdir, "clusteriza_usinas", CONF$tag)
     if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
@@ -107,7 +110,7 @@ main <- function(arq_conf, activate = FALSE) {
         out <- merge(out, usinas, by = "codigo")
 
         outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$cluster[i], ".csv"))
-        fwrite(out[, .(codigo, Cluster)], outarq)
+        fwrite(out[, .(codigo, cluster)], outarq)
     }
 
     on.exit(logclose())
