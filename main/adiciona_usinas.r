@@ -15,6 +15,9 @@ main <- function(arq_conf, activate = FALSE) {
         suppressPackageStartupMessages(library(dbrenovaveis))
         suppressPackageStartupMessages(library(clustcens))
     })
+    source(file.path(root, "R", "utils.r"))
+    source(file.path(root, "R", "parseconfs.r"))
+    source(file.path(root, "R", "altlogs.r"))
 
     # INICIALIZACAO --------------------------------------------------------------------------------
 
@@ -45,7 +48,7 @@ main <- function(arq_conf, activate = FALSE) {
         stop("Tipo de 'datasource' nao reconhecido")
     }
 
-    outdir <- file.path("out/estima_ftm", CONF$tag)
+    outdir <- file.path("out/adiciona_usinas", CONF$tag)
     if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
 
     # LEITURA DOS DADOS ----------------------------------------------------------------------------
@@ -64,8 +67,8 @@ main <- function(arq_conf, activate = FALSE) {
     for(subsist in unique(usinas$subsistema)) {
         cmpt_clst_sub <- cmpt_clst[[subsist]]
 
-        usi_sem_cluster <- usinas[(subsistema == subsist) & (is.na(cluster)) &
-            coordenadas_aproximadas == CONF$coord_aprox_by_cluster]
+        usi_sem_cluster <- usinas[(subsistema == subsist) & (is.na(cluster))]
+        if(!CONF$coord_aprox_by_cluster) usi_sem_cluster <- usi_sem_cluster[coordenadas_aproximadas == FALSE]
 
         rean_mensal <- getreanalise(conn, modo = "interpolado", usinas = usi_sem_cluster$codigo)
         rean_mensal <- merge(rean_mensal, usinas[, .(id, codigo)], by.x = "id_usina", by.y = "id")
