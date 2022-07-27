@@ -223,3 +223,65 @@ monta_regdata <- function(usinas, geracao, reanalise, pot_evol) {
 
     return(regdata)
 }
+
+# ADICAO DE NOVAS USINAS ---------------------------------------------------------------------------
+
+#' Adicao De Usinas Por Pseudo-Clusterizacao
+#' 
+#' Adiciona usinas a um cluster utilizando a compactacao e metrica de clusterizacao originais
+#' 
+#' @param usinas um dado de usinas contendo adiconalmente a coluna \code{cluster}
+#' @param mod_info lista contendo compactacao e clusterizacao originais. Objeto salvo por 
+#'     clusteriza_usinas.r
+#' @param newdat dados a incluir nos clusters, no formato do clustcens
+#' 
+#' @return argumento usinas contendo clusters para as usinas em newdat
+
+add_by_cluster <- function(usinas, mod_info, newdat) {
+
+    if(nrow(usinas[is.na(cluster)])) return(usinas)
+
+    rean_compac <- predict(mod_info[[1]], newdat)
+    clusters    <- addnewobs(mod_info[[2]], rean_compac)
+
+    classe <- tail(getclustclass(clusters), attr(newdat, "ncen"))
+    addusi <- data.table(codigo = unique(rean_compac$compact$cenario), cluster = classe)
+
+    usinas <- merge(usinas, addusi, by = "codigo", all = TRUE, suffixes = c("", ".y"))
+    usinas[is.na(cluster), cluster := cluster.y]
+    usinas[, cluster.y := NULL]
+
+    return(usinas)
+}
+
+#' Adicao De Usinas Por Proximidade Geografica
+#' 
+#' Adiciona usinas a um cluster baseado na distancia entre a usina e centroide do cluster
+#' 
+#' @param usinas um dado de usinas contendo adiconalmente a coluna \code{cluster}
+#' 
+#' @return argumento usinas com valor de cluster para as usinas previamente sem alocacao
+
+add_by_geo <- function(usinas) {
+
+    if(nrow(usinas[is.na(cluster)])) return(usinas)
+
+    l_usinas <- split(usinas, usinas$subsistema)
+    for(usi in l_usinas) {
+        sem_cluster <- usi[is.na(cluster)]
+        centroides  <- usi[!is.na(cluster), lapply(.SD, mean), .SDcols = c("latitude", "longitude"), by = cluster]
+
+        dist <- lapply(seq(nrow(sem_cluster)), function(i) {
+            sqrt((sem_cluster$lat[i] - centroides$lat)^2 + (sem_cluster$lon[i] - centroides$lon)^2)
+        })
+        dist <- do.call(rbind, dist)
+        maisprox <- apply(dist, 1, which.min)
+
+        sem_cluster[, cluster := centroides$cluster[maisprox]]
+        usinas <- merge(usinas, sem_cluster[, .(codigo, cluster)], by = "codigo", all = TRUE, suffixes = c("", ".y"))
+        usinas[is.na(cluster), cluster := cluster.y]
+        usinas[, cluster.y := NULL]
+    }
+
+    return(usinas)
+}

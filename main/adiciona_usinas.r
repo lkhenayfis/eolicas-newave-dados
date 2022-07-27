@@ -1,66 +1,96 @@
-suppressPackageStartupMessages(library(ggplot2))
-suppressPackageStartupMessages(library(data.table))
-suppressPackageStartupMessages(library(ggplot2))
 
-shape <- readRDS("data/shape.rds")
-usinas <- readRDS("data/usinas.rds")
-usinas_total <- readRDS("data/conf_eol.rds")
+main <- function(arq_conf, activate = FALSE) {
 
-# INICIALIZACAO ------------------------------------------------------------------------------------
+    if(is.null(this.path::this.dir2())) {
+        root <- getwd()
+    } else {
+        root <- this.path::this.dir2()
+        root <- sub("/main", "", root)
+    }
 
-arq_conf <- commandArgs(trailingOnly = TRUE)
-arq_conf <- arq_conf[grep("jsonc?$", arq_conf)]
-if(length(arq_conf) == 0) arq_conf <- "conf/default/adiciona_usinas_default.jsonc"
+    if(activate) renv::activate(root)
 
-CONF <- jsonlite::read_json(arq_conf, TRUE)
+    suppressWarnings({
+        suppressPackageStartupMessages(library(data.table))
+        suppressPackageStartupMessages(library(dbrenovaveis))
+        suppressPackageStartupMessages(library(clustcens))
+    })
 
-CONF$janela <- paste0(CONF$janela, collapse = "/")
-CONF$janela <- dbrenovaveis:::parsedatas(CONF$janela, "", FALSE)
-CONF$janela <- lapply(seq(2), function(i) as.Date(CONF$janela[[i]][i]))
+    # INICIALIZACAO --------------------------------------------------------------------------------
 
-outdir <- file.path("out/adiciona_usinas", CONF$tag)
-dir.create(outdir, recursive = TRUE)
+    if(missing("arq_conf")) {
+        arq_conf <- commandArgs(trailingOnly = TRUE)
+        arq_conf <- arq_conf[grep("jsonc?$", arq_conf)]
+    }
+    if(length(arq_conf) == 0) arq_conf <- file.path(root, "conf", "default", "adiciona_usinas_default.jsonc")
 
-# EXECUCAO PRINCIPAL -------------------------------------------------------------------------------
+    CONF <- jsonlite::read_json(arq_conf, TRUE)
 
-usi_cluster <- lapply(CONF$clusters, fread)
-usi_cluster <- rbindlist(usi_cluster)
-usi_cluster <- usi_cluster[!duplicated(usi_cluster, fromLast = TRUE)]
-centroide_cluster <- merge(usinas, usi_cluster)
-centroide_cluster <- centroide_cluster[, lapply(.SD, mean), by = Cluster,
-    .SDcols = c("longitude", "latitude")]
+    logopen  <- func_logopen(CONF$log_info$dolog)
+    logprint <- func_logprint(CONF$log_info$dolog)
+    logclose <- func_logclose(CONF$log_info$dolog)
 
-usi_sem_cluster <- usinas_total[!(codigo %in% usi_cluster$codigo)]
-mais_proximo <- sapply(seq(nrow(centroide_cluster)), function(i) {
-    dists <- mapply("-", centroide_cluster[i, -1], usi_sem_cluster[, .(longitude, latitude)])
-    sqrt(dists[, 1]^2 + dists[, 2]^2)
-})
-mais_proximo <- centroide_cluster[apply(mais_proximo, 1, which.min), Cluster]
-usi_sem_cluster[, Cluster := mais_proximo]
+    timestamp <- format(Sys.time(), format = "%Y%m%d_%H%M%S")
+    timestamp <- paste0("estima_ftm_", timestamp)
+    logopen(timestamp)
 
-usinas_total <- merge(usinas_total, usi_cluster, by = "codigo", all = TRUE)
-usinas_total <- rbind(usinas_total[!is.na(Cluster)], usi_sem_cluster)
+    logprint(paste0("Arquivo de configuracao: ", arq_conf))
 
-gg <- ggplot(shape, aes(long, lat)) + geom_polygon(aes(group = group), fill = NA, color = "grey60") +
-    geom_point(data = usinas_total, aes(longitude, latitude, color = Cluster)) +
-    labs(x = "Longitude", y = "Latitude") +
-    theme_bw() +
-    theme(text = element_text(size = 14))
-ggsave(file.path(outdir, "clusters_finais.png"), gg, width = 10, height = 8)
+    logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
+    cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
 
-out <- usinas_total[, .(Cluster, iniop, capinst)]
-out <- lapply(split(out, out$Cluster), function(dat) {
-    setorder(dat, iniop)
-    datas_ini <- dat$iniop
-    pot_evol  <- cumsum(dat$capinst)
+    if(CONF$datasource$tipo == "csv") {
+        conn <- conectalocal(CONF$datasource$diretorio)
+    } else {
+        stop("Tipo de 'datasource' nao reconhecido")
+    }
 
-    datas <- seq(CONF$janela[[1]], CONF$janela[[2]], by = "month")
-    datas <- structure(datas[-1], names = format(datas[-length(datas)], "%Y-%m"))
-    pot_evol_meses <- sapply(datas, function(dt) max(pot_evol[datas_ini <= dt]))
+    outdir <- file.path("out/estima_ftm", CONF$tag)
+    if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
 
-    data.table(Cluster = dat$Cluster[1], ano_mes = names(pot_evol_meses), capinst = pot_evol_meses)
-})
-out <- rbindlist(out)
-colnames(out) <- c("Cluster", "Data", "CapInst_acum")
+    # LEITURA DOS DADOS ----------------------------------------------------------------------------
 
-fwrite(out, file.path(outdir, "capinst_acum_cluster.csv"))
+    clusters <- lapply(CONF$clusters, fread)
+    clusters <- rbindlist(clusters)
+    clusters <- clusters[!duplicated(clusters, fromLast = TRUE)]
+    usinas <- getusinas(conn)
+    usinas <- merge(usinas, clusters, all = TRUE)
+
+    cmpt_clst <- lapply(CONF$clusters, function(s) sub(".csv", "_cmptclst.rds", s))
+    cmpt_clst <- lapply(cmpt_clst, readRDS)
+
+    # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
+
+    for(subsist in unique(usinas$subsistema)) {
+        cmpt_clst_sub <- cmpt_clst[[subsist]]
+
+        usi_sem_cluster <- usinas[(subsistema == subsist) & (is.na(cluster)) &
+            coordenadas_aproximadas == CONF$coord_aprox_by_cluster]
+
+        rean_mensal <- getreanalise(conn, modo = "interpolado", usinas = usi_sem_cluster$codigo)
+        rean_mensal <- merge(rean_mensal, usinas[, .(id, codigo)], by.x = "id_usina", by.y = "id")
+        rean_mensal[, id_usina := NULL]
+        rean_mensal[, grupo := subsist]
+        colnames(rean_mensal)[1:3] <- c("indice", "valor", "cenario")
+        rean_mensal <- clustcens:::new_cenarios(rean_mensal)
+
+        # Primeira parte da adicao de novas usinas tentando usar os modelos estimados da
+        # clusterizacao original
+        usinas <- add_by_cluster(usinas, cmpt_clst_sub, rean_mensal)
+    }
+
+    # Para as que ainda continuam sem cluster, adiciona por proximidade geografica
+    usinas <- add_by_geo(usinas)
+
+    usinas[, cluster := paste("cluster", subsistema, cluster, sep = "_")]
+    pot_evol_cluster <- determina_pot_evol(usinas, as.list(range(usinas$data_inicio_operacao)))
+
+    fwrite(pot_evol_cluster, file.path(outdir, "capinst_acum_cluster.csv"))
+}
+
+ca <- commandArgs()
+ca <- ca[grep("--file", ca)]
+ca <- sub("--file=.*(/|\\\\)", "", ca)
+thisarq <- this.path::this.path()
+
+if(grepl(ca, thisarq) || interactive()) main(activate = TRUE)

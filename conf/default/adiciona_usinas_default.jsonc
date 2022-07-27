@@ -1,13 +1,55 @@
 {
-    // Nome do estudo, sera usado para gerar uma pasta em out/estima_ftm com os resultados
+    // CONFIGURACOES GERAIS ------------------------------------------------------------------------
+
+    // Nome do estudo, sera usado para gerar uma pasta em "outdir" chamada "tag" para salvamento dos
+    // resultados
     "tag": "DEFAULT",
 
-    // Janela para contrucao das capacidades instaladas evolutivas (formato ano-mes)
-    "janela": ["2017-01", "2026-12"],
+    // Informacoes acerca do registro de um log de execucao
+    "log_info": {
+        // Booleano indicando se deve ser registrado um log da execucao
+        "dolog": true,
+        // Diretorio onde salvar o log. Sera criado um diretorio chamado "log" em logdir
+        "logdir": "."
+    },
 
-    // arquivos de clusters aos quais adicionar as usinas faltantes
-    "clusters": [
-        "out/clusteriza_usinas/PCA09_EM_kmeans/NE_PCA_09_kmeans_5.csv",
-        "out/clusteriza_usinas/PCA09_EM_kmeans/S_PCA_09_kmeans_1.csv"
-    ]
+    // Diretorio onde salvar resultados da clusterizacao. Se nao existir, sera criado
+    "outdir": "out",
+    
+    // Booleano indicando se o diretorio de saida "outdir"/"tag" deve ser limpo antes de salvar 
+    // novos resultados
+    "limpadir": false,
+
+    // FONTE DE DADOS ------------------------------------------------------------------------------
+
+    // Informacoes da fonte de dados
+    "datasource": {
+        // Tipo de fonte de dados. Se "csv", indica leitura de arquivos locais; se "odbc", indica 
+        // leitura a partir de um banco de dados. Ate o momento apenas "csv" foi implementado
+        "tipo": "csv",
+
+        // Caso "tipo" seja "csv" deve ser informado um diretorio que contenha todos os arquivos
+        // necessarios para clusterizacao:
+        // - "usinas.csv" contendo os dados das usinas
+        // - "hist_reanalise" contendo dados historicos de reanalise
+        // - "pontos_reanalise" contendo indexacao dos pontos (lon, lat) da grade de reanalise
+        // Pode ser um vetor contendo os caminhos ate cada um dos tres arquivos individualmente
+        "diretorio": "./data"
+    },
+
+    // CONFIGURACOES DE EXECUCAO -------------------------------------------------------------------
+
+    // arquivo de associacao entre usinas (codigos) e seus clusters. Pode ser um vetor apontando 
+    // para diferentes arquivos; neste caso, usinas repetidas serao associadas ao cluster 
+    // especificado no arquivo mais ao final do vetor.
+    // Todas as usinas no dado de usinas que não constarem na associacao de clusters serao 
+    // adicionadas
+    "clusters": {
+        "NE": "out/clusteriza_usinas/DEFAULT/NE_PCA_09_kmeans_3.csv",
+        "S": "out/clusteriza_usinas/DEFAULT/S_PCA_09_kmeans_2.csv"
+    },
+
+    // Booleano indicando se usinas com coordenadas aproximadas devem ser adicionadas por cluster ou
+    // somente por distancia geografica
+    "coord_aprox_by_cluster": true
 }
