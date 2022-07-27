@@ -1,24 +1,24 @@
 library(data.table)
 
-usinas <- fread("data-raw/Dados das Usinas.txt")
-usinas[] <- lapply(usinas, trimws)
-usinas[, codigo := sub("_.*", "", V1)]
-usinas[, nome := sub(".{6}_", "", V1)]
-usinas[, c(2:6, 8, 10)] <- lapply(usinas[, c(2:6, 8, 10)], as.numeric)
-usinas[, V1 := NULL]
-names(usinas) <- c("capacidade_instalada", "latitude", "longitude", "data_inicio_operacao",
-    "simulada", "subsistema_eletrico", "data_inicio_simulacao", "subsistema_geografico", "B",
-    "codigo", "nome")
-usinas[, id := seq(.N)]
-setcolorder(usinas,
-    c("id", "codigo", "nome", "capacidade_instalada", "latitude", "longitude", "data_inicio_operacao",
-    "data_inicio_simulacao", "simulada", "subsistema_geografico", "subsistema_eletrico", "B")
-)
-
-usinas[, data_inicio_operacao := as.Date(as.character(data_inicio_operacao), format = "%Y%m%d")]
-usinas[, data_inicio_simulacao := as.Date(as.character(data_inicio_simulacao), format = "%Y%m%d")]
-usinas[, B := NULL]
-usinas[, nome := gsub("_", " ", nome)]
+#usinas <- fread("data-raw/Dados das Usinas.txt")
+#usinas[] <- lapply(usinas, trimws)
+#usinas[, codigo := sub("_.*", "", V1)]
+#usinas[, nome := sub(".{6}_", "", V1)]
+#usinas[, c(2:6, 8, 10)] <- lapply(usinas[, c(2:6, 8, 10)], as.numeric)
+#usinas[, V1 := NULL]
+#names(usinas) <- c("capacidade_instalada", "latitude", "longitude", "data_inicio_operacao",
+#    "simulada", "subsistema_eletrico", "data_inicio_simulacao", "subsistema_geografico", "B",
+#    "codigo", "nome")
+#usinas[, id := seq(.N)]
+#setcolorder(usinas,
+#    c("id", "codigo", "nome", "capacidade_instalada", "latitude", "longitude", "data_inicio_operacao",
+#    "data_inicio_simulacao", "simulada", "subsistema_geografico", "subsistema_eletrico", "B")
+#)
+#
+#usinas[, data_inicio_operacao := as.Date(as.character(data_inicio_operacao), format = "%Y%m%d")]
+#usinas[, data_inicio_simulacao := as.Date(as.character(data_inicio_simulacao), format = "%Y%m%d")]
+#usinas[, B := NULL]
+#usinas[, nome := gsub("_", " ", nome)]
 
 # --------------------------------------------------------------------------------------------------
 
@@ -43,6 +43,7 @@ confeol <- fread("data-raw/CONF_EOL.csv", fill = TRUE)
 confeol[, V10 := NULL]
 confeol[] <- lapply(confeol, trimws)
 confeol[, c(4, 7, 8)] <- lapply(confeol[, c(4, 7, 8)], as.numeric)
+confeol <- confeol[!duplicated(ID), ]
 
 confeol[LATITUDE == 0, LATITUDE := NA_real_]
 confeol[LONGITUDE == 0, LONGITUDE := NA_real_]
