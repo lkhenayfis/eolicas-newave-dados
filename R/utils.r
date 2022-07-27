@@ -239,7 +239,7 @@ monta_regdata <- function(usinas, geracao, reanalise, pot_evol) {
 
 add_by_cluster <- function(usinas, mod_info, newdat) {
 
-    if(nrow(usinas[is.na(cluster)])) return(usinas)
+    if(nrow(usinas[is.na(cluster)]) == 0) return(usinas)
 
     rean_compac <- predict(mod_info[[1]], newdat)
     clusters    <- addnewobs(mod_info[[2]], rean_compac)
@@ -264,7 +264,7 @@ add_by_cluster <- function(usinas, mod_info, newdat) {
 
 add_by_geo <- function(usinas) {
 
-    if(nrow(usinas[is.na(cluster)])) return(usinas)
+    if(nrow(usinas[is.na(cluster)]) == 0) return(usinas)
 
     l_usinas <- split(usinas, usinas$subsistema)
     for(usi in l_usinas) {
