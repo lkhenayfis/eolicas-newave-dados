@@ -111,6 +111,10 @@ main <- function(arq_conf, activate = FALSE) {
 
         outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$cluster[i], ".csv"))
         fwrite(out[, .(codigo, cluster)], outarq)
+
+        outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$cluster[i],
+            "_cmptclst.rds"))
+        saveRDS(list(rean_compac, clusters), outarq)
     }
 
     on.exit(logclose())
