@@ -20,7 +20,7 @@
     },
 
     // Diretorio onde salvar resultados da clusterizacao. Se nao existir, sera criado
-    "outdir": "out/TESTE",
+    "outdir": "./out",
     
     // Booleano indicando se o diretorio de saida "outdir"/"tag" deve ser limpo antes de salvar 
     // novos resultados
