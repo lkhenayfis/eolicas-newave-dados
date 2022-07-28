@@ -39,10 +39,17 @@ main <- function(arq_conf, activate = FALSE) {
     timestamp <- file.path(CONF$log_info$logdir, "log", paste0("clusteriza_usinas_", timestamp))
     logopen(timestamp, FALSE)
 
-    logprint(paste0("Arquivo de configuracao: ", arq_conf))
+    if(CONF$log_info$trace > 0) {
+        logprint("======= CLUSTERIZACAO DE USINAS =======")
+        cat("\n")
+    }
 
-    logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
-    cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
+    if(CONF$log_info$trace >= 2) logprint(paste0("Arquivo de configuracao: ", arq_conf))
+
+    if(CONF$log_info$trace == 3) {
+        logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
+        cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
+    }
 
     CONF <- parseconf_clustusi(CONF)
 
@@ -58,10 +65,14 @@ main <- function(arq_conf, activate = FALSE) {
 
     # LEITURA DOS DADOS NECESSARIOS ----------------------------------------------------------------
 
+    if(CONF$log_info$trace > 0)  logprint("LEITURA DOS DADOS")
+
     usinas <- getusinas(conn)
     usinas <- usinas[data_inicio_operacao <= CONF$data_ref]
 
     # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
+
+    if(CONF$log_info$trace > 0)  logprint("CLUSTERIZACAO DAS USINAS")
 
     index_loop <- lapply(CONF$subs, function(ss) {
         expand.grid(subsistema = ss,
@@ -76,11 +87,14 @@ main <- function(arq_conf, activate = FALSE) {
 
     for(i in seq(nrow(index_loop))) {
 
-        logprint(unname(unlist(index_loop[i, ])))
-
         subsist <- index_loop$subsistema[i]
         compac  <- index_loop$compact[i]
         clst    <- index_loop$cluster[i]
+
+        if(CONF$log_info$trace > 0) {
+            logprint(paste0("*    ", "Subsistema: ", subsist, " -- Compactacao: ",
+               compac, " -- Clusterizacao: ", clst))
+        }
 
         if(track_s != subsist) {
             rean_mensal <- getreanalise(conn, usinas = usinas[subsistema == subsist, codigo],
@@ -117,6 +131,10 @@ main <- function(arq_conf, activate = FALSE) {
         saveRDS(list(rean_compac, clusters), outarq)
     }
 
+    if(CONF$log_info$trace > 0) {
+        logprint("CLUSTERIZACAO CONCLUIDA")
+        cat("\n")
+    }
     on.exit(logclose())
 }
 

@@ -9,6 +9,12 @@
     "log_info": {
         // Booleano indicando se deve ser registrado um log da execucao
         "dolog": true,
+        // Nivel de informacao para o log
+        // - 0: nenhuma informacao e impressa
+        // - 1: apenas o minimo necessario de acompanhamento da execucao
+        // - 2: imprime echo do caminho do arquivo de configuracao utilizado
+        // - 3: imprime echo do caminho do arquivo de configuracao utilizado e seu conteudo
+        "trace": 1,
         // Diretorio onde salvar o log. Sera criado um diretorio chamado "log" em logdir
         "logdir": "."
     },

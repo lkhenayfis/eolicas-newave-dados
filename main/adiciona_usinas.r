@@ -37,10 +37,17 @@ main <- function(arq_conf, activate = FALSE) {
     timestamp <- paste0("estima_ftm_", timestamp)
     logopen(timestamp)
 
-    logprint(paste0("Arquivo de configuracao: ", arq_conf))
+    if(CONF$log_info$trace > 0) {
+        logprint("======== ADICAO DE NOVAS USINAS =======")
+        cat("\n")
+    }
 
-    logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
-    cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
+    if(CONF$log_info$trace >= 2) logprint(paste0("Arquivo de configuracao: ", arq_conf))
+
+    if(CONF$log_info$trace == 3) {
+        logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
+        cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
+    }
 
     if(CONF$datasource$tipo == "csv") {
         conn <- conectalocal(CONF$datasource$diretorio)
@@ -53,6 +60,8 @@ main <- function(arq_conf, activate = FALSE) {
 
     # LEITURA DOS DADOS ----------------------------------------------------------------------------
 
+    if(CONF$log_info$trace > 0)  logprint("LEITURA DOS DADOS")
+
     clusters <- lapply(CONF$clusters, fread)
     clusters <- rbindlist(clusters)
     clusters <- clusters[!duplicated(clusters, fromLast = TRUE)]
@@ -64,7 +73,11 @@ main <- function(arq_conf, activate = FALSE) {
 
     # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
 
+    if(CONF$log_info$trace > 0)  logprint("ADICAO DE USINAS")
     for(subsist in unique(usinas$subsistema)) {
+
+        if(CONF$log_info$trace > 0)  logprint(paste0("*    Subsistema: ", subsist))
+
         cmpt_clst_sub <- cmpt_clst[[subsist]]
 
         usi_sem_cluster <- usinas[(subsistema == subsist) & (is.na(cluster))]
@@ -89,6 +102,13 @@ main <- function(arq_conf, activate = FALSE) {
     pot_evol_cluster <- determina_pot_evol(usinas, as.list(range(usinas$data_inicio_operacao)))
 
     fwrite(pot_evol_cluster, file.path(outdir, "capinst_acum_cluster.csv"))
+
+    if(CONF$log_info$trace > 0) {
+        logprint("ADICAO CONCLUIDA")
+        cat("\n")
+    }
+
+    on.exit(logclose())
 }
 
 ca <- commandArgs()

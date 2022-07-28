@@ -38,10 +38,17 @@ main <- function(arq_conf, activate = FALSE) {
     timestamp <- paste0("estima_ftm_", timestamp)
     logopen(timestamp)
 
-    logprint(paste0("Arquivo de configuracao: ", arq_conf))
+    if(CONF$log_info$trace > 0) {
+        logprint("========== ESTIMACAO DE FTMs ==========")
+        cat("\n")
+    }
 
-    logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
-    cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
+    if(CONF$log_info$trace >= 2) logprint(paste0("Arquivo de configuracao: ", arq_conf))
+
+    if(CONF$log_info$trace == 3) {
+        logprint(paste0("\n", yaml::as.yaml(CONF), "\n"), console = FALSE)
+        cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
+    }
 
     CONF$janela <- dbrenovaveis:::parsedatas(CONF$janela, "", FALSE)
     CONF$janela <- lapply(seq(2), function(i) as.Date(CONF$janela[[i]][i]))
@@ -57,7 +64,7 @@ main <- function(arq_conf, activate = FALSE) {
 
     # LEITURA DOS DADOS ----------------------------------------------------------------------------
 
-    logprint("Leitura dos dados de entrada")
+    if(CONF$log_info$trace > 0)  logprint("LEITURA DOS DADOS")
 
     clusters <- lapply(CONF$clusters, fread)
     clusters <- rbindlist(clusters)
@@ -69,7 +76,7 @@ main <- function(arq_conf, activate = FALSE) {
 
     # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
 
-    logprint("Estimacao das FTMs")
+    if(CONF$log_info$trace > 0)  logprint("ESTIMACAO DAS FUNCOES")
 
     geracao <- getverificado(conn, campos = "*")
     reanalise <- getreanalise(conn, modo = "interpolado")
@@ -89,7 +96,10 @@ main <- function(arq_conf, activate = FALSE) {
     outarq <- file.path(outdir, "ftm.csv")
     fwrite(outmod, outarq)
 
-    logprint("======== CONCLUIDO ========")
+    if(CONF$log_info$trace > 0) {
+        logprint("ESTIMACAO CONCLUIDA")
+        cat("\n")
+    }
 
     on.exit(logclose())
 }
