@@ -1,4 +1,5 @@
-data/mhg
+data
+data-raw
 informals
 out
 log
