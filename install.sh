@@ -38,7 +38,6 @@ cp .Rprofile $INSTALLDIR
 
 # installs dependencies
 echo "Instalando dependências..."
-apt install make gcc gfortran libpq-dev liblapack-dev libblas-dev
 CURDIR=$(pwd)
 cd $INSTALLDIR
 Rscript -e "renv::restore()"
