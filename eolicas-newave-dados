@@ -16,7 +16,8 @@ if [ ! -d $INSTALLDIR ]; then
     exit 1
 fi
 
-RUN=$INSTALLDIR/execucao_completa.r
+RUN=$INSTALLDIR/main/execucao_completa.r
+export INSTALLDIR=$INSTALLDIR
 
 echo "Executando"
 echo "------------------"
