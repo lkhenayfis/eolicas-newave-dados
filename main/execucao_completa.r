@@ -1,9 +1,17 @@
 
-main <- function(arq_conf, activate = FALSE) {
+main <- function(arq_conf, activate = TRUE) {
 
+    # A ativacao do ambiente virtual nao pode ser feita por fora, e rodadas a partir de outros
+    # diretorios que nao o root nao necessariamente terao os pacotes renv e this.path disponiveis
+    # Dessa forma, so e possivel ativa-lo caso o programa esteja sendo rodado de dentro da raiz
+    # ou pelo executavel eolica-newave-dados, que conhece o diretorio de instalacao do programa
     root <- Sys.getenv("INSTALLDIR", getwd())
 
-    renv::activate(root)
+    wd0 <- getwd()
+    setwd(root)
+    arq <- list.files("renv", "activate", full.names = TRUE)
+    source(arq)
+    setwd(wd0)
 
     if(missing("arq_conf")) {
         arq_conf <- commandArgs(trailingOnly = TRUE)
@@ -29,7 +37,7 @@ main <- function(arq_conf, activate = FALSE) {
     for(part in parts) {
         local({
             source(part)
-            main(auxconf, activate = activate)
+            main(auxconf, activate = FALSE)
         })
     }
 }
