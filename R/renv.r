@@ -5,3 +5,4 @@
 
 library(mclust)
 library(cluster)
+library(mvtnorm)
