@@ -1,0 +1,99 @@
+{
+    // CONFIGURACOES GERAIS ------------------------------------------------------------------------
+
+    // Nome do estudo, sera usado para gerar uma pasta em "outdir" chamada "tag" para salvamento dos
+    // resultados
+    "tag": "DEFAULT",
+
+    // Informacoes acerca do registro de um log de execucao
+    "log_info": {
+        // Booleano indicando se deve ser registrado um log da execucao
+        "dolog": false,
+        // Nivel de informacao para o log
+        // - 0: nenhuma informacao e impressa
+        // - 1: apenas o minimo necessario de acompanhamento da execucao
+        // - 2: imprime echo do caminho do arquivo de configuracao utilizado
+        // - 3: imprime echo do caminho do arquivo de configuracao utilizado e seu conteudo
+        "trace": 1,
+        // Diretorio onde salvar o log. Sera criado um diretorio chamado "log" em logdir
+        "logdir": "."
+    },
+
+    // Diretorio onde salvar resultados da clusterizacao. Se nao existir, sera criado
+    "outdir": "out/TESTE",
+    
+    // Booleano indicando se o diretorio de saida "outdir"/"tag" deve ser limpo antes de salvar 
+    // novos resultados
+    "limpadir": false,
+
+    // FONTE DE DADOS ------------------------------------------------------------------------------
+
+    // Informacoes da fonte de dados
+    "datasource": {
+        // Tipo de fonte de dados. Se "csv", indica leitura de arquivos locais; se "odbc", indica 
+        // leitura a partir de um banco de dados. Ate o momento apenas "csv" foi implementado
+        "tipo": "csv",
+
+        // Caso "tipo" seja "csv" deve ser informado um diretorio que contenha todos os arquivos
+        // necessarios para clusterizacao:
+        // - "usinas.csv" contendo os dados das usinas
+        // - "hist_reanalise" contendo dados historicos de reanalise
+        // - "pontos_reanalise" contendo indexacao dos pontos (lon, lat) da grade de reanalise
+        // Pode ser um vetor contendo os caminhos ate cada um dos tres arquivos individualmente
+        "diretorio": "./data"
+    },
+
+    // CONFIGURACOES DE EXECUCAO -------------------------------------------------------------------
+
+    // Data de referencia. Serao clusterizadas, inicialmente, todas as usinas existentes ate esta
+    // data. Todas aquelas entrando em operacao depois receberao o tratamento de usinas futuras
+    "data_ref": "2022-01-01",
+
+    // Vetor de subsistemas para rodar
+    "subsistemas": ["NE", "S"],
+
+    // Modelos de compactacao. Deve conter tantos elementos quantos ha em "subsistemas", sendo cada 
+    // um uma lista. Os elementos da lista de cada subsistema devem ser listas descrevendo a forma 
+    // de compactacao: deve conter um elemento chamado "fun" indicando a funcao de compactacao e os 
+    // demais elementos correspondendo aos argumentos da funcao, exceto pelo dado a ser compactado
+    // pois este ja sera automaticamente incorporado durante a clusterizacao.
+    // Caso "mod_compact" seja uma lista de apenas um nivel, cada configuracao de compactacao sera 
+    // aplicada a todos os subsistemas em "subsistemas".
+    // Os metodos de compactacao disponiveis sao aqueles implementados em clustcens -- Veja
+    // help("compact_funs", package = "clustcens")
+    "mod_compact": {
+        "NE": {
+            "PCA_09": {"fun": "PCA", "vartot": 0.9}
+        },
+        "S": {
+            "PCA_09": {"fun": "PCA", "vartot": 0.9}
+        }
+    },
+
+    // Modelos de clusterizacao. Deve conter tantos elementos quantos ha em "subsistemas", sendo 
+    // cada um uma lista. Os elementos da lista de cada subsistema devem ser listas descrevendo a 
+    // forma de clusterizacao: deve conter um elemento chamado "fun" indicando a funcao de 
+    // clusterizacao e os demais elementos correspondendo aos argumentos da funcao, exceto pelo dado
+    // a ser compactado pois este ja sera automaticamente incorporado durante a clusterizacao.
+    // Caso "mod_compact" seja uma lista de apenas um nivel, cada configuracao de clusterizacao sera 
+    // aplicada a todos os subsistemas em "subsistemas".
+    // As compactacoes e clusterizacoes serao pareadas para formar o processo completo. Caso haja 
+    // mais de um do que do outro para algum subsistema, o menor e reciclado ate o tamanho do maior
+    // Os metodos de clusterizacao disponiveis sao aqueles implementados em clustcens -- Veja
+    // help("compact_funs", package = "clustcens")
+    "mod_cluster": {
+        "NE": {
+            "kmeans_3": {"fun": "kmeans", "n": 3, "nstart": 200}
+        },
+        "S": {
+            "kmeans_2": {"fun": "kmeans", "n": 2, "nstart": 200}
+        }
+    },
+
+    // Janela temporal para considerar na estimacao das funcoes no padrao xts
+    "janela": "/2022-01-01",
+
+    // Booleano indicando se usinas com coordenadas aproximadas devem ser adicionadas por cluster ou
+    // somente por distancia geografica
+    "coord_aprox_by_cluster": true
+}
