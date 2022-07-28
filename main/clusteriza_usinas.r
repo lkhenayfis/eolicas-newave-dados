@@ -123,6 +123,7 @@ main <- function(arq_conf, activate = FALSE) {
 ca <- commandArgs()
 ca <- ca[grep("--file", ca)]
 ca <- sub("--file=.*(/|\\\\)", "", ca)
+if(length(ca) == 0) ca <- "FAULT"
 thisarq <- this.path::this.path()
 
-if(grepl(ca, thisarq) || interactive()) main(activate = TRUE)
+if(grepl(ca, thisarq)) main(activate = TRUE)
