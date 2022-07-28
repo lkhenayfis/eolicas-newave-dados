@@ -1,12 +1,7 @@
 
 main <- function(arq_conf, activate = FALSE) {
 
-    if(is.null(this.path::this.dir2())) {
-        root <- getwd()
-    } else {
-        root <- this.path::this.dir2()
-        root <- sub("/main", "", root)
-    }
+    root <- Sys.getenv("INSTALLDIR", getwd())
 
     if(activate) renv::activate(root)
 
