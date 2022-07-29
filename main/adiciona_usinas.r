@@ -1,14 +1,19 @@
 
-main <- function(arq_conf, activate = FALSE) {
+main <- function(arq_conf, activate = TRUE) {
 
-    if(is.null(this.path::this.dir2())) {
-        root <- getwd()
-    } else {
-        root <- this.path::this.dir2()
-        root <- sub("/main", "", root)
+    # A ativacao do ambiente virtual nao pode ser feita por fora, e rodadas a partir de outros
+    # diretorios que nao o root nao necessariamente terao os pacotes renv e this.path disponiveis
+    # Dessa forma, so e possivel ativa-lo caso o programa esteja sendo rodado de dentro da raiz
+    # ou pelo executavel eolica-newave-dados, que conhece o diretorio de instalacao do programa
+    root <- Sys.getenv("INSTALLDIR", getwd())
+
+    if(activate) {
+        wd0 <- getwd()
+        setwd(root)
+        arq <- list.files("renv", "activate", full.names = TRUE)
+        source(arq)
+        setwd(wd0)
     }
-
-    if(activate) renv::activate(root)
 
     suppressWarnings({
         suppressPackageStartupMessages(library(data.table))
@@ -55,7 +60,7 @@ main <- function(arq_conf, activate = FALSE) {
         stop("Tipo de 'datasource' nao reconhecido")
     }
 
-    outdir <- file.path(CONF$outdir, "adiciona_usinas", CONF$tag)
+    outdir <- file.path(CONF$outdir, CONF$tag, "adiciona_usinas")
     if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
 
     # LEITURA DOS DADOS ----------------------------------------------------------------------------

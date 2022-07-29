@@ -1,14 +1,19 @@
 
-main <- function(arq_conf, activate = FALSE) {
+main <- function(arq_conf, activate = TRUE) {
 
-    if(is.null(this.path::this.dir2())) {
-        root <- getwd()
-    } else {
-        root <- this.path::this.dir2()
-        root <- sub("/main", "", root)
+    # A ativacao do ambiente virtual nao pode ser feita por fora, e rodadas a partir de outros
+    # diretorios que nao o root nao necessariamente terao os pacotes renv e this.path disponiveis
+    # Dessa forma, so e possivel ativa-lo caso o programa esteja sendo rodado de dentro da raiz
+    # ou pelo executavel eolica-newave-dados, que conhece o diretorio de instalacao do programa
+    root <- Sys.getenv("INSTALLDIR", getwd())
+
+    if(activate) {
+        wd0 <- getwd()
+        setwd(root)
+        arq <- list.files("renv", "activate", full.names = TRUE)
+        source(arq)
+        setwd(wd0)
     }
-
-    if(activate) renv::activate(root)
 
     # as chamadas de bibliotecas precisam estar por dentro de main para que haja certeza do ambiente
     # ter sido corretamente carregado
@@ -53,7 +58,7 @@ main <- function(arq_conf, activate = FALSE) {
 
     CONF <- parseconf_clustusi(CONF)
 
-    outdir <- file.path(CONF$outdir, "clusteriza_usinas", CONF$tag)
+    outdir <- file.path(CONF$outdir, CONF$tag, "clusteriza_usinas")
     if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
     if(CONF$limpadir) inv <- file.remove(list.files(outdir, full.names = TRUE))
 
@@ -120,7 +125,8 @@ main <- function(arq_conf, activate = FALSE) {
 
         classe <- getclustclass(clusters)
 
-        out <- data.table(codigo = unique(rean_compac$compact$cenario), cluster = factor(classe))
+        out <- data.table(codigo = unique(rean_compac$compact$cenario),
+            cluster = factor(paste0("cluster_", subsist, "_", classe)))
         out <- merge(out, usinas, by = "codigo")
 
         outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$cluster[i], ".csv"))
