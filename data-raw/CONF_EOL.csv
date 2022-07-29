@@ -1,0 +1,1018 @@
+ID;NOME;PEE;P.INST;U.EXIS;DT.ENT/PREV;LATITUDE;LONGITUDE;MODALIDADE
+BAEA02;ASSURUA II;BA;30.000;EX;"20160405";"          -11.1638";"         -42.6707";Tipo II-C           ;
+BAEA03;ASSURUA III;BA;12.500;EX;"20180421";"          -11.1677";"         -42.6849";Tipo II-C           ;
+BAEA04;ASSURUA IV;BA;30.000;EX;"20180104";"          -11.0475";"         -42.6876";Tipo II-C           ;
+BAEA05;ASSURUA V;BA;20.000;EX;"20160407";"          -11.1841";"         -42.7053";Tipo II-C           ;
+BAEA07;ASSURUA VII;BA;18.000;EX;"20160405";"          -11.0711";"         -42.6788";Tipo II-C           ;
+BAEABL;ABIL;BA;23.700;EX;"20220210";"          -14.2778";"         -42.5435";Tipo II-C           ;
+BAEAN2;ANGICAL 2;BA;10.000;EX;"20190917";"          -14.4190";"         -42.6419";Tipo II-C           ;
+BAEANG;ANGICAL;BA;12.950;EX;"20160205";"          -14.3461";"         -42.6137";Tipo II-C           ;
+BAEARA;ARAPAPA;BA;04.000;EX;"20191121";"          -14.4319";"         -42.6919";Tipo II-C           ;
+BAEARZ;ARARINHA AZUL;BA;21.150;EX;"20210427";"          -14.4127";"         -42.6498";Tipo II-C           ;
+BAEB01;VENTOS DA BAHIA I;BA;28.600;EX;"20180907";"          -11.9851";"         -41.5280";Tipo II-C           ;
+BAEB02;SERRA DA BABILONIA II;BA;28.200;EX;"20181212";"          -11.0955";"         -41.3057";Tipo II-C           ;
+BAEB03;VENTOS DA BAHIA III;BA;30.800;EX;"20180912";"          -11.9747";"         -41.5221";Tipo II-C           ;
+BAEB06;SERRA DA BABILONIA VI;BA;25.850;EX;"20181212";"          -11.0490";"         -41.3252";Tipo II-C           ;
+BAEB07;SERRA DA BABILONIA VII;BA;28.200;EX;"20181212";"          -11.0566";"         -41.3155";Tipo II-C           ;
+BAEB08;SERRA DA BABILONIA VIII;BA;28.200;EX;"20181212";"          -11.0837";"         -41.3010";Tipo II-C           ;
+BAEB09;VENTOS DA BAHIA IX;BA;28.600;EX;"20180912";"          -11.9851";"         -41.4924";Tipo II-C           ;
+BAEB0A;SERRA DA BABILONIA A;BA;20.400;EX;"20210518";"          -11.0783";"         -41.2983";Tipo II-C           ;
+BAEB0B;SERRA DA BABILONIA B;BA;30.600;EX;"20210515";"          -11.1266";"         -41.3264";Tipo II-C           ;
+BAEB0C;SERRA DA BABILONIA C;BA;25.500;EX;"20210619";"          -03.3174";"         -39.3695";Tipo II-C           ;
+BAEB0D;SERRA DA BABILONIA D;BA;30.600;EX;"20210706";"          -11.1427";"         -41.3316";Tipo II-C           ;
+BAEB0E;SERRA DA BABILONIA E;BA;25.500;EX;"20210724";"          -11.1427";"         -41.3316";Tipo II-C           ;
+BAEB0F;SERRA DA BABILONIA F;BA;20.400;EX;"20210803";"          -06.5573";"         -35.0147";Tipo II-C           ;
+BAEB10;SERRA DA BABILONIA X;BA;28.200;EX;"20181212";"          -11.0681";"         -41.3188";Tipo II-C           ;
+BAEB11;SERRA DA BABILONIA XI;BA;28.200;EX;"20181212";"          -11.0769";"         -41.3216";Tipo II-C           ;
+BAEB12;SERRA DA BABILONIA XII;BA;28.200;EX;"20181212";"          -11.0989";"         -41.3158";Tipo II-C           ;
+BAEB13;VENTOS DA BAHIA XIII;BA;49.500;EX;"20211215";"          -12.1461";"         -41.4940";Tipo II-C           ;
+BAEB14;VENTOS DA BAHIA XIV;BA;33.000;EX;"20211203";"          -12.0585";"         -41.4394";Tipo II-C           ;
+BAEB18;VENTOS DA BAHIA XVIII;BA;28.600;EX;"20180912";"          -12.0155";"         -41.4954";Tipo II-C           ;
+BAEB23;VENTOS DA BAHIA XXIII;BA;49.500;EX;"20220202";"          -12.0752";"         -41.4953";Tipo II-C           ;
+BAEB27;VENTOS DA BAHIA XXVII;BA;49.500;EX;"20220205";"          -12.0862";"         -41.4690";Tipo II-C           ;
+BAEB9;SERRA DA BABILONIA IX;BA;28.200;EX;"20181212";"          -11.0902";"         -41.3154";Tipo II-C           ;
+BAEBAD;BARAUNAS II;BA;25.850;EX;"20160311";"          -09.8717";"         -41.0631";Tipo II-C           ;
+BAEBAU;BARAUNAS I;BA;32.900;EX;"20151120";"          -09.8868";"         -41.1203";Tipo II-C           ;
+BAEBCO;BANDA DE COURO;BA;32.900;EX;"20160311";"          -09.8478";"         -41.0538";Tipo II-C           ;
+BAEBVT;BOA VISTA DA LAGOINHA;BA;30.000;EX;"20180629";"          -11.7614";"         -41.3893";Tipo II-C           ;
+BAEC08;CAMPO LARGO VIII;BA;33.600;EX;"20210504";"          -10.4600";"         -41.3932";Tipo II-C           ;
+BAEC09;CAMPO LARGO IX;BA;25.200;EX;"20210223";"          -10.4626";"         -41.3940";Tipo II-C           ;
+BAEC10;CAMPO LARGO X;BA;33.600;EX;"20210305";"          -10.5067";"         -41.4868";Tipo II-C           ;
+BAEC11;CAMPO LARGO XI;BA;16.800;EX;"20210902";"          -10.4027";"         -41.4464";Tipo II-C           ;
+BAEC12;CAMPO LARGO XII;BA;54.600;EX;"20210820";"          -10.4054";"         -41.4486";Tipo II-C           ;
+BAEC13;CAMPO LARGO XIII;BA;42.000;EX;"20210902";"          -10.4025";"         -41.4935";Tipo II-C           ;
+BAEC14;CAMPO LARGO XIV;BA;21.000;EX;"20210331";"          -10.4468";"         -41.5008";Tipo II-C           ;
+BAEC17;CAMPO LARGO XVII;BA;29.400;EX;"20210407";"          -10.4630";"         -41.5141";Tipo II-C           ;
+BAEC19;CAMPO LARGO XIX;BA;33.600;EX;"20210521";"          -10.4409";"         -41.5723";Tipo II-C           ;
+BAEC20;CAMPO LARGO XX;BA;37.800;EX;"20210625";"          -10.4805";"         -41.5769";Tipo II-C           ;
+BAEC22;CAMPO LARGO XXII;BA;33.600;EX;"20210625";"          -10.5094";"         -41.6117";Tipo II-C           ;
+BAECA3;CAPOEIRAS III;BA;27.500;EX;"20180412";"          -11.1761";"         -42.7386";Tipo II-C           ;
+BAECAC;ACACIA;BA;16.200;EX;"20220518";"          -13.9156";"         -42.6978";Tipo II-C           ;
+BAECAI;CAITITU;BA;22.200;EX;"20160216";"          -14.4528";"         -42.6410";Tipo II-C           ;
+BAECAR;CARCARA;BA;10.000;EX;"20200214";"          -14.2836";"         -42.5933";Tipo II-C           ;
+BAECAU;ACAUA;BA;06.000;EX;"20191113";"          -14.4128";"         -42.6599";Tipo II-C           ;
+BAECLA;CAMPO LARGO I;BA;29.700;EX;"20180921";"          -10.4654";"         -41.4935";Tipo II-C           ;
+BAECLB;CAMPO LARGO II;BA;29.700;EX;"20181221";"          -10.5110";"         -41.4545";Tipo II-C           ;
+BAECLC;CAMPO LARGO III;BA;29.700;EX;"20180822";"          -10.5029";"         -41.5401";Tipo II-C           ;
+BAECLD;CAMPO LARGO IV;BA;29.700;EX;"20180822";"          -10.4898";"         -41.5115";Tipo II-C           ;
+BAECLE;CAMPO LARGO V;BA;29.700;EX;"20181031";"          -10.4230";"         -41.4285";Tipo II-C           ;
+BAECLF;CAMPO LARGO VI;BA;29.700;EX;"20181102";"          -10.4211";"         -41.3957";Tipo II-C           ;
+BAECLG;CAMPO LARGO VII;BA;29.700;EX;"20180704";"          -10.5229";"         -41.4936";Tipo II-C           ;
+BAECLO;CAMPO LARGO XV;BA;29.700;EX;"20181123";"          -10.5089";"         -41.4528";Tipo II-C           ;
+BAECLP;CAMPO LARGO XVI;BA;29.700;EX;"20180928";"          -10.4408";"         -41.4676";Tipo II-C           ;
+BAECLR;CAMPO LARGO XVIII;BA;29.700;EX;"20181031";"          -10.4448";"         -41.4975";Tipo II-C           ;
+BAECLU;CAMPO LARGO XXI;BA;29.700;EX;"20181006";"          -10.4496";"         -41.4481";Tipo II-C           ;
+BAECNA;CASA NOVA A;BA;27.000;EX;"20201224";"          -09.2602";"         -41.0168";Tipo II-C           ;
+BAECND;CASA NOVA II;BA;32.900;EX;"20171209";"          -09.2706";"         -41.0501";Tipo II-C           ;
+BAECNT;CASA NOVA III;BA;28.200;EX;"20180228";"          -09.3148";"         -41.1175";Tipo II-C           ;
+BAECO2;CORRUPIAO 2;BA;18.800;EX;"20210409";"          -14.4154";"         -42.6411";Tipo II-C           ;
+BAECO3;CORRUPIAO 3;BA;10.000;EX;"20200213";"          -14.2702";"         -42.5755";Tipo II-C           ;
+BAECOQ;COQUEIRINHO;BA;29.600;EX;"20160217";"          -14.4199";"         -42.6287";Tipo II-C           ;
+BAECOR;CORRUPIAO;BA;27.750;EX;"20160205";"          -14.2927";"         -42.5853";Tipo II-C           ;
+BAECP1;CURRAL DE PEDRAS I;BA;20.000;EX;"20180412";"          -11.1339";"         -42.6543";Tipo II-C           ;
+BAECP2;CURRAL DE PEDRAS II;BA;27.500;EX;"20180413";"          -11.2118";"         -42.7012";Tipo II-C           ;
+BAECQ2;COQUEIRINHO 2;BA;16.000;EX;"20190919";"          -14.5031";"         -42.6514";Tipo II-C           ;
+BAECR1;CRISTALANDIA I;BA;30.000;EX;"20170901";"          -13.9312";"         -41.5609";Tipo II-C           ;
+BAECR2;CRISTALANDIA II;BA;30.000;EX;"20170901";"          -13.9701";"         -41.5502";Tipo II-C           ;
+BAECR3;CRISTALANDIA  III;BA;30.000;EX;"20170901";"          -14.0095";"         -41.5333";Tipo II-C           ;
+BAECT2;CAITITU 2;BA;10.000;EX;"20200128";"          -14.3318";"         -42.6128";Tipo II-C           ;
+BAECT3;CAITITU 3;BA;10.000;EX;"20200129";"          -14.3202";"         -42.6103";Tipo II-C           ;
+BAECTA;CAETITE A;BA;23.800;EX;"20150909";"          -14.1416";"         -42.4782";Tipo II-C           ;
+BAECTB;CAETITE B;BA;22.100;EX;"20150909";"          -14.1147";"         -42.4748";Tipo II-C           ;
+BAECTC;CAETITE C;BA;08.500;EX;"20150909";"          -14.1082";"         -42.4746";Tipo II-C           ;
+BAEDF1;DELFINA I;BA;28.000;EX;"20171031";"          -10.0575";"         -40.9787";Tipo II-C           ;
+BAEDF2;DELFINA II;BA;28.000;EX;"20171102";"          -10.0369";"         -40.9586";Tipo II-C           ;
+BAEDF3;DELFINA III;BA;28.000;EX;"20171102";"          -10.0044";"         -40.9342";Tipo II-C           ;
+BAEDF4;DELFINA IV;BA;08.000;EX;"20171031";"          -10.0657";"         -40.9809";Tipo II-C           ;
+BAEDF5;DELFINA V;BA;28.000;EX;"20171031";"          -10.0229";"         -40.9284";Tipo II-C           ;
+BAEDF6;DELFINA VI;BA;30.000;EX;"20171031";"          -10.0286";"         -40.9526";Tipo II-C           ;
+BAEDF7;DELFINA VII;BA;30.000;EX;"20171031";"          -09.9860";"         -40.9111";Tipo II-C           ;
+BAEDF8;ZEUS II;BA;29.400;EX;"20190830";"          -09.9699";"         -40.8816";Tipo II-C           ;
+BAEDI2;DIAMANTE II;BA;17.500;EX;"20180413";"          -11.1056";"         -42.6731";Tipo II-C           ;
+BAEDI3;DIAMANTE III;BA;17.500;EX;"20180413";"          -11.0904";"         -42.6830";Tipo II-C           ;
+BAEFDS;FOLHA DE SERRA;BA;21.000;EX;"20220202";"          -14.5500";"         -42.5806";Tipo II-C           ;
+BAEIM2;INHAMBU 2;BA;16.450;EX;"20210407";"          -14.4514";"         -42.6505";Tipo II-C           ;
+BAEINH;INHAMBU;BA;31.450;EX;"20160205";"          -14.3912";"         -42.5939";Tipo II-C           ;
+BAEJ20;VENTOS DE SAO JANUARIO 20;BA;50.400;EX;"20200514";"          -10.4419";"         -40.4614";Tipo II-C           ;
+BAEJ21;VENTOS DE SAO JANUARIO 21;BA;50.400;EX;"20200603";"          -10.4267";"         -40.5056";Tipo II-C           ;
+BAEJ22;VENTOS DE SAO JANUARIO 22;BA;50.400;EX;"20200731";"          -10.4736";"         -40.5239";Tipo II-C           ;
+BAEJAB;JABUTICABA;BA;09.000;EX;"20220210";"          -14.3257";"         -42.5719";Tipo II-C           ;
+BAEJCE;JACARANDA DO CERRADO;BA;21.000;EX;"20220202";"          -14.5562";"         -42.5820";Tipo II-C           ;
+BAELA1;LARANJEIRAS I;BA;27.500;EX;"20180413";"          -11.1228";"         -42.6841";Tipo II-C           ;
+BAELA2;LARANJEIRAS II;RN;30.000;EX;"20180413";"          -11.1311";"         -42.6968";Tipo II-C           ;
+BAELA3;LARANJEIRAS III;BA;25.000;EX;"20190424";"          -11.0354";"         -42.6321";Tipo II-C           ;
+BAELA5;LARANJEIRAS V;BA;25.000;EX;"20180413";"          -11.1145";"         -42.6711";Tipo II-C           ;
+BAELA9;LARANJEIRAS IX;BA;25.000;EX;"20190424";"          -11.0812";"         -42.6180";Tipo II-C           ;
+BAEMBU;MORRO BRANCO I;BA;32.900;EX;"20151104";"          -09.8497";"         -41.0565";Tipo II-C           ;
+BAEMUS;MUSSAMBE;BA;32.900;EX;"20151014";"          -09.8628";"         -41.0834";Tipo II-C           ;
+BAENGI;ANGICO;BA;08.100;EX;"20220524";"          -13.8948";"         -42.7027";Tipo II-C           ;
+BAEPGO;ESPIGAO;BA;10.080;EX;"20160101";"          -14.4770";"         -42.5853";Tipo II-C           ;
+BAEPPG;PAPAGAIO;BA;10.000;EX;"20191004";"          -14.4815";"         -42.6409";Tipo II-C           ;
+BAEPSA;PAU SANTO;BA;18.900;EX;"20220322";"          -14.1000";"         -42.0336";Tipo II-C           ;
+BAES08;VENTOS DE SANTA ESPERANCA 08;BA;25.200;EX;"20220202";"          -11.5870";"         -41.3751";Tipo II-C           ;
+BAES13;VENTOS DE SANTA ESPERANCA 13;BA;33.600;EX;"20220127";"          -11.5834";"         -41.3568";Tipo II-C           ;
+BAES15;VENTOS DE SANTA ESPERANCA 15;BA;46.200;EX;"20220113";"          -11.5583";"         -41.3017";Tipo II-C           ;
+BAES16;VENTOS DE SANTA ESPERANCA 16;BA;42.000;EX;"20220114";"          -11.5126";"         -41.2787";Tipo II-C           ;
+BAES17;VENTOS DE SANTA ESPERANCA 17;BA;42.000;EX;"20211113";"          -11.5080";"         -41.2946";Tipo II-C           ;
+BAES21;VENTOS DE SANTA ESPERANCA 21;BA;46.200;EX;"20211113";"          -11.5501";"         -41.2845";Tipo II-C           ;
+BAES22;VENTOS DE SANTA ESPERANCA 22;BA;46.200;EX;"20211230";"          -11.5293";"         -41.2728";Tipo II-C           ;
+BAES25;VENTOS DE SANTA ESPERANCA 25;BA;25.200;EX;"20211231";"          -11.5941";"         -41.3396";Tipo II-C           ;
+BAES26;VENTOS DE SANTA ESPERANCA 26;BA;46.200;EX;"20211113";"          -11.5316";"         -41.3209";Tipo II-C           ;
+BAESAC;VENTOS DE SANTA APARECIDA;BA;27.300;EX;"20181124";"          -10.9130";"         -41.2214";Tipo II-C           ;
+BAESAU;VENTOS DE SANTA AURORA;BA;27.300;EX;"20181124";"          -10.9761";"         -41.2199";Tipo II-C           ;
+BAESBE;VENTOS DA SANTA BEATRIZ;BA;27.300;EX;"20181124";"          -10.9397";"         -41.2289";Tipo II-C           ;
+BAESEF;SERRA DO FOGO;BA;31.185;EX;"20201205";"          -09.8051";"         -41.0227";Tipo II-C           ;
+BAESEM;VENTOS DE SANTA EMILIA;BA;27.300;EX;"20181114";"          -11.0064";"         -41.2271";Tipo II-C           ;
+BAESEV;SERRA DO VENTO;BA;31.185;EX;"20201119";"          -09.8160";"         -41.0389";Tipo II-C           ;
+BAESGA;VENTOS DO SAO GABRIEL;BA;27.300;EX;"20181124";"          -10.9582";"         -41.2334";Tipo II-C           ;
+BAESMR;VENTOS DO SAO MARIO;BA;30.000;EX;"20180629";"          -11.5874";"         -41.2285";Tipo II-C           ;
+BAESPL;VENTOS DO SAO PAULO;BA;28.000;EX;"20180629";"          -11.5787";"         -41.3034";Tipo II-C           ;
+BAESSA;SAO SALVADOR;BA;18.900;EX;"20220518";"          -13.8379";"         -42.6486";Tipo II-C           ;
+BAESTA;VENTOS DO SANTO ABRAAO;BA;28.000;EX;"20180629";"          -11.6249";"         -41.3521";Tipo II-C           ;
+BAESTD;VENTOS DA SANTA DULCE;BA;28.000;EX;"20180629";"          -11.5985";"         -41.3394";Tipo II-C           ;
+BAESTE;VENTOS DA SANTA ESPERANCA;BA;28.000;EX;"20180629";"          -11.6075";"         -41.3157";Tipo II-C           ;
+BAETAB;TABUA;BA;15.000;EX;"20220210";"          -14.3159";"         -42.5721";Tipo II-C           ;
+BAETAM;TAMANDUA MIRIM;BA;29.600;EX;"20160216";"          -14.3776";"         -42.6094";Tipo II-C           ;
+BAETBQ;TABOQUINHA;BA;18.900;EX;"20220608";"          -13.9077";"         -42.7050";Tipo II-C           ;
+BAETE2;TEIU 2;BA;08.000;EX;"20191120";"          -14.4452";"         -42.6917";Tipo II-C           ;
+BAETE3;TEIU 3;BA;23.500;EX;"20211204";"          -14.4088";"         -42.6486";Tipo II-C           ;
+BAETEI;TEIU;BA;16.650;EX;"20160205";"          -14.3381";"         -42.5911";Tipo II-C           ;
+BAETM2;TAMANDUA MIRIM 2;BA;16.000;EX;"20191114";"          -14.4688";"         -42.6712";Tipo II-C           ;
+BAEUMC;UMBURANA DE CHEIRO;BA;31.185;EX;"20201231";"          -09.8355";"         -41.0427";Tipo II-C           ;
+BAEUR8;UMBURANAS 8;BA;25.000;EX;"20190206";"          -10.6045";"         -41.5000";Tipo II-C           ;
+BAEURA;UMBURANAS 1;BA;25.000;EX;"20190424";"          -10.6813";"         -41.5299";Tipo II-C           ;
+BAEURB;UMBURANAS 2;BA;25.000;EX;"20190405";"          -10.6638";"         -41.5070";Tipo II-C           ;
+BAEURC;UMBURANAS 3;BA;20.000;EX;"20190409";"          -10.6618";"         -41.5209";Tipo II-C           ;
+BAEURE;UMBURANAS 5;BA;17.500;EX;"20190330";"          -10.6271";"         -41.5011";Tipo II-C           ;
+BAEURF;UMBURANAS 6;BA;20.000;EX;"20190321";"          -10.6624";"         -41.5358";Tipo II-C           ;
+BAEURI;UMBURANAS 9;BA;17.500;EX;"20190313";"          -10.7191";"         -41.6030";Tipo II-C           ;
+BAEURJ;UMBURANAS 10;BA;20.000;EX;"20190319";"          -10.7098";"         -41.5869";Tipo II-C           ;
+BAEURK;UMBURANAS 11;BA;15.000;EX;"20190221";"          -10.7061";"         -41.5705";Tipo II-C           ;
+BAEURM;UMBURANAS 13;BA;20.000;EX;"20190308";"          -10.6663";"         -41.5700";Tipo II-C           ;
+BAEURO;UMBURANAS 15;BA;20.000;EX;"20190405";"          -10.6178";"         -41.5308";Tipo II-C           ;
+BAEURP;UMBURANAS 16;BA;25.000;EX;"20190206";"          -10.5938";"         -41.5138";Tipo II-C           ;
+BAEURQ;UMBURANAS 17;BA;22.500;EX;"20190206";"          -10.7118";"         -41.6098";Tipo II-C           ;
+BAEURR;UMBURANAS 18;BA;07.500;EX;"20190315";"          -10.5969";"         -41.5336";Tipo II-C           ;
+BAEURS;UMBURANAS 19;BA;25.000;EX;"20190222";"          -10.6846";"         -41.6105";Tipo II-C           ;
+BAEURU;UMBURANAS 21;BA;22.500;EX;"20190104";"          -10.6617";"         -41.6040";Tipo II-C           ;
+BAEURW;UMBURANAS 23;BA;15.000;EX;"20190313";"          -10.6373";"         -41.6102";Tipo II-C           ;
+BAEURY;UMBURANAS 25;BA;17.500;EX;"20190301";"          -10.6523";"         -41.5799";Tipo II-C           ;
+BAEVAQ;VAQUETA;BA;23.400;EX;"20220210";"          -14.2596";"         -42.5543";Tipo II-C           ;
+BAEVC1;VENTOS DE CAMPO FORMOSO I;BA;30.000;EX;"20160123";"          -10.6286";"         -40.6858";Tipo II-C           ;
+BAEVC2;VENTOS DE CAMPO FORMOSO II;BA;30.000;EX;"20151208";"          -10.5198";"         -40.6117";Tipo II-C           ;
+BAPDR3;PEDRA DO REINO III;BA;18.000;EX;"20130607";"          -09.4986";"         -40.8790";Tipo III            ;
+BAPEDD;PEDRA DO REINO IV;BA;20.000;EX;"20181227";"          -09.5029";"         -40.9142";Tipo III            ;
+BAPEDO;PEDRA DO REINO;BA;30.000;EX;"20130204";"          -09.5175";"         -40.8864";Tipo III            ;
+BASJ01;VENTOS DE SAO JANUARIO;BA;33.600;EX;"20201002";"          -10.3227";"         -40.4367";Tipo II-C           ;
+BASJ03;VENTOS DE SAO JANUARIO 03;BA;33.600;EX;"20201106";"          -10.3105";"         -40.4404";Tipo II-C           ;
+BASJ04;VENTOS DE SAO JANUARIO 4;BA;29.400;EX;"20200915";"          -10.3869";"         -40.4589";Tipo II-C           ;
+BASJ05;VENTOS DE SAO JANUARIO 05;BA;42.000;EX;"20201203";"          -10.2898";"         -40.4341";Tipo II-C           ;
+BASJ06;VENTOS DE SAO JANUARIO 06;BA;37.800;EX;"20201130";"          -10.4109";"         -40.4664";Tipo II-C           ;
+BASJ10;VENTOS DE SAO JANUARIO 10;BA;42.000;EX;"20210130";"          -05.1529";"         -36.0422";Tipo II-C           ;
+BASJ11;VENTOS DE SAO JANUARIO 11;BA;42.000;EX;"20210106";"          -10.4409";"         -41.5723";Tipo II-C           ;
+BASJ13;VENTOS DE SAO JANUARIO 13;BA;42.000;EX;"20200904";"          -10.2597";"         -40.4640";Tipo II-C           ;
+BASJ14;VENTOS DE SAO JANUARIO 14;BA;42.000;EX;"20200904";"          -10.3678";"         -40.4422";Tipo II-C           ;
+BAUEAR;DOS ARACAS;BA;31.860;EX;"20141011";"          -14.1296";"         -42.5597";Tipo II-C           ;
+BAUEAT;AMETISTA;BA;28.560;EX;"20150304";"          -14.1324";"         -42.5924";Tipo II-C           ;
+BAUEAV;ALVORADA;BA;08.000;EX;"20140704";"          -14.1852";"         -42.5911";Tipo II-C           ;
+BAUEBR;BORGO;BA;20.160;EX;"20160101";"          -14.5084";"         -42.5867";Tipo II-C           ;
+BAUECB;CANDIBA;BA;09.600;EX;"20140704";"          -14.1857";"         -42.6466";Tipo II-C           ;
+BAUECE;CAETITE;BA;30.240;EX;"20160101";"          -14.4689";"         -42.5836";Tipo II-C           ;
+BAUECR;CRISTAL;BA;29.900;EX;"20171110";"          -11.7965";"         -41.3934";Tipo II-C           ;
+BAUEDA;DAMASCENA;BA;30.000;EX;"20160430";"          -11.8567";"         -41.4742";Tipo II-C           ;
+BAUEDP;DA PRATA;BA;21.840;EX;"20141011";"          -13.9499";"         -42.6382";Tipo II-C           ;
+BAUEDR;DOIS RIACHOS;BA;30.000;EX;"20151114";"          -11.8225";"         -41.4588";Tipo II-C           ;
+BAUEDU;DOURADOS;BA;28.560;EX;"20150304";"          -13.8633";"         -42.7281";Tipo II-C           ;
+BAUEEP;ESPERANCA;BA;28.000;EX;"20171221";"          -11.8616";"         -41.4161";Tipo II-C           ;
+BAUEGB;GUANAMBI;BA;20.800;EX;"20140704";"          -14.2017";"         -42.6183";Tipo II-C           ;
+BAUEGP;GUIRAPA;BA;28.800;EX;"20140704";"          -14.2189";"         -42.6414";Tipo II-C           ;
+BAUEIH;ILHEUS;BA;11.200;EX;"20140704";"          -13.8823";"         -42.6631";Tipo II-C           ;
+BAUEIP;IGAPORA;BA;30.400;EX;"20140704";"          -13.8606";"         -42.6574";Tipo II-C           ;
+BAUEJO;JOANA;BA;28.200;EX;"20140926";"          -13.9185";"         -42.6205";Tipo II-C           ;
+BAUELA;LICINIO DE ALMEIDA;BA;24.000;EX;"20140704";"          -14.1769";"         -42.6541";Tipo II-C           ;
+BAUEMA;MARON;BA;30.240;EX;"20150304";"          -14.0857";"         -42.6203";Tipo II-C           ;
+BAUEMC;MACAUBAS;BA;35.070;EX;"20120706";"          -12.3512";"         -42.3385";Tipo II-C           ;
+BAUEMI;EMILIANA;BA;28.200;EX;"20141009";"          -13.9100";"         -42.6241";Tipo II-C           ;
+BAUEMN;MANICOBA;BA;30.000;EX;"20171206";"          -11.8934";"         -41.4583";Tipo II-C           ;
+BAUEMR;MORRAO;BA;30.240;EX;"20141011";"          -14.0885";"         -42.6827";Tipo II-C           ;
+BAUENC;NOSSA SENHORA DA CONCEICAO;BA;28.800;EX;"20140704";"          -13.8957";"         -42.6769";Tipo II-C           ;
+BAUENH;NOVO HORIZONTE;BA;30.060;EX;"20120706";"          -12.3124";"         -42.3511";Tipo II-C           ;
+BAUEPB;PEDRA BRANCA;BA;30.000;EX;"20130302";"          -09.8746";"         -41.0957";Tipo II-C           ;
+BAUEPD;PINDAI;BA;24.000;EX;"20140704";"          -14.2021";"         -42.6589";Tipo II-C           ;
+BAUEPI;PILOES;BA;30.240;EX;"20150304";"          -14.0292";"         -42.6161";Tipo II-C           ;
+BAUEPL;SAO PEDRO DO LAGO;BA;30.000;EX;"20130302";"          -09.8863";"         -41.1033";Tipo II-C           ;
+BAUEPO;PELOURINHO;BA;21.840;EX;"20160101";"          -14.5292";"         -42.5867";Tipo II-C           ;
+BAUEPR;PRIMAVERA;BA;29.900;EX;"20171110";"          -11.7334";"         -41.3730";Tipo II-C           ;
+BAUEPS;PORTO SEGURO;BA;06.400;EX;"20140704";"          -13.8629";"         -42.6727";Tipo II-C           ;
+BAUEPT;PLANALTINA;BA;27.200;EX;"20140704";"          -13.9879";"         -42.6389";Tipo II-C           ;
+BAUEPV;PAJEU DO VENTO;BA;25.600;EX;"20140704";"          -14.0148";"         -42.6339";Tipo II-C           ;
+BAUERV;RIO VERDE;BA;30.400;EX;"20140704";"          -14.1640";"         -42.6006";Tipo II-C           ;
+BAUESE;SERAIMA;BA;30.240;EX;"20141011";"          -14.1473";"         -42.7119";Tipo II-C           ;
+BAUESG;SETE GAMELEIRAS;BA;30.000;EX;"20130326";"          -09.8637";"         -41.1041";Tipo II-C           ;
+BAUESJ;SAO JUDAS;BA;29.900;EX;"20171201";"          -11.6643";"         -41.3620";Tipo II-C           ;
+BAUESP;SERRA DO ESPINHACO;BA;18.480;EX;"20160101";"          -14.4957";"         -42.5829";Tipo II-C           ;
+BAUESR;SEABRA;BA;30.060;EX;"20120706";"          -12.2742";"         -42.3662";Tipo II-C           ;
+BAUESS;SERRA DO SALTO;BA;19.200;EX;"20140704";"          -14.1555";"         -42.6382";Tipo II-C           ;
+BAUET1;CAETITE 1;BA;30.000;EX;"20141003";"          -14.1632";"         -42.4845";Tipo II-C           ;
+BAUET2;CAETITE 2;BA;30.000;EX;"20141008";"          -14.1850";"         -42.5030";Tipo II-C           ;
+BAUET3;CAETITE 3;BA;30.000;EX;"20141008";"          -14.2194";"         -42.5070";Tipo II-C           ;
+BAUETQ;TANQUE;BA;30.000;EX;"20141011";"          -14.1025";"         -42.6107";Tipo II-C           ;
+BAUEVA;VENTOS DA ANDORINHA;BA;30.000;EX;"20151114";"          -10.5833";"         -40.6375";Tipo II-C           ;
+BAUEVG;VENTOS DE GUARAS I;BA;30.000;EX;"20160426";"          -10.6061";"         -40.6545";Tipo II-C           ;
+BAUEVM;VENTOS DE MORRINHOS;BA;30.000;EX;"20151114";"          -10.5695";"         -40.6292";Tipo II-C           ;
+BAUEVN;VENTOS DO NORDESTE;BA;23.520;EX;"20141011";"          -14.1197";"         -42.6142";Tipo II-C           ;
+BAUEVS;VENTOS DO SERTAO;BA;30.000;EX;"20160101";"          -10.5583";"         -40.5692";Tipo II-C           ;
+CEBBR;EOL BEBERIBE;CE;25.600;EX;"20080911";"          -04.1936";"         -38.0766";Tipo III            ;
+CEDUNA;DUNAS DE PARACURU;CE;42.000;EX;"20121222";"          -03.4367";"         -38.9854";Tipo III            ;
+CEEBC2;BONS VENTOS CACIMBAS 2;CE;23.100;EX;"20180616";"          -03.8884";"         -41.0401";Tipo II-C           ;
+CEEBC3;BONS VENTOS CACIMBAS 3;CE;14.700;EX;"20180510";"          -03.8672";"         -41.0202";Tipo II-C           ;
+CEEBC4;BONS VENTOS CACIMBAS 4;CE;10.500;EX;"20180518";"          -03.9321";"         -41.0267";Tipo II-C           ;
+CEEBC5;BONS VENTOS CACIMBAS 5;CE;21.000;EX;"20180518";"          -03.9239";"         -41.0282";Tipo II-C           ;
+CEEBC7;BONS VENTOS CACIMBAS 7;CE;16.800;EX;"20180616";"          -03.8662";"         -41.0382";Tipo II-C           ;
+CEECAA;CACIMBAS 1;CE;18.900;EX;"20161220";"          -03.2533";"         -39.2811";Tipo II-C           ;
+CEECH1;PEDRA CHEIROSA;CE;25.200;EX;"20170627";"          -02.9976";"         -39.7337";Tipo II-C           ;
+CEECH2;PEDRA CHEIROSA II;CE;23.100;EX;"20170627";"          -02.9995";"         -39.7316";Tipo II-C           ;
+CEECVA;CATAVENTOS ACARAU I;CE;28.000;EX;"20180529";"          -02.8430";"         -40.0631";Tipo II-B           ;
+CEEEST;ESTRELA;CE;29.700;EX;"20170318";"          -03.2478";"         -39.2942";Tipo II-C           ;
+CEEGOB;GOIABEIRA;CE;23.100;EX;"20181222";"          -04.5921";"         -37.7139";Tipo II-C           ;
+CEEGRR;GARROTE;CE;23.100;EX;"20171201";"          -04.7350";"         -37.3247";Tipo II-C           ;
+CEEIT1;ITAREMA I;CE;27.000;EX;"20160401";"          -02.9225";"         -39.8407";Tipo II-C           ;
+CEEIT2;ITAREMA II;CE;27.000;EX;"20160223";"          -02.9211";"         -39.8618";Tipo II-C           ;
+CEEIT3;ITAREMA III;CE;15.000;EX;"20160406";"          -02.9476";"         -39.8369";Tipo II-C           ;
+CEEIT4;ITAREMA IV;CE;21.000;EX;"20160727";"          -02.9291";"         -39.8758";Tipo II-C           ;
+CEEIT5;ITAREMA V;CE;21.000;EX;"20160101";"          -02.9665";"         -39.8795";Tipo II-C           ;
+CEEIT6;ITAREMA VI;CE;24.000;EX;"20160727";"          -02.9291";"         -39.8758";Tipo II-C           ;
+CEEIT7;ITAREMA VII;CE;21.000;EX;"20160727";"          -02.9530";"         -39.8785";Tipo II-C           ;
+CEEIT8;ITAREMA VIII;CE;21.000;EX;"20160727";"          -02.9799";"         -39.8935";Tipo II-C           ;
+CEEIT9;ITAREMA IX;CE;30.000;EX;"20160729";"          -02.9291";"         -39.8758";Tipo II-C           ;
+CEEMAU;MALHADINHA I;CE;23.100;EX;"20161020";"          -03.9466";"         -41.1230";Tipo II-B           ;
+CEEOLI;CANOA QUEBRADA;CE;10.500;EX;"20081206";"          -04.5358";"         -37.6953";Tipo III            ;
+CEEOPR;EOLICA DE PRAINHA;CE;10.000;EX;"20140101";"          -03.8708";"         -38.3803";Tipo III            ;
+CEEOVE;OURO VERDE;CE;29.700;EX;"20170406";"          -03.2792";"         -39.3059";Tipo II-C           ;
+CEEPTM;PITOMBEIRA;CE;27.300;EX;"20181222";"          -04.6006";"         -37.6489";Tipo II-C           ;
+CEESCT;SANTA CATARINA;CE;18.900;EX;"20181222";"          -04.5945";"         -37.6820";Tipo II-C           ;
+CEESI3;SANTO INACIO III;CE;29.400;EX;"20171205";"          -04.7654";"         -37.2920";Tipo II-C           ;
+CEESI4;SANTO INACIO IV;CE;23.100;EX;"20171205";"          -04.7458";"         -37.3090";Tipo II-C           ;
+CEESM1;SERRA DO MATO I;CE;21.000;EX;"20211028";"          -03.2707";"         -39.3963";Tipo II-C           ;
+CEESM2;SERRA DO MATO II;CE;21.000;EX;"20211029";"          -03.2760";"         -39.3513";Tipo II-C           ;
+CEESM3;SERRA DO MATO III;CE;21.000;EX;"20211029";"          -03.2625";"         -39.3482";Tipo II-C           ;
+CEESM4;SERRA DO MATO IV;CE;21.000;EX;"20211204";"          -03.2201";"         -39.3962";Tipo II-C           ;
+CEESM5;SERRA DO MATO V;CE;21.000;EX;"20211130";"          -03.2322";"         -39.4020";Tipo II-C           ;
+CEESM6;SERRA DO MATO VI;CE;16.800;EX;"20211118";"          -03.2456";"         -39.4073";Tipo II-C           ;
+CEESMA;SANTA MONICA I;CE;18.900;EX;"20161011";"          -03.2594";"         -39.2817";Tipo II-C           ;
+CEESR1;SERROTE I;CE;25.200;EX;"20210113";"          -04.5358";"         -37.6953";Tipo II-C           ;
+CEESR2;SERROTE II;CE;25.200;EX;"20210113";"          -03.2882";"         -39.3328";Tipo II-C           ;
+CEESR3;SERROTE III;CE;21.000;EX;"20210113";"          -03.3044";"         -39.3521";Tipo II-C           ;
+CEESR4;SERROTE IV;CE;16.800;EX;"20210113";"          -03.3077";"         -39.3903";Tipo II-C           ;
+CEESR5;SERROTE V;CE;29.400;EX;"20210127";"          -03.3174";"         -39.3695";Tipo II-C           ;
+CEESR6;SERROTE VI;CE;29.400;EX;"20210227";"          -03.2275";"         -39.3729";Tipo II-C           ;
+CEESR7;SERROTE VII;CE;29.400;EX;"20210409";"          -03.3157";"         -39.3244";Tipo II-C           ;
+CEESR8;SERROTE VIII;CE;29.400;EX;"20210323";"          -03.3380";"         -39.3294";Tipo II-C           ;
+CEESRM;SAO RAIMUNDO;CE;23.100;EX;"20171201";"          -04.7789";"         -37.2932";Tipo II-C           ;
+CEEUBA;UBATUBA;CE;12.600;EX;"20181222";"          -04.6566";"         -37.6123";Tipo II-C           ;
+CEEVFO;VENTO FORMOSO;CE;27.510;EX;"20161007";"          -03.8529";"         -41.1834";Tipo II-C           ;
+CEEVHZ;VENTOS DE HORIZONTE;CE;16.800;EX;"20181222";"          -04.6228";"         -37.6904";Tipo II-C           ;
+CEEVIT;VENTOS DE TIANGUA;CE;27.750;EX;"20160928";"          -03.8796";"         -41.1534";Tipo II-C           ;
+CEEVMC;VENTOS DO MORRO DO CHAPEU;CE;27.510;EX;"20161006";"          -03.8780";"         -41.1751";Tipo II-C           ;
+CEEVPA;VENTOS DO PARAZINHO;CE;29.120;EX;"20160928";"          -03.8888";"         -41.1857";Tipo II-C           ;
+CEEVTN;VENTOS DE TIANGUA NORTE;CE;29.120;EX;"20160928";"          -03.8944";"         -41.1969";Tipo II-C           ;
+CEFRC;EOL RIO CHORO;CE;25.200;EX;"20090131";"          -04.1256";"         -38.1503";Tipo III            ;
+CEICAR;ICARAI;CE;16.800;EX;"20130629";"          -03.0274";"         -39.6209";Tipo III            ;
+CEJAI;JANDAIA I;CE;24.000;EX;"20200530";"          -04.4129";"         -37.8761";Tipo II-C           ;
+CEJAN;JANDAIA;CE;27.000;EX;"20200530";"          -04.4096";"         -37.8171";Tipo II-C           ;
+CELGMO;LAGOA DO MATO;CE;03.230;EX;"20090116";"          -13.8379";"         -42.6486";Tipo III            ;
+CEMUCU;MUCURIPE;CE;02.400;EX;"20140101";"          -14.2596";"         -42.5543";Tipo III            ;
+CENSF;NOSSA SENHORA DE FATIMA;CE;29.100;EX;"20200602";"          -04.4339";"         -37.8697";Tipo II-C           ;
+CEPRU;EOL PARACURU;CE;25.200;EX;"20081129";"          -03.4315";"         -38.9620";Tipo III            ;
+CEQUIX;QUIXABA;CE;25.500;EX;"20121025";"          -04.5634";"         -37.6885";Tipo III            ;
+CESCL;SAO CLEMENTE;CE;21.000;EX;"20200530";"          -04.4088";"         -37.8442";Tipo II-C           ;
+CESJN;SAO JANUARIO;CE;21.000;EX;"20200602";"          -04.4914";"         -37.8025";Tipo II-C           ;
+CETAIA;TAIBA;CE;05.000;EX;"19981209";"          -03.4953";"         -38.9339";Tipo III            ;
+CETAIB;TAIBA ALBATROZ;CE;16.500;EX;"20081119";"          -03.5103";"         -38.9164";Tipo III            ;
+CEUCZ;ICARAIZINHO;CE;54.600;EX;"20091014";"          -03.0179";"         -39.6741";Tipo I              ;
+CEUEAD;TAIBA ANDORINHA;CE;14.700;EX;"20140619";"          -03.5287";"         -38.8980";Tipo II-C           ;
+CEUEAG;TAIBA AGUIA;CE;23.100;EX;"20140619";"          -03.5481";"         -38.8883";Tipo II-C           ;
+CEUEAP;SANTO ANTONIO DE PADUA;CE;14.000;EX;"20141111";"          -03.2733";"         -39.2246";Tipo II-C           ;
+CEUEBC;BOCA DO CORREGO;CE;24.300;EX;"20140830";"          -03.0984";"         -39.6663";Tipo II-C           ;
+CEUEBU;BURITI;CE;30.000;EX;"20140403";"          -02.8853";"         -39.9839";Tipo II-C           ;
+CEUEBV;BONS VENTOS;CE;50.000;EX;"20100211";"          -04.4469";"         -37.7595";Tipo II-C           ;
+CEUECJ;CAJUCOCO;CE;30.000;EX;"20140321";"          -02.9158";"         -39.9544";Tipo II-C           ;
+CEUECL;COLONIA;CE;18.900;EX;"20140619";"          -03.5426";"         -38.8782";Tipo II-C           ;
+CEUECO;COQUEIROS;CE;27.000;EX;"20141107";"          -02.8855";"         -39.9721";Tipo II-C           ;
+CEUECQ;CANOA QUEBRADA;CE;57.000;EX;"20100126";"          -04.4670";"         -37.7580";Tipo II-C           ;
+CEUEEM;EMBUACA;CE;27.300;EX;"20140329";"          -03.2147";"         -39.3288";Tipo II-C           ;
+CEUEEN;ENACEL;CE;31.500;EX;"20100318";"          -04.5097";"         -37.7608";Tipo II-C           ;
+CEUEFC;FAISA V;CE;29.400;EX;"20141030";"          -03.3699";"         -39.2621";Tipo II-C           ;
+CEUEFD;FAISA II;CE;27.300;EX;"20140731";"          -03.3189";"         -39.2397";Tipo II-C           ;
+CEUEFL;FLEIXEIRAS I;CE;30.004;EX;"20140128";"          -03.2011";"         -39.3647";Tipo II-C           ;
+CEUEFQ;FAISA IV;CE;25.200;EX;"20140329";"          -03.3218";"         -39.2671";Tipo II-C           ;
+CEUEFT;FAISA III;CE;25.200;EX;"20140329";"          -03.3478";"         -39.2651";Tipo II-C           ;
+CEUEFU;FAISA I;CE;29.400;EX;"20140329";"          -03.3218";"         -39.2671";Tipo II-C           ;
+CEUEGU;GUAJIRU;CE;30.004;EX;"20131122";"          -03.2632";"         -39.2159";Tipo II-C           ;
+CEUEID;ICARAI II;CE;37.800;EX;"20140328";"          -03.0660";"         -39.5969";Tipo II-C           ;
+CEUEIG;ILHA GRANDE;CE;29.700;EX;"20140820";"          -03.0666";"         -39.7026";Tipo II-C           ;
+CEUEIU;ICARAI I;CE;27.300;EX;"20140329";"          -03.0812";"         -39.5949";Tipo II-C           ;
+CEUEMU;MUNDAU;CE;30.004;EX;"20140401";"          -03.1936";"         -39.3746";Tipo II-C           ;
+CEUEPM;PRAIA DO MORGADO;CE;28.800;EX;"20100526";"          -02.8151";"         -40.2348";Tipo II-C           ;
+CEUERB;RIBEIRAO;CE;21.600;EX;"20140925";"          -03.0983";"         -39.6785";Tipo II-C           ;
+CEUESC;SAO CRISTOVAO;CE;26.000;EX;"20141111";"          -03.2579";"         -39.2475";Tipo II-C           ;
+CEUESJ;SAO JORGE;CE;24.000;EX;"20141111";"          -03.2470";"         -39.2502";Tipo II-C           ;
+CEUETR;TRAIRI;CE;25.388;EX;"20131122";"          -03.2217";"         -39.2900";Tipo II-C           ;
+CEUEVR;VOLTA DO RIO;CE;42.000;EX;"20100903";"          -02.8514";"         -39.9658";Tipo II-C           ;
+CEUFM;PRAIA DE FORMOSA;CE;105.000;EX;"20090826";"          -02.9051";"         -41.0392";Tipo I              ;
+CEUPRJ;PRAIAS DE PARAJURU;CE;28.800;EX;"20090819";"          -04.3631";"         -37.8839";Tipo III            ;
+D29112;ALHANDRA;PB;06.300;EX;"20110129";"          -07.2700";"         -34.9300";Tipo III            ;
+D31006;CAMINHO DA PRAIA;PE;02.000;EX;"20120917";"          -08.3344";"         -35.0053";Tipo III            ;
+MAED72;DELTA 7 II;MA;35.100;EX;"20191015";"          -02.6981";"         -42.5892";Tipo II-C           ;
+MAED7I;DELTA 7 I;MA;27.000;EX;"20191016";"          -02.6809";"         -42.6001";Tipo II-C           ;
+MAED8I;DELTA 8 I;MA;35.100;EX;"20191101";"          -02.7017";"         -42.5704";Tipo II-C           ;
+MAEDS1;DELTA 6 I;MA;29.700;EX;"20190110";"          -02.6889";"         -42.5676";Tipo II-C           ;
+MAEDS2;DELTA 6 II;MA;24.300;EX;"20190125";"          -02.6576";"         -42.6127";Tipo II-C           ;
+MAEDS3;DELTA 5 II;MA;27.000;EX;"20181228";"          -02.6723";"         -42.6037";Tipo II-C           ;
+MAEDT1;DELTA 3 I;MA;27.600;EX;"20170901";"          -02.6716";"         -42.6205";Tipo II-C           ;
+MAEDT2;DELTA 3 II;MA;27.600;EX;"20170720";"          -02.6278";"         -42.6643";Tipo II-C           ;
+MAEDT3;DELTA 3 III;MA;27.600;EX;"20170901";"          -02.6609";"         -42.6328";Tipo II-C           ;
+MAEDT4;DELTA 3 IV;MA;27.600;EX;"20170726";"          -02.6577";"         -42.6141";Tipo II-C           ;
+MAEDT5;DELTA 3 V;MA;27.600;EX;"20170720";"          -02.6400";"         -42.6373";Tipo II-C           ;
+MAEDT6;DELTA 3 VI;MA;27.600;EX;"20170713";"          -02.6298";"         -42.6480";Tipo II-C           ;
+MAEDT7;DELTA 3 VII;MA;27.600;EX;"20170707";"          -02.6184";"         -42.6580";Tipo II-C           ;
+MAEDT8;DELTA 3 VIII;MA;27.600;EX;"20171107";"          -02.6672";"         -42.6427";Tipo II-C           ;
+MAEDT9;DELTA 5 I;MA;27.000;EX;"20181228";"          -02.6962";"         -42.5477";Tipo II-C           ;
+PBALBA;ALBATROZ;PB;04.800;EX;"20090131";"          -06.5475";"         -34.9680";Tipo III            ;
+PBATLA;ATLANTICA;PB;04.800;EX;"20090117";"          -06.5474";"         -34.9737";Tipo III            ;
+PBCAMU;CAMURIM;PB;04.800;EX;"20090131";"          -06.5576";"         -34.9721";Tipo III            ;
+PBCANO;CANOAS;PB;31.500;EX;"20170930";"          -06.8834";"         -36.7637";Tipo III            ;
+PBCARA;CARAVELA;PB;04.800;EX;"20090131";"          -06.5560";"         -34.9690";Tipo III            ;
+PBCH1;CHAFARIZ 1;PB;34.650;EX;"20210813";"          -06.9729";"         -36.8793";Tipo II-C           ;
+PBCH2;CHAFARIZ 2;PB;34.650;EX;"20210915";"          -06.9969";"         -36.8940";Tipo II-C           ;
+PBCH3;CHAFARIZ 3;PB;34.650;EX;"20210925";"          -07.0016";"         -36.8983";Tipo II-C           ;
+PBCH4;CHAFARIZ 4;PB;34.650;EX;"20211021";"          -07.0337";"         -36.9355";Tipo II-C           ;
+PBCH5;CHAFARIZ 5;PB;34.650;EX;"20210925";"          -07.0039";"         -36.9131";Tipo II-C           ;
+PBCH6;CHAFARIZ 6;PB;31.185;EX;"20210823";"          -06.9786";"         -36.8539";Tipo II-C           ;
+PBCH7;CHAFARIZ 7;PB;34.650;EX;"20210729";"          -06.9240";"         -36.8607";Tipo II-C           ;
+PBCN2;CANOAS 2;PB;34.650;EX;"20211231";"          -06.8825";"         -36.7914";Tipo II-C           ;
+PBCN3;CANOAS 3;PB;34.650;EX;"20211231";"          -06.8721";"         -36.7594";Tipo II-C           ;
+PBCN4;CANOAS 4;PB;34.650;EX;"20211231";"          -06.8436";"         -36.7355";Tipo II-C           ;
+PBCOEH;COELHOS II;PB;04.800;EX;"20090210";"          -06.5701";"         -34.9674";Tipo III            ;
+PBCOEL;COELHOS III;PB;04.800;EX;"20090305";"          -06.5701";"         -34.9674";Tipo III            ;
+PBCOEO;COELHOS IV;PB;04.800;EX;"20090114";"          -06.5814";"         -34.9747";Tipo III            ;
+PBCOES;COELHOS I;PB;04.800;EX;"20090305";"          -06.5758";"         -34.9718";Tipo III            ;
+PBLAGA;LAGOA 1;PB;31.500;EX;"20171031";"          -06.8790";"         -36.8184";Tipo III            ;
+PBLAGO;LAGOA 2;PB;31.500;EX;"20170930";"          -06.8409";"         -36.7911";Tipo III            ;
+PBLG3;LAGOA 3;PB;34.650;EX;"20211218";"          -06.8712";"         -36.8262";Tipo II-C           ;
+PBLG4;LAGOA 4;PB;20.790;EX;"20211203";"          -06.8837";"         -36.8429";Tipo II-C           ;
+PBMATA;MATARACA;PB;04.800;EX;"20090114";"          -06.5823";"         -34.9785";Tipo III            ;
+PBMILL;MILLENNIUM;PB;10.200;EX;"20071128";"          -06.4939";"         -34.9719";Tipo III            ;
+PBPRES;PRESIDENTE;PB;04.800;EX;"20090114";"          -06.5747";"         -34.9760";Tipo III            ;
+PBVA1;VENTOS DE ARAPUA 1;PB;24.255;EX;"20211111";"          -07.0482";"         -36.9524";Tipo II-C           ;
+PBVA2;VENTOS DE ARAPUA 2;PB;34.650;EX;"20211111";"          -07.0292";"         -36.9624";Tipo II-C           ;
+PBVA3;VENTOS DE ARAPUA 3;PB;13.860;EX;"20211111";"          -07.0508";"         -36.9679";Tipo II-C           ;
+PBVITO;VITORIA;PB;04.500;EX;"20101128";"          -06.5573";"         -35.0147";Tipo III            ;
+PEEBR1;VENTOS DE SANTA BRIGIDA I;PE;13.600;EX;"20151225";"          -08.8099";"         -36.7487";Tipo II-C           ;
+PEEBR2;VENTOS DE SANTA BRIGIDA II;PE;27.200;EX;"20151225";"          -08.7969";"         -36.7338";Tipo II-C           ;
+PEEBR3;VENTOS DE SANTA BRIGIDA III;PE;28.900;EX;"20151225";"          -08.8451";"         -36.7697";Tipo II-C           ;
+PEEBR4;VENTOS DE SANTA BRIGIDA IV;PE;27.200;EX;"20151225";"          -08.8338";"         -36.7602";Tipo II-C           ;
+PEEBR5;VENTOS DE SANTA BRIGIDA V;PE;28.900;EX;"20151225";"          -08.8465";"         -36.7302";Tipo II-C           ;
+PEEBR6;VENTOS DE SANTA BRIGIDA VI;PE;28.900;EX;"20151225";"          -08.8681";"         -36.7471";Tipo II-C           ;
+PEEBR7;VENTOS DE SANTA BRIGIDA VII;PE;27.200;EX;"20151225";"          -08.8025";"         -36.7579";Tipo II-C           ;
+PEECL1;VENTOS DE SAO CLEMENTE I;PE;31.365;EX;"20160525";"          -08.7263";"         -36.6999";Tipo II-C           ;
+PEECL2;VENTOS DE SAO CLEMENTE II;PE;31.365;EX;"20160525";"          -08.7093";"         -36.7337";Tipo II-C           ;
+PEECL3;VENTOS DE SAO CLEMENTE III;PE;31.365;EX;"20160525";"          -08.7540";"         -36.7181";Tipo II-C           ;
+PEECL4;VENTOS DE SAO CLEMENTE IV;PE;31.365;EX;"20160525";"          -08.7627";"         -36.7509";Tipo II-C           ;
+PEECL5;VENTOS DE SAO CLEMENTE V;PE;31.365;EX;"20160614";"          -08.7076";"         -36.7668";Tipo II-C           ;
+PEECL6;VENTOS DE SAO CLEMENTE VI;PE;27.675;EX;"20160525";"          -08.7819";"         -36.7576";Tipo II-C           ;
+PEECL7;VENTOS DE SAO CLEMENTE VII;PE;25.830;EX;"20160525";"          -08.7513";"         -36.7514";Tipo II-C           ;
+PEECL8;VENTOS DE SAO CLEMENTE VIII;PE;22.140;EX;"20160621";"          -08.7045";"         -36.7757";Tipo II-C           ;
+PEEPF2;PAU FERRO II;PE;77.000;EX;"20211222";"          -09.0365";"         -38.0999";Tipo II-C           ;
+PEESV1;SERRA DAS VACAS I;PE;23.920;EX;"20151218";"          -08.9113";"         -36.7477";Tipo II-C           ;
+PEESV2;SERRA DAS VACAS II;PE;22.295;EX;"20151218";"          -08.8954";"         -36.7259";Tipo II-C           ;
+PEESV3;SERRA DAS VACAS III;PE;22.235;EX;"20151218";"          -08.9031";"         -36.7579";Tipo II-C           ;
+PEESV4;SERRA DAS VACAS IV;PE;22.295;EX;"20151218";"          -08.9137";"         -36.7298";Tipo II-C           ;
+PEESV5;SERRA DAS VACAS V;PE;25.300;EX;"20171201";"          -08.9154";"         -36.7757";Tipo II-C           ;
+PEESV6;SERRA DAS VACAS VII;PE;25.300;EX;"20171201";"          -08.9209";"         -36.7822";Tipo II-C           ;
+PEETA2;TACAICO II;PE;77.000;EX;"20211222";"          -09.0167";"         -38.0747";Tipo II-C           ;
+PEGRVT;GRAVATA FRUITRADE;PE;04.950;EX;"20100424";"          -08.2682";"         -35.5964";Tipo III            ;
+PEMAND;MANDACARU;PE;04.950;EX;"20100424";"          -08.2790";"         -35.5964";Tipo III            ;
+PEPIRA;PIRAUA;PE;04.950;EX;"20100505";"          -07.4953";"         -35.4955";Tipo III            ;
+PESNTM;SANTA MARIA;PE;04.950;EX;"20100424";"          -08.2947";"         -35.5956";Tipo III            ;
+PEUEPF;PAU FERRO;PE;30.550;EX;"20150204";"          -09.0625";"         -38.1186";Tipo II-C           ;
+PEUEPG;PEDRA DO GERONIMO;PE;30.550;EX;"20150204";"          -09.0672";"         -38.1448";Tipo II-C           ;
+PEUETA;TACAICO;PE;18.800;EX;"20150204";"          -09.0187";"         -38.0560";Tipo II-C           ;
+PEXAVA;XAVANTE;PE;04.950;EX;"20100424";"          -08.1750";"         -35.3889";Tipo III            ;
+PIDELT;DELTA DO PARNAIBA;PI;30.000;EX;"20140702";"          -02.8371";"         -41.7074";Tipo III            ;
+PIEAU1;VENTOS DE SANTO AUGUSTO I;PI;18.400;EX;"20170218";"          -07.7430";"         -40.6752";Tipo II-C           ;
+PIEAU2;VENTOS DE SANTO AUGUSTO II;PI;27.600;EX;"20161229";"          -07.7721";"         -40.6784";Tipo II-C           ;
+PIEAU3;VENTOS DE SANTO AUGUSTO III;PI;29.600;EX;"20160116";"          -07.3723";"         -40.7072";Tipo II-C           ;
+PIEAU4;VENTOS DE SANTO AUGUSTO IV;PI;28.900;EX;"20160206";"          -07.3858";"         -40.6978";Tipo II-C           ;
+PIEAU5;VENTOS DE SANTO AUGUSTO V;PI;29.600;EX;"20160122";"          -07.4093";"         -40.6951";Tipo II-C           ;
+PIEAU6;VENTOS DE SANTO AUGUSTO VI;PI;29.900;EX;"20170324";"          -07.7140";"         -40.6761";Tipo II-C           ;
+PIEAU7;VENTOS DE SANTO AUGUSTO VII;PI;18.400;EX;"20170304";"          -07.7253";"         -40.6793";Tipo II-C           ;
+PIEAU8;VENTOS DE SANTO AUGUSTO VIII;PI;18.400;EX;"20161224";"          -07.7707";"         -40.6777";Tipo II-C           ;
+PIEES1;VENTOS DE SANTO ESTEVAO I;PI;25.300;EX;"20160623";"          -07.7442";"         -40.6208";Tipo II-C           ;
+PIEES2;VENTOS DE SANTO ESTEVAO II;PI;25.300;EX;"20170506";"          -07.7482";"         -40.6296";Tipo II-C           ;
+PIEES3;VENTOS DE SANTO ESTEVAO III;PI;29.900;EX;"20161209";"          -07.7283";"         -40.6584";Tipo II-C           ;
+PIEES4;VENTOS DE SANTO ESTEVAO IV;PI;29.900;EX;"20171003";"          -07.7266";"         -40.5941";Tipo II-C           ;
+PIEES5;VENTOS DE SANTO ESTEVAO V;PI;27.600;EX;"20161213";"          -07.7599";"         -40.6733";Tipo II-C           ;
+PIEJ01;VENTOS DE SANTA JOANA I;PI;28.900;EX;"20160116";"          -07.4237";"         -40.6715";Tipo II-C           ;
+PIEJ02;VENTOS DE SANTA JOANA II;PI;30.000;EX;"20151218";"          -07.5697";"         -40.7032";Tipo II-C           ;
+PIEJ03;VENTOS DE SANTA JOANA III;PI;29.600;EX;"20160311";"          -07.4377";"         -40.7465";Tipo II-C           ;
+PIEJ04;VENTOS DE SANTA JOANA IV;PI;27.200;EX;"20160116";"          -07.4513";"         -40.6864";Tipo II-C           ;
+PIEJ05;VENTOS DE SANTA JOANA V;PI;28.900;EX;"20160122";"          -07.3709";"         -40.6742";Tipo II-C           ;
+PIEJ06;VENTOS DE SANTA JOANA VI;PI;30.000;EX;"20151218";"          -07.5266";"         -40.7442";Tipo II-C           ;
+PIEJ07;VENTOS DE SANTA JOANA VII;PI;28.900;EX;"20160130";"          -07.4130";"         -40.6686";Tipo II-C           ;
+PIEJ08;VENTOS DE SANTA JOANA VIII;PI;30.000;EX;"20151218";"          -07.5977";"         -40.7325";Tipo II-C           ;
+PIEJ10;VENTOS DE SANTA JOANA X;PI;29.600;EX;"20150709";"          -07.4387";"         -40.7083";Tipo II-C           ;
+PIEJ11;VENTOS DE SANTA JOANA XI;PI;29.600;EX;"20150709";"          -07.4830";"         -40.7998";Tipo II-C           ;
+PIEJ12;VENTOS DE SANTA JOANA XII;PI;28.900;EX;"20150709";"          -07.4860";"         -40.7540";Tipo II-C           ;
+PIEJ13;VENTOS DE SANTA JOANA XIII;PI;29.600;EX;"20150709";"          -07.4104";"         -40.7109";Tipo II-C           ;
+PIEJ14;VENTOS DE SANTA JOANA XV;PI;28.900;EX;"20150709";"          -07.4778";"         -40.7674";Tipo II-C           ;
+PIEJ15;VENTOS DE SANTA JOANA XIV;PI;30.000;EX;"20151218";"          -07.5109";"         -40.7344";Tipo II-C           ;
+PIEJ16;VENTOS DE SANTA JOANA XVI;PI;28.900;EX;"20150709";"          -07.4588";"         -40.7237";Tipo II-C           ;
+PIEJ9;VENTOS DE SANTA JOANA IX;PI;29.600;EX;"20150827";"          -07.4517";"         -40.7441";Tipo II-C           ;
+PIELB1;AURA LAGOA DO BARRO 01;PI;27.000;EX;"20181027";"          -08.6983";"         -41.6357";Tipo II-C           ;
+PIELB2;AURA LAGOA DO BARRO 02;PI;27.000;EX;"20181213";"          -08.6538";"         -41.5654";Tipo II-C           ;
+PIELB3;AURA LAGOA DO BARRO 03;PI;27.000;EX;"20181221";"          -08.6137";"         -41.5514";Tipo II-C           ;
+PIELB4;AURA LAGOA DO BARRO 04;PI;27.000;EX;"20181228";"          -08.5934";"         -41.5420";Tipo II-C           ;
+PIELB5;AURA LAGOA DO BARRO 05;PI;24.000;EX;"20181102";"          -08.5934";"         -41.5420";Tipo II-C           ;
+PIELB6;AURA LAGOA DO BARRO 06;PI;27.000;EX;"20181218";"          -08.6330";"         -41.5608";Tipo II-C           ;
+PIELB7;AURA LAGOA DO BARRO 07;PI;27.000;EX;"20181127";"          -08.6756";"         -41.6345";Tipo II-C           ;
+PIEO01;VENTOS DE SANTO ONOFRE I;PI;30.000;EX;"20151218";"          -07.5533";"         -40.7255";Tipo II-C           ;
+PIEO02;VENTOS DE SANTO ONOFRE II;PI;30.000;EX;"20151218";"          -07.5946";"         -40.7304";Tipo II-C           ;
+PIEO03;VENTOS DE SANTO ONOFRE III;PI;30.000;EX;"20151218";"          -07.5550";"         -40.7257";Tipo II-C           ;
+PIEO04;VENTOS DE SANTO ONOFRE IV;PI;27.600;EX;"20170614";"          -07.7409";"         -40.7243";Tipo II-C           ;
+PIEQN1;AURA QUEIMADA NOVA 01;PI;32.200;EX;"20211208";"          -08.6838";"         -41.5891";Tipo II-C           ;
+PIEQN2;AURA QUEIMADA NOVA 02;PI;50.600;EX;"20211208";"          -08.6288";"         -41.5950";Tipo II-C           ;
+PIEQN3;AURA QUEIMADA NOVA 03;PI;09.000;EX;"20181201";"          -08.6674";"         -41.6308";Tipo II-C           ;
+PIESAD;VENTOS DE SANTO ADRIANO;PI;29.700;EX;"20170718";"          -07.3292";"         -40.5812";Tipo II-C           ;
+PIESAL;VENTOS DE SANTO ALBANO;PI;29.700;EX;"20170719";"          -07.3546";"         -40.6026";Tipo II-C           ;
+PIESAN;VENTOS DE SANTA ANGELINA;PI;29.700;EX;"20160705";"          -07.3047";"         -40.5300";Tipo II-C           ;
+PIESBA;VENTOS DE SANTA BARBARA;PI;29.700;EX;"20170526";"          -07.3034";"         -40.5363";Tipo II-C           ;
+PIESED;VENTOS DE SANTA EDWIGES;PI;29.700;EX;"20170624";"          -07.3069";"         -40.5550";Tipo II-C           ;
+PIESFA;VENTOS DE SANTA FATIMA;PI;29.700;EX;"20170728";"          -07.2986";"         -40.5557";Tipo II-C           ;
+PIESRE;VENTOS DE SANTA REGINA;PI;29.700;EX;"20170719";"          -07.3301";"         -40.5900";Tipo II-C           ;
+PIEV08;VENTOS DE SAO VICENTE 08;PI;29.400;EX;"20171006";"          -08.0121";"         -40.6317";Tipo II-C           ;
+PIEV09;VENTOS DE SAO VICENTE 09;PI;29.400;EX;"20171206";"          -08.0173";"         -40.6585";Tipo II-C           ;
+PIEV10;VENTOS DE SAO VICENTE 10;PI;29.400;EX;"20171117";"          -08.0065";"         -40.6378";Tipo II-C           ;
+PIEV11;VENTOS DE SAO VICENTE 11;PI;29.400;EX;"20171109";"          -07.9957";"         -40.6349";Tipo II-C           ;
+PIEV12;VENTOS DE SAO VICENTE 12;PI;29.400;EX;"20170829";"          -08.0214";"         -40.6178";Tipo II-C           ;
+PIEV13;VENTOS DE SAO VICENTE 13;PI;29.400;EX;"20170919";"          -08.0031";"         -40.6115";Tipo II-C           ;
+PIEV14;VENTOS DE SAO VICENTE 14;PI;29.400;EX;"20170802";"          -07.9895";"         -40.5834";Tipo II-C           ;
+PIEVI1;VENTOS DE SAO VIRGILIO 1;PI;29.900;EX;"20170830";"          -07.6882";"         -40.6883";Tipo II-C           ;
+PIEVI2;VENTOS DE SAO VIRGILIO 2;PI;29.900;EX;"20170210";"          -07.7917";"         -40.7280";Tipo II-C           ;
+PIEVI3;VENTOS DE SAO VIRGILIO 3;PI;19.800;EX;"20170929";"          -07.7835";"         -40.6575";Tipo II-C           ;
+PIPORD;PORTO DO DELTA;PI;30.800;EX;"20161104";"          -02.8428";"         -41.6976";Tipo III            ;
+PIPORO;PORTO SALGADO;PI;20.000;EX;"20140710";"          -02.8398";"         -41.7270";Tipo III            ;
+PIPORT;PORTO DAS BARCAS;PI;20.000;EX;"20140702";"          -02.8207";"         -41.7418";Tipo III            ;
+PIPSAL;PEDRA DO SAL;PI;18.000;EX;"20081230";"          -02.8262";"         -41.7071";Tipo III            ;
+PISA02;VENTOS DE SANTA ANGELA 02;PI;31.500;EX;"20201112";"          -08.5442";"         -41.5751";Tipo II-C           ;
+PISA03;VENTOS DE SANTA ANGELA 03;PI;31.500;EX;"20201112";"          -08.5764";"         -41.5778";Tipo II-C           ;
+PISA04;VENTOS DE SANTA ANGELA 04;PI;31.500;EX;"20201112";"          -08.6002";"         -41.5908";Tipo II-C           ;
+PISA05;VENTOS DE SANTA ANGELA 05;PI;31.500;EX;"20201229";"          -08.4625";"         -41.4451";Tipo II-C           ;
+PISA06;VENTOS DE SANTA ANGELA 06;PI;31.500;EX;"20201230";"          -08.4891";"         -41.4516";Tipo II-C           ;
+PISA07;VENTOS DE SANTA ANGELA 07;PI;25.200;EX;"20201230";"          -08.5306";"         -41.4805";Tipo II-C           ;
+PISA08;VENTOS DE SANTA ANGELA 08;PI;31.500;EX;"20201231";"          -08.5608";"         -41.4984";Tipo II-C           ;
+PISA09;VENTOS DE SANTA ANGELA 09;PI;44.100;EX;"20201231";"          -08.5952";"         -41.4795";Tipo II-C           ;
+PISA10;VENTOS DE SANTA ANGELA 10;PI;40.950;EX;"20201231";"          -08.6329";"         -41.4971";Tipo II-C           ;
+PISA11;VENTOS DE SANTA ANGELA 11;PI;44.100;EX;"20201231";"          -08.6671";"         -41.5098";Tipo II-C           ;
+PISA12;VENTOS DE SANTA ANGELA 12;PI;30.000;EX;"20210319";"          -08.7616";"         -41.4303";Tipo II-C           ;
+PISA13;VENTOS DE SANTA ANGELA 13;PI;28.350;EX;"20210319";"          -08.7664";"         -41.4087";Tipo II-C           ;
+PISA14;VENTOS DE SANTA ANGELA 14;PI;42.600;EX;"20201231";"          -08.7088";"         -41.5181";Tipo II-C           ;
+PISA15;VENTOS DE SANTA ANGELA 15;PI;44.100;EX;"20210327";"          -08.7220";"         -41.4741";Tipo II-C           ;
+PISA16;VENTOS DE SANTA ANGELA 16;PI;31.500;EX;"20210519";"          -08.7326";"         -41.5590";Tipo II-C           ;
+PISA17;VENTOS DE SANTA ANGELA 17;PI;47.250;EX;"20210407";"          -08.7159";"         -41.4209";Tipo II-C           ;
+PISA18;VENTOS DE SANTA ANGELA 18;PI;31.500;EX;"20210313";"          -08.7389";"         -41.3999";Tipo II-C           ;
+PISA19;VENTOS DE SANTA ANGELA 19;PI;30.000;EX;"20210407";"          -08.7462";"         -41.4716";Tipo II-C           ;
+PISA20;VENTOS DE SANTA ANGELA 20;PI;30.000;EX;"20210213";"          -08.7818";"         -41.4520";Tipo II-C           ;
+PISA21;VENTOS DE SANTA ANGELA 21;PI;30.000;EX;"20210128";"          -08.8066";"         -41.4651";Tipo II-C           ;
+PITESA;TESTA BRANCA III;PI;22.000;EX;"20160812";"          -02.7998";"         -41.7920";Tipo III            ;
+PITEST;TESTA BRANCA I;PI;22.000;EX;"20160923";"          -02.8166";"         -41.7822";Tipo III            ;
+PIVI15;VENTOS DE SANTO APOLINARIO;PI;35.200;EX;"20220604";"          -07.9702";"         -40.5994";Tipo II-C           ;
+PIVSA1;VENTOS DE SANTA ANGELA 01;PI;31.500;EX;"20201112";"          -08.5198";"         -41.5584";Tipo II-C           ;
+PREOLI;EOLIO   ELETRICA DE PALMAS;PR;02.500;EX;"19990201";"          -26.5781";"         -51.7004";Tipo III            ;
+RJUEGG;GARGAU;RJ;28.050;EX;"20101028";"          -21.5657";"         -41.0731";Tipo III            ;
+RNARAT;ARATUA I;RN;14.400;EX;"20120131";"          -05.0919";"         -36.3377";Tipo III            ;
+RNARIZ;ARIZONA 1;RN;28.000;EX;"20131001";"          -05.3042";"         -35.3820";Tipo III            ;
+RNCEE1;EURUS I;RN;30.000;EX;"20141203";"          -05.3655";"         -35.8621";Tipo II-C           ;
+RNCEE3;EURUS III;RN;30.000;EX;"20141203";"          -05.3971";"         -35.8748";Tipo II-C           ;
+RNCEM1;MORRO DOS VENTOS I;RN;28.800;EX;"20140329";"          -05.3628";"         -35.8190";Tipo II-C           ;
+RNCEM2;MORRO DOS VENTOS II;RN;29.160;EX;"20150416";"          -05.3601";"         -35.8355";Tipo II-C           ;
+RNCEM3;MORRO DOS VENTOS III;RN;28.800;EX;"20140329";"          -05.3744";"         -35.8683";Tipo II-C           ;
+RNCEM4;MORRO DOS VENTOS IV;RN;28.800;EX;"20140329";"          -05.3820";"         -35.8809";Tipo II-C           ;
+RNCEM6;MORRO DOS VENTOS VI;RN;28.800;EX;"20140329";"          -05.3437";"         -35.8783";Tipo II-C           ;
+RNCEM9;MORRO DOS VENTOS IX;RN;30.000;EX;"20140329";"          -05.3053";"         -35.9132";Tipo II-C           ;
+RNEAB1;ASA BRANCA I;RN;27.000;EX;"20150805";"          -05.2323";"         -35.8266";Tipo II-C           ;
+RNEAB2;ASA BRANCA II;RN;27.000;EX;"20150915";"          -05.2286";"         -35.8808";Tipo II-C           ;
+RNEAB3;ASA BRANCA III;RN;27.000;EX;"20150904";"          -05.2550";"         -35.8436";Tipo II-C           ;
+RNEAB4;ASA BRANCA IV;RN;32.000;EX;"20141206";"          -05.3291";"         -35.9916";Tipo II-C           ;
+RNEAB5;ASA BRANCA V;RN;32.000;EX;"20141206";"          -05.3828";"         -36.0088";Tipo II-C           ;
+RNEAB6;ASA BRANCA VI;RN;32.000;EX;"20141206";"          -05.3596";"         -35.9987";Tipo II-C           ;
+RNEAB7;ASA BRANCA VII;RN;32.000;EX;"20141206";"          -05.2529";"         -35.9430";Tipo II-C           ;
+RNEAB8;ASA BRANCA VIII;RN;32.000;EX;"20141206";"          -05.2812";"         -35.9804";Tipo II-C           ;
+RNEAF1;AFONSO BEZERRA I;RN;29.400;EX;"20220430";"          -05.3200";"         -36.5100";Tipo II-A           ;
+RNEAF2;AFONSO BEZERRA II;RN;29.400;EX;"20220430";"          -05.3600";"         -36.4700";Tipo II-A           ;
+RNEAF3;AFONSO BEZERRA III;RN;29.400;EX;"20220503";"          -05.4100";"         -36.4900";Tipo II-A           ;
+RNEAF4;AFONSO BEZERRA IV;RN;16.800;EX;"20220503";"          -05.3500";"         -36.4700";Tipo II-A           ;
+RNEAG1;ANGICOS I;RN;25.200;EX;"20220514";"          -05.3200";"         -36.4900";Tipo II-A           ;
+RNEAG2;ANGICOS II;RN;29.400;EX;"20220514";"          -05.3600";"         -36.5000";Tipo II-A           ;
+RNEAL2;VILA ALAGOAS II;RN;21.000;EX;"20220218";"          -05.1718";"         -37.0928";Tipo II-C           ;
+RNEARO;AROEIRA;RN;32.900;EX;"20171228";"          -05.3387";"         -36.1129";Tipo II-C           ;
+RNEAV1;AVENTURA I;RN;28.200;EX;"20180320";"          -05.3801";"         -35.8068";Tipo II-C           ;
+RNEAV2;AVENTURA II;RN;21.000;EX;"20210708";"          -05.3211";"         -35.7351";Tipo II-C           ;
+RNEAV3;AVENTURA III;RN;25.200;EX;"20210708";"          -05.3288";"         -35.7594";Tipo II-C           ;
+RNEAV4;AVENTURA IV;RN;29.400;EX;"20210708";"          -05.3421";"         -35.7786";Tipo II-C           ;
+RNEAV5;AVENTURA V;RN;29.400;EX;"20210708";"          -05.3485";"         -35.7951";Tipo II-C           ;
+RNEBE1;BOA ESPERANCA I;RN;30.800;EX;"20190105";"          -05.5294";"         -35.9725";Tipo II-C           ;
+RNEBEN;VENTOS DE SAO BENEDITO;RN;29.400;EX;"20160813";"          -05.2263";"         -35.7852";Tipo II-C           ;
+RNEBF1;BAIXA DO FEIJAO I;RN;30.000;EX;"20160521";"          -05.3220";"         -36.0606";Tipo II-C           ;
+RNEBF2;BAIXA DO FEIJAO II;RN;30.000;EX;"20160521";"          -05.3698";"         -36.0317";Tipo II-C           ;
+RNEBF3;BAIXA DO FEIJAO III;RN;30.000;EX;"20160521";"          -05.3022";"         -36.0381";Tipo II-C           ;
+RNEBF4;BAIXA DO FEIJAO IV;RN;30.000;EX;"20160521";"          -05.3449";"         -36.0400";Tipo II-C           ;
+RNECA1;CAICARA I;RN;27.000;EX;"20151205";"          -04.9977";"         -36.9147";Tipo II-C           ;
+RNECA2;CAICARA II;RN;18.000;EX;"20151209";"          -04.9877";"         -36.9287";Tipo II-C           ;
+RNECAD;CARCARA II;RN;30.000;EX;"20141209";"          -04.9457";"         -37.0036";Tipo II-C           ;
+RNECAU;CARCARA I;RN;30.000;EX;"20150324";"          -04.9438";"         -36.9918";Tipo II-C           ;
+RNECBR;COSTA BRANCA;RN;20.700;EX;"20141203";"          -05.4215";"         -35.8526";Tipo II-C           ;
+RNECDU;COSTA DAS DUNAS;RN;28.400;EX;"20210625";"          -05.2334";"         -35.4885";Tipo II-C           ;
+RNECE1;VENTOS DE VILA CEARA I;RN;31.185;EX;"20200229";"          -05.1271";"         -37.0368";Tipo II-C           ;
+RNECE2;VENTOS DE VILA CEARA II;RN;31.185;EX;"20200208";"          -05.1057";"         -37.0368";Tipo II-C           ;
+RNECEA;VILA CEARA I;RN;31.950;EX;"20201219";"          -05.1009";"         -37.0151";Tipo II-C           ;
+RNECM1;UEE CMR_CUMARU 01;RN;42.000;EX;"20210804";"          -05.1525";"         -35.7644";Tipo II-C           ;
+RNECM2;CUMARU II;RN;42.000;EX;"20210813";"          -05.1813";"         -35.7806";Tipo II-C           ;
+RNECM3;CUMARU III;RN;42.000;EX;"20211016";"          -05.1319";"         -35.8098";Tipo II-C           ;
+RNECM4;CUMARU IV;RN;42.000;EX;"20211016";"          -05.1600";"         -35.7833";Tipo II-C           ;
+RNECM5;CUMARU V;RN;37.800;EX;"20211016";"          -05.1458";"         -35.7989";Tipo II-C           ;
+RNECNB;CARNAUBAS;RN;27.000;EX;"20170617";"          -05.1520";"         -35.6629";Tipo II-C           ;
+RNECP3;CABECO PRETO III;RN;26.000;EX;"20161117";"          -05.4183";"         -35.9862";Tipo II-C           ;
+RNECP5;CABECO PRETO V;RN;26.000;EX;"20161117";"          -05.4799";"         -36.0044";Tipo II-C           ;
+RNECP6;CABECO PRETO VI;RN;18.000;EX;"20161119";"          -05.4643";"         -35.9355";Tipo II-C           ;
+RNECUT;DREEN CUTIA;RN;23.100;EX;"20181222";"          -05.1034";"         -35.9031";Tipo II-C           ;
+RNECV1;CAMPO DOS VENTOS I;RN;25.200;EX;"20160623";"          -05.3536";"         -35.9344";Tipo II-C           ;
+RNECV2;CAMPO DOS VENTOS II;RN;30.000;EX;"20141204";"          -05.3201";"         -35.9322";Tipo II-C           ;
+RNECV3;CAMPO DOS VENTOS III;RN;25.200;EX;"20160505";"          -05.3356";"         -35.9669";Tipo II-C           ;
+RNECV5;CAMPO DOS VENTOS V;RN;25.200;EX;"20160604";"          -05.3242";"         -35.9436";Tipo II-C           ;
+RNECVD;CABECO VERMELHO II;RN;16.800;EX;"20180522";"          -05.4948";"         -35.9877";Tipo II-C           ;
+RNECVE;CABECO VERMELHO;RN;28.600;EX;"20180522";"          -05.4928";"         -36.0037";Tipo II-C           ;
+RNEDIM;VENTOS DE SANTO DIMAS;RN;29.400;EX;"20161011";"          -05.2338";"         -35.7903";Tipo II-C           ;
+RNEDOM;SAO DOMINGOS;RN;25.200;EX;"20160827";"          -05.2071";"         -35.8232";Tipo II-C           ;
+RNEENE;ESPERANCA DO NORDESTE;RN;27.300;EX;"20181228";"          -05.0828";"         -35.9552";Tipo II-C           ;
+RNEEP1;VILA ESPIRITO SANTO I  ANTIGA POTIGUAR B21;RN;33.600;EX;"20211126";"          -05.1869";"         -37.1132";Tipo II-C           ;
+RNEEP2;VILA ESPIRITO SANTO II  ANTIGA POTIGUAR B22;RN;37.800;EX;"20220218";"          -05.1877";"         -37.1357";Tipo II-C           ;
+RNEEP3;VILA ESPIRITO SANTO III  ANTIGA POTIGUAR B23;RN;37.800;EX;"20220111";"          -05.1994";"         -37.1536";Tipo II-C           ;
+RNEEP4;VILA ESPIRITO SANTO IV  ANTIGA POTIGUAR B24;RN;37.800;EX;"20220225";"          -05.2251";"         -37.1547";Tipo II-C           ;
+RNEEP5;VILA ESPIRITO SANTO V  ANTIGA POTIGUAR B25;RN;37.800;EX;"20211231";"          -05.2347";"         -37.1342";Tipo II-C           ;
+RNEEU4;EURUS IV;RN;27.000;EX;"20150820";"          -05.2622";"         -35.8145";Tipo II-C           ;
+RNEFG1;FILGUEIRA I;RN;39.050;EX;"20220122";"          -05.0207";"         -36.9989";Tipo II-C           ;
+RNEFG2;FILGUEIRA II;RN;28.400;EX;"20211104";"          -05.0127";"         -37.0396";Tipo II-C           ;
+RNEFIB;FIGUEIRA BRANCA;RN;10.650;EX;"20210717";"          -05.2424";"         -35.4615";Tipo II-C           ;
+RNEFTO;FAROL DE TOUROS;RN;24.850;EX;"20210916";"          -05.2550";"         -35.5018";Tipo II-C           ;
+RNEGAM;GAMELEIRA;RN;17.750;EX;"20210806";"          -05.2444";"         -35.4591";Tipo II-C           ;
+RNEGUA;DREEN GUAJIRU;RN;21.000;EX;"20181228";"          -05.0924";"         -35.9073";Tipo II-C           ;
+RNEJ23;VENTOS DE SAO JANUARIO 23;RN;58.800;EX;"20211224";"          -05.8908";"         -35.9608";Tipo II-C           ;
+RNEJAN;GE JANGADA;RN;27.300;EX;"20181229";"          -05.0575";"         -36.0146";Tipo II-C           ;
+RNEJER;JERICO;RN;32.900;EX;"20171228";"          -05.3689";"         -36.0927";Tipo II-C           ;
+RNEJU1;JUNCO I;RN;24.000;EX;"20151205";"          -05.0265";"         -36.9165";Tipo II-C           ;
+RNEJU2;JUNCO II;RN;24.000;EX;"20151205";"          -05.0132";"         -36.9160";Tipo II-C           ;
+RNEJUR;JUREMAS;RN;16.100;EX;"20141205";"          -05.3898";"         -35.8463";Tipo II-C           ;
+RNELAN;LANCHINHA;RN;28.000;EX;"20160219";"          -06.1353";"         -36.7220";Tipo II-C           ;
+RNEM01;VENTOS DE SANTA MARTINA 01;RN;63.000;EX;"20211014";"          -05.7300";"         -35.9053";Tipo II-C           ;
+RNEM09;VENTOS DE SANTA MARTINA 09;RN;63.000;EX;"20210619";"          -05.8192";"         -35.9228";Tipo II-C           ;
+RNEM10;VENTOS DE SANTA MARTINA 10;RN;63.000;EX;"20210714";"          -05.8504";"         -35.9419";Tipo II-C           ;
+RNEM11;VENTOS DE SANTA MARTINA 11;RN;58.800;EX;"20210819";"          -05.7831";"         -35.9050";Tipo II-C           ;
+RNEM12;VENTOS DE SANTA MARTINA 12;RN;58.800;EX;"20210917";"          -05.7592";"         -35.8861";Tipo II-C           ;
+RNEM13;VENTOS DE SANTA MARTINA 13;RN;63.000;EX;"20210831";"          -05.7111";"         -35.8958";Tipo II-C           ;
+RNEM14;VENTOS DE SANTA MARTINA 14;RN;63.000;EX;"20211119";"          -05.7150";"         -35.8828";Tipo II-C           ;
+RNEMA1;VILA MARANHAO I;RN;31.950;EX;"20210211";"          -05.0760";"         -36.9930";Tipo II-C           ;
+RNEMA2;VILA MARANHAO II;RN;31.950;EX;"20210331";"          -05.0520";"         -36.9945";Tipo II-C           ;
+RNEMA3;VILA MARANHAO III;RN;31.950;EX;"20200929";"          -05.1293";"         -37.0052";Tipo II-C           ;
+RNEMAC;MACACOS;RN;20.700;EX;"20141211";"          -05.4120";"         -35.8483";Tipo II-C           ;
+RNEMC1;MACAMBIRA I;RN;18.000;EX;"20160714";"          -06.0463";"         -36.5551";Tipo II-C           ;
+RNEMC2;MACAMBIRA II;RN;18.000;EX;"20160723";"          -06.0754";"         -36.5302";Tipo II-C           ;
+RNEMHE;GE MARIA HELENA;RN;27.300;EX;"20181228";"          -05.0681";"         -36.0145";Tipo II-C           ;
+RNEMON;SANTA MONICA;RN;29.400;EX;"20161209";"          -05.2798";"         -35.8006";Tipo II-C           ;
+RNEMT1;VENTOS DE VILA MATO GROSSO I  ANTIGA VILA ALAGOAS;RN;58.905;EX;"20210611";"          -05.1722";"         -37.1082";Tipo II-C           ;
+RNEMTO;VENTOS DE SAO MARTINHO;RN;14.700;EX;"20161104";"          -05.2779";"         -35.7809";Tipo II-C           ;
+RNEP31;POTIGUAR B 31;RN;45.045;EX;"20210420";"          -05.2696";"         -37.1139";Tipo II-C           ;
+RNEP32;POTIGUAR B 32;RN;48.510;EX;"20210430";"          -05.1837";"         -36.9827";Tipo II-C           ;
+RNEP33;POTIGUAR B 33;RN;58.905;EX;"20210602";"          -05.2682";"         -37.1540";Tipo II-C           ;
+RNEPB1;VENTOS DE VILA PARAIBA I;RN;34.650;EX;"20200528";"          -05.1300";"         -36.9770";Tipo II-C           ;
+RNEPB2;VENTOS DE VILA PARAIBA II;RN;34.650;EX;"20200410";"          -05.1055";"         -36.9771";Tipo II-C           ;
+RNEPEL;PELADO;RN;20.000;EX;"20160220";"          -06.0043";"         -36.4353";Tipo II-C           ;
+RNEPEP;PEDRA PRETA;RN;20.700;EX;"20141203";"          -05.4268";"         -35.8534";Tipo II-C           ;
+RNEPI1;VILA PIAUI I;RN;37.800;EX;"20200717";"          -05.0971";"         -37.1047";Tipo II-C           ;
+RNEPI2;VILA PIAUI II;RN;37.800;EX;"20200827";"          -05.0982";"         -37.0795";Tipo II-C           ;
+RNEPI3;VILA PIAUI III;RN;42.000;EX;"20200707";"          -05.1025";"         -37.0636";Tipo II-C           ;
+RNEPOT;POTIGUAR;RN;27.300;EX;"20181228";"          -05.0619";"         -35.9048";Tipo II-C           ;
+RNEPR1;RENASCENCA I;RN;30.000;EX;"20141224";"          -05.3043";"         -35.8692";Tipo II-C           ;
+RNEPR2;RENASCENCA II;RN;30.000;EX;"20141224";"          -05.3070";"         -35.8887";Tipo II-C           ;
+RNEPR3;RENASCENCA III;RN;30.000;EX;"20141224";"          -05.2953";"         -35.8957";Tipo II-C           ;
+RNEPR4;RENASCENCA IV;RN;30.000;EX;"20141224";"          -05.2981";"         -35.9164";Tipo II-C           ;
+RNEPRA;PEDRA RAJADA;RN;20.000;EX;"20171207";"          -05.9142";"         -36.3092";Tipo II-C           ;
+RNEPRD;PEDRA RAJADA II;RN;20.000;EX;"20171207";"          -05.8876";"         -36.2893";Tipo II-C           ;
+RNEPVN;PARAISO DOS VENTOS DO NORDESTE;RN;27.300;EX;"20190105";"          -05.0848";"         -35.9444";Tipo II-C           ;
+RNERED;REDUTO;RN;27.000;EX;"20170617";"          -05.1282";"         -35.6887";Tipo II-C           ;
+RNERN1;VILA RIO GRANDE DO NORTE I;RN;25.200;EX;"20200325";"          -05.1569";"         -37.0209";Tipo II-C           ;
+RNERN2;VILA RIO GRANDE DO NORTE II;RN;37.800;EX;"20200418";"          -05.1410";"         -37.0401";Tipo II-C           ;
+RNESA1;SANTANA I;RN;30.000;EX;"20161228";"          -06.0535";"         -36.4556";Tipo II-C           ;
+RNESA2;SANTANA II;RN;24.000;EX;"20161228";"          -06.0428";"         -36.4640";Tipo II-C           ;
+RNESB1;SAO BENTO DO NORTE I;RN;23.100;EX;"20190129";"          -05.1274";"         -35.9326";Tipo II-C           ;
+RNESB2;SAO BENTO DO NORTE II;RN;23.100;EX;"20190129";"          -05.1466";"         -35.9362";Tipo II-C           ;
+RNESB3;SAO BENTO DO NORTE III;RN;23.100;EX;"20190408";"          -05.0743";"         -36.0307";Tipo II-C           ;
+RNESCR;SANTO CRISTO;RN;27.000;EX;"20170617";"          -05.1355";"         -35.6207";Tipo II-C           ;
+RNESF1;SAO FERNANDO 1;RN;76.230;EX;"20201003";"          -05.1769";"         -36.0113";Tipo II-C           ;
+RNESF2;SAO FERNANDO 2;RN;72.765;EX;"20201215";"          -05.1801";"         -36.0287";Tipo II-C           ;
+RNESF3;SAO FERNANDO 3;RN;24.255;EX;"20201225";"          -05.1529";"         -36.0422";Tipo II-C           ;
+RNESF4;SAO FERNANDO 4;RN;83.160;EX;"20210330";"          -05.1288";"         -36.0150";Tipo II-C           ;
+RNESHE;SANTA HELENA;RN;29.700;EX;"20150506";"          -05.4721";"         -35.9162";Tipo II-C           ;
+RNESJO;SAO JOAO;RN;27.000;EX;"20170620";"          -05.1287";"         -35.6538";Tipo II-C           ;
+RNESM1;SAO MIGUEL I;RN;21.000;EX;"20190214";"          -05.1540";"         -35.9853";Tipo II-C           ;
+RNESM2;SAO MIGUEL II;RN;21.000;EX;"20190202";"          -05.1566";"         -35.9982";Tipo II-C           ;
+RNESM3;SAO MIGUEL III;RN;21.000;EX;"20190214";"          -05.1560";"         -35.9994";Tipo II-C           ;
+RNESMA;SM  SANTA MARIA;RN;29.700;EX;"20150423";"          -05.4421";"         -35.9233";Tipo II-C           ;
+RNESR1;SANTA ROSA E MUNDO NOVO I;RN;33.600;EX;"20220208";"          -05.9132";"         -36.1539";Tipo II-C           ;
+RNESR2;SANTA ROSA E MUNDO NOVO II;RN;29.400;EX;"20211201";"          -05.8835";"         -36.1975";Tipo II-C           ;
+RNESR3;SANTA ROSA E MUNDO NOVO III;RN;33.600;EX;"20220105";"          -05.8537";"         -36.2604";Tipo II-C           ;
+RNESR4;SANTA ROSA E MUNDO NOVO IV;RN;33.600;EX;"20220101";"          -05.8744";"         -36.2667";Tipo II-C           ;
+RNESR5;SANTA ROSA E MUNDO NOVO V;RN;25.200;EX;"20211218";"          -05.9004";"         -36.2055";Tipo II-C           ;
+RNESS1;SERRA DE SANTANA I;RN;20.000;EX;"20160302";"          -06.0565";"         -36.5804";Tipo II-C           ;
+RNESS2;SERRA DE SANTANA II;RN;30.000;EX;"20160302";"          -06.1014";"         -36.5786";Tipo II-C           ;
+RNESS3;SERRA DE SANTANA III;RN;30.000;EX;"20160302";"          -06.0248";"         -36.5119";Tipo II-C           ;
+RNESUR;VENTOS DE SANTO URIEL;RN;16.200;EX;"20150522";"          -05.4873";"         -35.9001";Tipo II-C           ;
+RNETER;TERRAL;RN;30.000;EX;"20150324";"          -04.9618";"         -37.0355";Tipo II-C           ;
+RNETS1;TERRA SANTA I;RN;60.350;EX;"20210814";"          -05.2569";"         -36.0575";Tipo II-C           ;
+RNETS2;TERRA SANTA II;RN;31.950;EX;"20210629";"          -05.2298";"         -36.1029";Tipo II-C           ;
+RNEUBZ;UMBUZEIROS;RN;32.900;EX;"20180330";"          -05.4115";"         -36.0834";Tipo II-C           ;
+RNEURS;SANTA URSULA;RN;27.300;EX;"20161115";"          -05.2937";"         -35.7893";Tipo II-C           ;
+RNEVA2;VILA ACRE II;RN;31.185;EX;"20191225";"          -05.0447";"         -37.0245";Tipo II-C           ;
+RNEVA5;VILA AMAZONAS V;RN;24.000;EX;"20160827";"          -04.9881";"         -36.9646";Tipo II-C           ;
+RNEVAI;VILA ACRE I;RN;27.300;EX;"20170623";"          -05.0636";"         -37.0291";Tipo II-C           ;
+RNEVP1;VILA PARA I;RN;27.000;EX;"20160910";"          -05.0148";"         -36.9645";Tipo II-C           ;
+RNEVP2;VILA PARA II;RN;24.000;EX;"20160915";"          -05.0357";"         -36.9644";Tipo II-C           ;
+RNEVP3;VILA PARA III;RN;24.000;EX;"20161007";"          -05.0656";"         -36.9643";Tipo II-C           ;
+RNEVS1;VILA SERGIPE I;RN;37.800;EX;"20200527";"          -05.1482";"         -37.0622";Tipo II-C           ;
+RNEVS2;VILA SERGIPE II;RN;37.800;EX;"20200530";"          -05.1601";"         -37.0639";Tipo II-C           ;
+RNEVS3;VILA SERGIPE III;RN;16.800;EX;"20200609";"          -05.1765";"         -37.0810";Tipo II-C           ;
+RNEVSM;VENTOS DE SAO MIGUEL;RN;30.000;EX;"20141224";"          -05.2839";"         -35.8755";Tipo II-C           ;
+RNMEL0;MEL 02;RN;20.000;EX;"20130219";"          -04.9467";"         -36.9641";Tipo III            ;
+RNMIAS;MIASSABA II;RN;14.400;EX;"20111222";"          -05.0826";"         -36.4074";Tipo III            ;
+RNPARQ;CABECO PRETO IV;RN;19.800;EX;"20120504";"          -05.4484";"         -35.9561";Tipo III            ;
+RNPARU;CABECO PRETO;RN;19.800;EX;"20120504";"          -05.4187";"         -35.9540";Tipo III            ;
+RNTEB1;TODA ENERGIA DO BRASIL;RN;31.095;EX;"20210907";"          -05.0922";"         -37.1055";Tipo II-C           ;
+RNUAD;ALEGRIA II;RN;100.650;EX;"20111230";"          -05.1243";"         -36.3833";Tipo I              ;
+RNUAU;ALEGRIA I;RN;51.000;EX;"20101230";"          -05.0942";"         -36.3631";Tipo I              ;
+RNUE12;UNIAO DOS VENTOS 12;RN;25.200;EX;"20180210";"          -05.1044";"         -35.8533";Tipo II-C           ;
+RNUE13;UNIAO DOS VENTOS 13;RN;18.900;EX;"20180127";"          -05.0837";"         -35.8623";Tipo II-C           ;
+RNUE14;UNIAO DOS VENTOS 14;RN;21.000;EX;"20180126";"          -05.1053";"         -35.8720";Tipo II-C           ;
+RNUE15;UNIAO DOS VENTOS 15;RN;31.500;EX;"20191217";"          -05.2942";"         -35.7466";Tipo II-C           ;
+RNUE16;UNIAO DOS VENTOS 16;RN;28.875;EX;"20191219";"          -05.2637";"         -35.7638";Tipo II-C           ;
+RNUEAB;AREIA BRANCA;RN;27.300;EX;"20140218";"          -04.9686";"         -36.9009";Tipo II-C           ;
+RNUEBV;DREEN BOA VISTA;RN;14.000;EX;"20150225";"          -05.1106";"         -35.9279";Tipo II-C           ;
+RNUEC1;SANTA CLARA I;RN;30.000;EX;"20140329";"          -05.2432";"         -35.8988";Tipo II-C           ;
+RNUEC2;SANTA CLARA II;RN;30.000;EX;"20140329";"          -05.2675";"         -35.9102";Tipo II-C           ;
+RNUEC3;SANTA CLARA III;RN;30.000;EX;"20140329";"          -05.2688";"         -35.9036";Tipo II-C           ;
+RNUEC4;SANTA CLARA IV;RN;30.000;EX;"20140329";"          -05.2394";"         -35.9135";Tipo II-C           ;
+RNUEC5;SANTA CLARA V;RN;30.000;EX;"20140329";"          -05.2597";"         -35.9217";Tipo II-C           ;
+RNUEC6;SANTA CLARA VI;RN;30.000;EX;"20140329";"          -05.2403";"         -35.9270";Tipo II-C           ;
+RNUEER;EURUS II;RN;30.000;EX;"20150101";"          -05.3919";"         -35.8331";Tipo II-C           ;
+RNUEFA;FAROL;RN;20.000;EX;"20150225";"          -05.0970";"         -36.0204";Tipo II-C           ;
+RNUEG1;CALANGO 1;RN;30.000;EX;"20160130";"          -06.0339";"         -36.5440";Tipo II-C           ;
+RNUEG2;CALANGO 2;RN;30.000;EX;"20160130";"          -06.0166";"         -36.4835";Tipo II-C           ;
+RNUEG3;CALANGO 3;RN;30.000;EX;"20160130";"          -06.0489";"         -36.5460";Tipo II-C           ;
+RNUEG4;CALANGO 4;RN;30.000;EX;"20160130";"          -06.0236";"         -36.4720";Tipo II-C           ;
+RNUEG5;CALANGO 5;RN;30.000;EX;"20160130";"          -06.0303";"         -36.4880";Tipo II-C           ;
+RNUEG6;CALANGO 6;RN;30.000;EX;"20161228";"          -06.0005";"         -36.4498";Tipo II-C           ;
+RNUEM1;MANGUE SECO 1;RN;26.000;EX;"20110930";"          -05.1740";"         -36.3024";Tipo II-C           ;
+RNUEM2;MANGUE SECO 2;RN;26.000;EX;"20110924";"          -05.1658";"         -36.3192";Tipo II-C           ;
+RNUEM3;MANGUE SECO 3;RN;26.000;EX;"20110826";"          -05.1851";"         -36.3610";Tipo II-C           ;
+RNUEM5;MANGUE SECO 5;RN;26.000;EX;"20111101";"          -05.1675";"         -36.4070";Tipo II-C           ;
+RNUEMD;MODELO II;RN;25.850;EX;"20141023";"          -05.4144";"         -35.9001";Tipo II-C           ;
+RNUEMP;MODELO I;RN;30.550;EX;"20141025";"          -05.4308";"         -35.8931";Tipo II-C           ;
+RNUEMT;MAR E TERRA;RN;23.100;EX;"20140218";"          -04.9640";"         -36.9147";Tipo II-C           ;
+RNUEOD;DREEN OLHO D'AGUA;RN;30.000;EX;"20150225";"          -05.0545";"         -35.9687";Tipo II-C           ;
+RNUER1;RIACHAO VI;RN;29.700;EX;"20150601";"          -05.5376";"         -35.4467";Tipo II-C           ;
+RNUER2;RIACHAO II;RN;27.000;EX;"20150601";"          -05.5694";"         -35.4473";Tipo II-C           ;
+RNUER3;RIACHAO I;RN;29.700;EX;"20150627";"          -05.5230";"         -35.4285";Tipo II-C           ;
+RNUER4;RIACHAO IV;RN;29.700;EX;"20150601";"          -05.5211";"         -35.4690";Tipo II-C           ;
+RNUER6;EURUS VI;RN;08.000;EX;"20140329";"          -05.2329";"         -35.9319";Tipo II-C           ;
+RNUER7;RIACHAO VII;RN;29.700;EX;"20150601";"          -05.5778";"         -35.4640";Tipo II-C           ;
+RNUERF;RN 15   RIO DO FOGO;RN;49.300;EX;"20060715";"          -05.3097";"         -35.3867";Tipo III            ;
+RNUERN;RENASCENCA V;RN;30.000;EX;"20150101";"          -05.2698";"         -35.8589";Tipo II-C           ;
+RNUERT;REI DOS VENTOS 3;RN;60.120;EX;"20140201";"          -05.1188";"         -36.1632";Tipo I              ;
+RNUERU;REI DOS VENTOS 1;RN;58.450;EX;"20140201";"          -05.1009";"         -36.2021";Tipo I              ;
+RNUES3;MIASSABA 3;RN;68.470;EX;"20140201";"          -05.1294";"         -36.4497";Tipo I              ;
+RNUESB;DREEN SAO BENTO DO NORTE;RN;30.000;EX;"20150225";"          -05.0530";"         -35.9784";Tipo II-C           ;
+RNUEV1;UNIAO DOS VENTOS 1;RN;22.400;EX;"20140405";"          -05.0774";"         -35.8398";Tipo II-C           ;
+RNUEV2;UNIAO DOS VENTOS 2;RN;22.400;EX;"20140405";"          -05.0806";"         -35.8258";Tipo II-C           ;
+RNUEV3;UNIAO DOS VENTOS 3;RN;22.400;EX;"20140408";"          -05.0825";"         -35.8100";Tipo II-C           ;
+RNUEV4;UNIAO DOS VENTOS 4;RN;11.200;EX;"20140408";"          -05.0903";"         -35.7980";Tipo II-C           ;
+RNUEV5;UNIAO DOS VENTOS 5;RN;24.000;EX;"20140408";"          -05.0904";"         -35.7820";Tipo II-C           ;
+RNUEV6;UNIAO DOS VENTOS 6;RN;12.800;EX;"20140405";"          -05.0946";"         -35.7670";Tipo II-C           ;
+RNUEV7;UNIAO DOS VENTOS 7;RN;14.400;EX;"20140405";"          -05.0971";"         -35.7520";Tipo II-C           ;
+RNUEV8;UNIAO DOS VENTOS 8;RN;14.400;EX;"20140405";"          -05.0727";"         -35.8880";Tipo II-C           ;
+RNUEV9;UNIAO DOS VENTOS 9;RN;11.200;EX;"20140405";"          -05.0872";"         -35.8870";Tipo II-C           ;
+RNUEVX;UNIAO DOS VENTOS 10;RN;14.400;EX;"20140405";"          -05.1072";"         -35.8890";Tipo II-C           ;
+RSACA1;ATLANTICA I;RS;30.000;EX;"20140219";"          -30.3188";"         -50.3161";Tipo II-C           ;
+RSACA2;ATLANTICA II;RS;30.000;EX;"20140301";"          -30.3266";"         -50.3234";Tipo II-C           ;
+RSACA4;ATLANTICA IV;RS;30.000;EX;"20140322";"          -30.2919";"         -50.3350";Tipo II-C           ;
+RSACA5;ATLANTICA V;RS;30.000;EX;"20131114";"          -30.2915";"         -50.3050";Tipo II-C           ;
+RSAG04;AURA MANGUEIRA IV;RS;21.000;EX;"20170902";"          -33.0656";"         -52.8640";Tipo II-C           ;
+RSAG06;AURA MANGUEIRA VI;RS;27.000;EX;"20170915";"          -33.0512";"         -52.8585";Tipo II-C           ;
+RSAG07;AURA MANGUEIRA VII;RS;24.000;EX;"20161227";"          -33.1895";"         -52.9301";Tipo II-C           ;
+RSAG11;AURA MANGUEIRA XI;RS;09.000;EX;"20170202";"          -33.1761";"         -52.9207";Tipo II-C           ;
+RSAG12;AURA MANGUEIRA XII;RS;15.000;EX;"20170602";"          -33.0991";"         -52.8783";Tipo II-C           ;
+RSAG13;AURA MANGUEIRA XIII;RS;15.000;EX;"20170513";"          -33.1184";"         -52.9001";Tipo II-C           ;
+RSAG15;AURA MANGUEIRA XV;RS;18.000;EX;"20170325";"          -33.1634";"         -52.8937";Tipo II-C           ;
+RSAG17;AURA MANGUEIRA XVII;RS;15.000;EX;"20170721";"          -33.0951";"         -52.8435";Tipo II-C           ;
+RSAR02;AURA MIRIM II;RS;30.000;EX;"20161227";"          -33.1380";"         -52.9120";Tipo II-C           ;
+RSAR04;AURA MIRIM IV;RS;15.000;EX;"20170202";"          -33.2078";"         -52.9297";Tipo II-C           ;
+RSAR06;AURA MIRIM VI;RS;09.000;EX;"20170708";"          -33.0984";"         -52.8620";Tipo II-C           ;
+RSAR08;AURA MIRIM VIII;RS;09.000;EX;"20170708";"          -33.0871";"         -52.8957";Tipo II-C           ;
+RSCH01;EOL CHUI I;RS;24.000;EX;"20150616";"          -33.6565";"         -53.3936";Tipo II-C           ;
+RSCH02;EOL CHUI II;RS;22.000;EX;"20150616";"          -33.6594";"         -53.4003";Tipo II-C           ;
+RSCH04;EOL CHUI IV;RS;22.000;EX;"20150609";"          -33.6647";"         -53.4164";Tipo II-C           ;
+RSCH05;EOL CHUI V;RS;30.000;EX;"20150523";"          -33.6681";"         -53.4218";Tipo II-C           ;
+RSCH09;EOL CHUI 09;RS;17.900;EX;"20151022";"          -33.6877";"         -53.3810";Tipo II-C           ;
+RSCSE2;CORREDOR SENANDES II;RS;21.600;EX;"20150204";"          -32.3862";"         -52.3270";Tipo II-C           ;
+RSCSE3;CORREDOR SENANDES III;RS;27.000;EX;"20150123";"          -32.4127";"         -52.3555";Tipo II-C           ;
+RSCSE4;CORREDOR SENANDES IV;RS;29.700;EX;"20150411";"          -32.3689";"         -52.3420";Tipo II-C           ;
+RSECC1;CERRO CHATO I;RS;30.000;EX;"20120106";"          -30.8407";"         -55.7251";Tipo II-C           ;
+RSECC2;CERRO CHATO II;RS;30.000;EX;"20110831";"          -30.8485";"         -55.6856";Tipo II-C           ;
+RSECC3;CERRO CHATO III;RS;30.000;EX;"20110607";"          -30.8018";"         -55.7142";Tipo II-C           ;
+RSECIN;CAPAO DO INGLES;RS;10.000;EX;"20151216";"          -30.9163";"         -55.7084";Tipo II-C           ;
+RSECSE;COXILHA SECA;RS;30.000;EX;"20151222";"          -30.8879";"         -55.7353";Tipo II-C           ;
+RSEGAL;GALPOES;RS;08.000;EX;"20151216";"          -30.8808";"         -55.6765";Tipo II-C           ;
+RSEIB1;EOL IBIRAPUITA 1;RS;25.200;EX;"20150827";"          -30.7709";"         -55.6629";Tipo II-C           ;
+RSEIN2;INDIOS 2;RS;29.900;EX;"20141216";"          -30.0035";"         -50.3319";Tipo II-C           ;
+RSEIN3;INDIOS 3;RS;23.000;EX;"20141216";"          -29.9831";"         -50.3324";Tipo II-C           ;
+RSEOS2;OSORIO 2;RS;27.600;EX;"20121219";"          -29.9535";"         -50.2520";Tipo II-C           ;
+RSEOS3;OSORIO 3;RS;29.900;EX;"20130215";"          -29.9810";"         -50.2550";Tipo II-C           ;
+RSEP2A;PONTAL 2A;RS;21.600;EX;"20161202";"          -30.2648";"         -50.7834";Tipo II-C           ;
+RSEP2B;EOL PONTAL 2B;RS;11.200;EX;"20150425";"          -30.2779";"         -50.7978";Tipo II-C           ;
+RSEP3B;PONTAL 3B;RS;27.000;EX;"20170117";"          -30.2559";"         -50.7662";Tipo II-C           ;
+RSEVS2;SANGRADOURO 2;RS;29.900;EX;"20121002";"          -29.9390";"         -50.3130";Tipo II-C           ;
+RSEVS3;SANGRADOURO 3;RS;27.600;EX;"20120522";"          -29.9595";"         -50.3155";Tipo II-C           ;
+RSEVSI;INDIOS;RS;50.000;EX;"20061213";"          -29.9776";"         -50.2831";Tipo II-C           ;
+RSEVSO;OSORIO;RS;50.000;EX;"20060629";"          -29.9583";"         -50.2833";Tipo II-C           ;
+RSEVSS;SANGRADOURO;RS;50.000;EX;"20060930";"          -29.9679";"         -50.2826";Tipo II-C           ;
+RSFAZD;FAZENDA ROSARIO 3;RS;16.100;EX;"20110630";"          -30.4525";"         -50.4226";Tipo III            ;
+RSFAZE;FAZENDA ROSARIO;RS;09.200;EX;"20110630";"          -30.4469";"         -50.3888";Tipo III            ;
+RSFAZN;FAZENDA ROSARIO 2;RS;23.000;EX;"20130327";"          -30.4398";"         -50.4053";Tipo III            ;
+RSMN01;EOLICA MINUANO I;RS;22.000;EX;"20150526";"          -33.7228";"         -53.3990";Tipo II-C           ;
+RSMN02;EOLICA MINUANO II;RS;24.000;EX;"20150526";"          -33.7174";"         -53.4167";Tipo II-C           ;
+RSPARQ;PARQUE EOLICO DE PALMARES;RS;09.200;EX;"20101229";"          -30.4580";"         -50.3906";Tipo III            ;
+RSREB1;REB CASSINO I;RS;22.000;EX;"20150114";"          -32.2169";"         -52.2040";Tipo II-C           ;
+RSREB2;REB CASSINO II;RS;20.000;EX;"20150114";"          -32.2103";"         -52.2120";Tipo II-C           ;
+RSREB3;REB CASSINO III;RS;22.000;EX;"20150114";"          -32.2183";"         -52.2030";Tipo II-C           ;
+RSUECI;CIDREIRA;RS;70.000;EX;"20110521";"          -30.0791";"         -50.1721";Tipo II-B           ;
+RSUEXG;XANGRI LA;RS;31.700;EX;"20141211";"          -29.7767";"         -50.0736";Tipo II-B           ;
+RSVAR1;VENTO ARAGANO;RS;29.700;EX;"20150430";"          -32.4145";"         -52.3729";Tipo II-C           ;
+RSVC01;VERACE I;RS;20.000;EX;"20150224";"          -33.4952";"         -53.2711";Tipo II-C           ;
+RSVC02;VERACE II;RS;20.000;EX;"20150224";"          -33.5086";"         -53.2832";Tipo II-C           ;
+RSVC03;VERACE III;RS;26.000;EX;"20150224";"          -33.5220";"         -53.2790";Tipo II-C           ;
+RSVC04;VERACE IV;RS;30.000;EX;"20150224";"          -33.5516";"         -53.2273";Tipo II-C           ;
+RSVC05;VERACE V;RS;30.000;EX;"20150224";"          -33.5357";"         -53.3012";Tipo II-C           ;
+RSVC06;VERACE VI;RS;18.000;EX;"20150224";"          -33.5431";"         -53.2769";Tipo II-C           ;
+RSVC07;VERACE VII;RS;30.000;EX;"20150224";"          -33.5668";"         -53.2460";Tipo II-C           ;
+RSVC08;VERACE VIII;RS;26.000;EX;"20150224";"          -33.5530";"         -53.3108";Tipo II-C           ;
+RSVC09;VERACE IX;RS;30.000;EX;"20150224";"          -33.5767";"         -53.2953";Tipo II-C           ;
+RSVC10;VERACE X;RS;28.000;EX;"20150224";"          -33.5913";"         -53.2716";Tipo II-C           ;
+RSVC24;VERACE 24;RS;19.690;EX;"20151126";"          -33.6392";"         -53.3098";Tipo II-C           ;
+RSVC25;VERACE 25;RS;07.160;EX;"20151126";"          -33.6395";"         -53.3253";Tipo II-C           ;
+RSVC26;VERACE 26;RS;14.320;EX;"20151126";"          -33.6531";"         -53.3044";Tipo II-C           ;
+RSVC27;VERACE 27;RS;16.110;EX;"20151126";"          -33.6543";"         -53.3238";Tipo II-C           ;
+RSVC28;VERACE 28;RS;12.530;EX;"20151216";"          -33.6341";"         -53.3538";Tipo II-C           ;
+RSVC29;VERACE 29;RS;17.900;EX;"20151216";"          -33.6180";"         -53.3574";Tipo II-C           ;
+RSVC30;VERACE 30;RS;17.900;EX;"20151216";"          -33.6103";"         -53.3443";Tipo II-C           ;
+RSVC31;VERACE 31;RS;08.950;EX;"20151216";"          -33.6070";"         -53.3256";Tipo II-C           ;
+RSVC34;VERACE 34;RS;14.320;EX;"20160107";"          -33.5621";"         -53.3529";Tipo II-C           ;
+RSVC35;VERACE 35;RS;12.530;EX;"20151211";"          -33.5847";"         -53.3595";Tipo II-C           ;
+RSVC36;VERACE 36;RS;21.480;EX;"20151225";"          -33.5957";"         -53.3681";Tipo II-C           ;
+SCEABA;AQUIBATA;SC;30.000;EX;"20111213";"          -26.5849";"         -51.7534";Tipo II-C           ;
+SCEAMO;AMPARO;SC;22.500;EX;"20111224";"          -26.6183";"         -51.5645";Tipo II-C           ;
+SCECAL;CRUZ ALTA;SC;30.000;EX;"20111109";"          -26.5996";"         -51.7255";Tipo II-C           ;
+SCECBO;CAMPO BELO;SC;10.500;EX;"20111115";"          -26.6124";"         -51.7402";Tipo II-C           ;
+SCECCA;CASCATA;SC;06.000;EX;"20111027";"          -26.5889";"         -51.7427";Tipo II-C           ;
+SCEOLC;EOLICA DE BOM JARDIM;SC;00.600;EX;"20020330";"          -28.3867";"         -49.5614";Tipo III            ;
+SCEOLI;AGUA DOCE;SC;09.000;EX;"20060907";"          -26.5839";"         -51.6876";Tipo III            ;
+SCESTO;SALTO;SC;30.000;EX;"20111202";"          -26.5885";"         -51.8138";Tipo II-C           ;
+SCPARQ;PARQUE EOLICO DO HORIZONTE;SC;04.800;EX;"20040301";"          -26.6000";"         -52.7167";Tipo III            ;
+SCTUBA;TUBARAO P&D;SC;02.100;EX;"20141110";"          -28.4809";"         -49.0372";Tipo III            ;
+SCUBJD;BOM JARDIM;SC;30.000;EX;"20111022";"          -28.4414";"         -49.5706";Tipo II-C           ;
+SCUPPT;PULPITO;SC;30.000;EX;"20110819";"          -28.4710";"         -49.6050";Tipo II-C           ;
+SCUROU;RIO DO OURO;SC;30.000;EX;"20110708";"          -28.4466";"         -49.6076";Tipo II-C           ;
+SEBARR;BARRA DOS COQUEIROS;SE;34.500;EX;"20120901";"          -10.8100";"         -36.9293";Tipo III            ;
+BAENGI;ANGICO;BA;8.1;NE;"20220524";"          -13.8948";"         -42.7027";Tipo II-C           
+BAETBQ;TABOQUINHA;BA;21.6;NE;"20220608";"          -13.9077";"         -42.7050";Tipo II-C           
+BAEAMC;AMESCLA;BA;13.5;NE;"20220819";"          -13.8400";"         -42.7000";Tipo II-C           
+BAEGEL;ANGELIM;BA;21.6;NE;"20220916";"          -14.0400";"         -42.6500";Tipo II-C           
+BAEBAB;BARBATIMAO;BA;16.2;NE;"20220916";"          -13.8300";"         -42.7000";Tipo II-C           
+BAECED;CEDRO;BA;3;NE;"20220819";"          -14.3300";"         -42.5700";Tipo II-C           
+BAEFAC;FACHEIO;BA;16.2;NE;"20220820";"          -13.9900";"         -42.6900";Tipo II-C           
+BAEIBM;IMBURANA MACHO;BA;16.2;NE;"20220819";"          -13.8600";"         -42.6900";Tipo II-C           
+BAEJAT;JATAI;BA;16.2;NE;"20220819";"          -13.8300";"         -42.6900";Tipo II-C           
+BAEJUA;JUAZEIRO;BA;18.9;NE;"20220819";"          -13.8400";"         -42.6900";Tipo II-C           
+BAESBU;SABIU;BA;13.5;NE;"20220819";"          -14.0200";"         -42.6600";Tipo II-C           
+BAEUMB;UMBUZEIRO;BA;18.9;NE;"20220819";"          -13.9800";"         -42.6700";Tipo II-C           
+032113-3;VELLOZIA;BA;16.5;NE;"20220819";"          00.0000";"         00.0000";
+BAEMNN;MANINEIRO;BA;13.8;NE;"20220716";"          -14.0200";"         -42.6800";Tipo II-C           
+BAEPDA;PAU D'AGUA;BA;18;NE;"20220819";"          -14.5400";"         -42.5800";Tipo II-C           
+BAEMLG;MULUNGU;BA;13.5;NE;"20220914";"          -14.0100";"         -42.6700";Tipo II-C           
+BAEQUN;QUINA;BA;10.8;NE;"20220816";"          -13.9800";"         -42.6800";Tipo II-C           
+BAMBD;MORRO BRANCO II;BA;31.185;NE;"20220810";"          -09.8400";"         -41.0400";Tipo II-C           
+BATU02;TUCANO II;BA;24.8;NE;"20230330";"          -11.1900";"         -38.7816";Tipo II-C           
+BATU03;TUCANO III;BA;43.4;NE;"20221121";"          -11.3294";"         -38.8044";Tipo II-C           
+BATU04;TUCANO IV;BA;43.4;NE;"20230301";"          -11.4200";"         -38.8127";Tipo II-C           
+BATU06;TUCANO VI;BA;49.6;NE;"20220709";"          -11.2277";"         -38.7919";Tipo II-C           
+BATU07;TUCANO VII;BA;55.8;NE;"20221229";"          -11.2563";"         -38.8111";Tipo II-C           
+BATU08;TUCANO VIII;BA;49.6;NE;"20230305";"          -11.2858";"         -38.7988";Tipo II-C           
+BATU10;TUCANO X;BA;43.4;NE;"20221031";"          -11.2983";"         -38.8011";Tipo II-C           
+BAJA15;VENTOS DE SAO JANUARIO 15;BA;72;NE;"20250103";"          -11.0800";"         -41.2700";Tipo II-C           
+032804-9;AURA CAETITE 03;BA;29.4;NE;"20250121";"          00.0000";"         00.0000";
+032805-7;AURA CAETITE 04;BA;21.2;NE;"20250121";"          00.0000";"         00.0000";
+BAJA16;VENTOS DE SAO JANUARIO 16;BA;72;NE;"20250607";"          -11.1000";"         -41.2800";Tipo II-C           
+BAJA17;VENTOS DE SAO JANUARIO 17;BA;72;NE;"20250103";"          -11.1300";"         -41.2900";Tipo II-C           
+BAJA18;VENTOS DE SAO JANUARIO 18;BA;72;NE;"20230616";"          -11.1300";"         -41.3000";Tipo II-C           
+BASV03;VENTOS DE SAO VITOR 03;BA;31;NE;"20230207";"          -10.9300";"         -42.5500";Tipo II-C           
+BASV04;VENTOS DE SAO VITOR 04;BA;31;NE;"20230207";"          -10.9400";"         -42.5600";Tipo II-C           
+BASV10;VENTOS DE SAO VITOR 10;BA;43.4;NE;"20230331";"          -10.9500";"         -42.5300";Tipo II-C           
+BASV11;VENTOS DE SAO VITOR 11;BA;31;NE;"20230331";"          -10.9300";"         -42.5400";Tipo II-C           
+BASV12;VENTOS DE SAO VITOR 12;BA;31;NE;"20230806";"          -10.9900";"         -42.5200";Tipo II-C           
+BASV14;VENTOS DE SAO VITOR 14;BA;37.2;NE;"20230516";"          -10.9900";"         -42.5000";Tipo II-C           
+BASV01;VENTOS DE SAO VITOR 01;BA;31;NE;"20230207";"          -10.9000";"         -42.5400";Tipo II-C           
+BASV02;VENTOS DE SAO VITOR 02;BA;31;NE;"20230207";"          -10.9100";"         -42.5500";Tipo II-C           
+BASV05;VENTOS DE SAO VITOR 05;BA;31;NE;"20230208";"          -10.9600";"         -42.5600";Tipo II-C           
+BASV06;VENTOS DE SAO VITOR 06;BA;31;NE;"20220806";"          -10.9700";"         -42.5600";Tipo II-C           
+BASV07;VENTOS DE SAO VITOR 07;BA;43.4;NE;"20230805";"          -10.9900";"         -42.5600";Tipo II-C           
+BASV08;VENTOS DE SAO VITOR 08;BA;31;NE;"20230502";"          -10.9900";"         -42.5400";Tipo II-C           
+BASV09;VENTOS DE SAO VITOR 09;BA;31;NE;"20230502";"          -10.9700";"         -42.5400";Tipo II-C           
+BASV13;VENTOS DE SAO VITOR 13;BA;31;NE;"20230805";"          -10.9800";"         -42.5100";Tipo II-C           
+035172-5;AURA TANQUE NOVO 03;BA;12.6;NE;"20250121";"          00.0000";"         00.0000";
+BAEB23;VENTOS DA BAHIA XXIII;BA;49.5;NE;"20220806";"          -12.0752";"         -41.4953";Tipo II-C           
+BATU16;TUCANO XVI;BA;12.4;NE;"20230124";"          -11.3597";"         -38.8038";Tipo II-C           
+BAB20;BARAUNAS XX;BA;31.185;NE;"20220815";"          -09.7900";"         -41.0100";Tipo II-C           
+037004-5;CAETITE D;BA;50.4;NE;"20221115";"          00.0000";"         00.0000";
+037005-3;CAETITE E;BA;37.8;NE;"20230206";"          00.0000";"         00.0000";
+037006-1;CAETITE F;BA;25.2;NE;"20230330";"          00.0000";"         00.0000";
+BAJA19;VENTOS DE SAO JANUARIO 19;BA;72;NE;"20230616";"          00.0000";"         00.0000";Tipo II-C           
+BAB15;BARAUNAS XV  ANTIGA MASSAROCA I;BA;48.51;NE;"20221121";"          -09.7500";"         -40.9800";Tipo II-C           
+BABAQ;BARAUNAS IV  ANTIGA MASSAROCA II;BA;41.58;NE;"20230102";"          -09.6700";"         -41.1100";Tipo II-C           
+BAVE01;VENTOS DE SANTA EUGENIA 01;BA;51.3;NE;"20230405";"          -11.3900";"         -42.1500";Tipo II-B           
+BAVE02;VENTOS DE SANTA EUGENIA 02;BA;11.4;NE;"20230429";"          -11.3700";"         -42.1800";Tipo II-B           
+BAVE03;VENTOS DE SANTA EUGENIA 03;BA;39.9;NE;"20230306";"          -11.4100";"         -42.1600";Tipo II-B           
+BAVE05;VENTOS DE SANTA EUGENIA 05;BA;34.2;NE;"20230606";"          -11.4500";"         -42.1700";Tipo II-B           
+BAVE06;VENTOS DE SANTA EUGENIA 06;BA;34.2;NE;"20231224";"          -11.4900";"         -42.1300";Tipo II-B           
+BAVE07;VENTOS DE SANTA EUGENIA 07;BA;17.1;NE;"20230429";"          -11.3800";"         -42.1800";Tipo II-B           
+BAVE08;VENTOS DE SANTA EUGENIA 08;BA;28.5;NE;"20230606";"          -11.4700";"         -42.1700";Tipo II-B           
+038085-7;VENTOS DE SANTA EUGENIA 09;BA;39.9;NE;"20230821";"          00.0000";"         00.0000";
+BAVE10;VENTOS DE SANTA EUGENIA 10;BA;45.6;NE;"20231113";"          -11.5000";"         -42.1500";Tipo II-C           
+BAVE11;VENTOS DE SANTA EUGENIA 11;BA;28.5;NE;"20231128";"          -11.4400";"         -42.1600";Tipo II-B           
+BAVE12;VENTOS DE SANTA EUGENIA 12;BA;39.9;NE;"20230306";"          -11.4300";"         -42.1600";Tipo II-B           
+038089-0;VENTOS DE SANTA EUGENIA 13;BA;45.6;NE;"20230705";"          00.0000";"         00.0000";
+BASM01;VENTOS DE SANTA EUGENIA 14;BA;22.8;NE;"20231226";"          00.0000";"         00.0000";Tipo II-B           
+040777-1;BREJINHOS A;BA;37.8;NE;"20230715";"          00.0000";"         00.0000";
+040778-0;BREJINHOS B;BA;42;NE;"20230804";"          00.0000";"         00.0000";
+BAOI21;OITIS 21;BA;44;NE;"20230101";"          -09.0500";"         -41.7100";Tipo II-C           
+BAOI22;OITIS 22;BA;49.5;NE;"20220908";"          -09.0700";"         -41.7100";Tipo II-C           
+044878-8;SERRA DA MANGABEIRA;BA;79.8;NE;"20231015";"          00.0000";"         00.0000";
+044940-7;AROEIRA 1;BA;30;NE;"20260308";"          00.0000";"         00.0000";
+044959-8;AURA CAETITE 01;BA;29.4;NE;"20250121";"          00.0000";"         00.0000";
+044960-1;AURA CAETITE 02;BA;29.4;NE;"20250121";"          00.0000";"         00.0000";
+044961-0;AURA TANQUE NOVO 01;BA;21.2;NE;"20250121";"          00.0000";"         00.0000";
+044962-8;AURA TANQUE NOVO 02;BA;15.9;NE;"20250121";"          00.0000";"         00.0000";
+BACAN1;CANUDOS I;BA;49.7;NE;"20230108";"          -10.1900";"         -38.7800";Tipo II-C           
+BACAN2;CANUDOS II;BA;49.7;NE;"20230106";"          -10.1500";"         -38.7700";Tipo II-C           
+047205-0;VENTOS DE SANTO ANTONIO 01;BA;5.3;NE;"20250101";"          00.0000";"         00.0000";
+047208-5;VENTOS DE SANTO ANTONIO 04;BA;5.3;NE;"20250101";"          00.0000";"         00.0000";
+050463-7;ASSURUA 4 I;BA;36;NE;"20230621";"          00.0000";"         00.0000";
+050464-5;ASSURUA 4 II;BA;31.5;NE;"20230301";"          00.0000";"         00.0000";
+050465-3;ASSURUA 4 III;BA;36;NE;"20230728";"          00.0000";"         00.0000";
+050466-1;ASSURUA 4 IV;BA;36;NE;"20230728";"          00.0000";"         00.0000";
+050467-0;ASSURUA 4 V;BA;36;NE;"20230621";"          00.0000";"         00.0000";
+050468-8;ASSURUA 4 VI;BA;36;NE;"20230621";"          00.0000";"         00.0000";
+050844-6;MORRO 1;BA;42;NE;"20260101";"          00.0000";"         00.0000";
+050845-4;MORRO 2;BA;29.4;NE;"20260101";"          00.0000";"         00.0000";
+051585-0;VENTOS DE SANTA LUZIA 11;BA;5.3;NE;"20240101";"          00.0000";"         00.0000";
+051586-8;VENTOS DE SANTA LUZIA 12;BA;5.3;NE;"20240101";"          00.0000";"         00.0000";
+051587-6;VENTOS DE SANTA LUZIA 13;BA;5.3;NE;"20240101";"          00.0000";"         00.0000";
+051588-4;VENTOS DE SANTA LUZIA 14;BA;5.3;NE;"20240101";"          00.0000";"         00.0000";
+051589-2;VENTOS DE SANTA LUZIA 15;BA;5.3;NE;"20240607";"          00.0000";"         00.0000";
+051590-6;VENTOS DE SANTA LUZIA 16;BA;5.3;NE;"20240101";"          00.0000";"         00.0000";
+051591-4;VENTOS DE SANTA LUZIA 17;BA;5.3;NE;"20240101";"          00.0000";"         00.0000";
+051592-2;VENTOS DE SANTO ANTONIO 05;BA;5.3;NE;"20250101";"          00.0000";"         00.0000";
+051593-0;VENTOS DE SANTO ANTONIO 06;BA;5.3;NE;"20250101";"          00.0000";"         00.0000";
+051594-9;VENTOS DE SANTO ANTONIO 07;BA;5.3;NE;"20250101";"          00.0000";"         00.0000";
+051595-7;VENTOS DE SANTO ANTONIO 08;BA;5.3;NE;"20250101";"          00.0000";"         00.0000";
+CEEGRV;GRAVIER;CE;71.4;NE;"20220806";"          -04.7550";"         -37.3361";Tipo II-C           
+PBCH3 ;CHAFARIZ 3;PB;6.93;NE;"20221005";"          -07.0016";"         -36.8983";Tipo II-C           
+PBSS02;SERRA DO SERIDO II;PB;33;NE;"20250101";"          00.0000";"         00.0000";Tipo II-B           
+PBSS03;SERRA DO SERIDO III;PB;44;NE;"20250101";"          00.0000";"         00.0000";Tipo II-B           
+PBSS04;SERRA DO SERIDO IV;PB;44;NE;"20250101";"          00.0000";"         00.0000";Tipo II-B           
+PBSS06;SERRA DO SERIDO VI;PB;49.5;NE;"20250101";"          00.0000";"         00.0000";Tipo II-B           
+PBSS07;SERRA DO SERIDO VII;PB;44;NE;"20250101";"          00.0000";"         00.0000";Tipo II-B           
+PBSS09;SERRA DO SERIDO IX;PB;49.5;NE;"20250101";"          00.0000";"         00.0000";Tipo II-B           
+PIANT;VENTOS DE SANTO ANTERO;PE;48.4;NE;"20220723";"          -08.0036";"         -40.5175";Tipo II-C           
+PIBER;VENTOS DE SAO BERNARDO;PE;44;NE;"20220818";"          -07.9966";"         -40.5130";Tipo II-C           
+049354-6;SERRA DAS VACAS B;PE;44;NE;"20260101";"          00.0000";"         00.0000";
+031807-8;OURO BRANCO 1;PE;33.6;NE;"20230701";"          00.0000";"         00.0000";
+031808-6;OURO BRANCO 2;PE;33.6;NE;"20230710";"          00.0000";"         00.0000";
+031809-4;QUATRO VENTOS;PE;21;NE;"20230710";"          00.0000";"         00.0000";
+PIVSR1;VENTOS DE SAO ROQUE 1;PI;49.5;NE;"20220708";"          -08.7646";"         -41.6575";Tipo II-C           
+PIVSR2;VENTOS DE SAO ROQUE 2;PI;49.5;NE;"20220715";"          -08.8056";"         -41.6504";Tipo II-C           
+038105-5;VENTOS DE SAO ROQUE 03;PI;45.6;NE;"20231218";"          00.0000";"         00.0000";
+PIVSR3;VENTOS DE SAO ROQUE 4;PI;49.5;NE;"20231010";"          -08.8299";"         -41.5908";Tipo II-C           
+038107-1;VENTOS DE SAO ROQUE 05;PI;45.6;NE;"20231218";"          00.0000";"         00.0000";
+PIVSR6;VENTOS DE SAO ROQUE 16;PI;49.5;NE;"20230531";"          -08.8998";"         -41.5911";Tipo II-C           
+PIVSR7;VENTOS DE SAO ROQUE 17;PI;49.5;NE;"20230702";"          -08.8975";"         -41.5555";Tipo II-C           
+PIVSR4;VENTOS DE SAO ROQUE 8;PI;49.5;NE;"20230119";"          -08.9352";"         -41.6045";Tipo II-C           
+PIVSR5;VENTOS DE SAO ROQUE 11;PI;49.5;NE;"20230105";"          -08.8264";"         -41.6269";Tipo II-C           
+PIOI10;OITIS 10;PI;49.5;NE;"20230213";"          -09.0500";"         -41.7700";Tipo II-C           
+PIOI02;OITIS 2;PI;27.5;NE;"20230101";"          -09.0100";"         -41.7300";Tipo II-C           
+PIOI03;OITIS 3;PI;49.5;NE;"20230101";"          -09.0100";"         -41.7500";Tipo II-C           
+PIOI04;OITIS 4;PI;49.5;NE;"20230101";"          -09.0200";"         -41.7500";Tipo II-C           
+PIOI05;OITIS 5;PI;49.5;NE;"20221112";"          -09.0400";"         -41.7500";Tipo II-C           
+PIOI06;OITIS 6;PI;49.5;NE;"20220715";"          -09.0500";"         -41.7400";Tipo II-C           
+PIOI07;OITIS 7;PI;49.5;NE;"20220810";"          -09.0700";"         -41.7300";Tipo I              
+PIOI08;OITIS 8;PI;49.5;NE;"20230101";"          -09.0982";"         -41.7609";Tipo II-C           
+PIOI09;OITIS 9;PI;49.5;NE;"20230207";"          -09.0500";"         -41.7700";Tipo II-C           
+PIOI01;OITIS 1;PI;49.5;NE;"20221017";"          -09.0000";"         -41.7200";Tipo II-C           
+PIVI16;VENTOS DE SANTA ALEXANDRINA;PI;44;NE;"20220806";"          -07.9855";"         -40.5800";Tipo II-C           
+PIVI05;VENTOS DE SANTO ALDERICO;PI;39.6;NE;"20221130";"          -08.0416";"         -40.6663";Tipo II-C           
+PIVI15;VENTOS DE SANTO APOLINARIO;PI;35.2;NE;"20220604";"          -07.9702";"         -40.5994";Tipo II-C           
+PIVI01;VENTOS DE SAO CAIO;PI;35.2;NE;"20230704";"          -07.9955";"         -40.7694";Tipo II-C           
+PIVI04;VENTOS DE SAO CIRIACO;PI;48.4;NE;"20230218";"          -08.0469";"         -40.6841";Tipo II-C           
+PIVI02;VENTOS DE SAO CIRO;PI;35.2;NE;"20230603";"          -08.0347";"         -40.7405";Tipo II-C           
+PIVI18;VENTOS DE SAO JOAO PAULO II;PI;30.8;NE;"20220815";"          -07.9886";"         -40.5613";Tipo II-C           
+PIVI03;VENTOS DE SAO CRISPIM;PI;48.4;NE;"20230524";"          -08.0355";"         -40.6761";Tipo II-C           
+032080-3;AW SAO JOAO;RN;25.2;NE;"20230101";"          00.0000";"         00.0000";
+032194-0;AW SANTA REGIA;RN;37.8;NE;"20230206";"          00.0000";"         00.0000";
+032404-3;MUNDO NOVO VII;RN;24.255;NE;"20240409";"          00.0000";"         00.0000";
+RNEMV1;MONTE VERDE I;RN;67.2;NE;"20221215";"          -05.5000";"         -36.1900";Tipo II-B           
+RNEMV2;MONTE VERDE II;RN;67.2;NE;"20230111";"          -05.4600";"         -36.2000";Tipo II-B           
+032593-7;VENTOS DE SANTA LEIA 01;RN;67.5;NE;"20250607";"          00.0000";"         00.0000";
+RNEJD1;JANDAIRA I;RN;10.395;NE;"20220824";"          -05.4200";"         -36.0200";Tipo II-C           
+033597-5;ACAUA I;RN;25.2;NE;"20230905";"          00.0000";"         00.0000";
+033598-3;ACAUA II;RN;21;NE;"20230917";"          00.0000";"         00.0000";
+033681-5;VENTOS DE SANTA LEIA 02;RN;67.5;NE;"20250607";"          00.0000";"         00.0000";
+033690-4;VENTOS DE SANTA LEIA 04;RN;67.1;NE;"20250607";"          00.0000";"         00.0000";
+033691-2;VENTOS DE SANTA LEIA 05;RN;67.5;NE;"20230825";"          00.0000";"         00.0000";
+033831-1;SANTO AGOSTINHO 1;RN;18.6;NE;"20231015";"          00.0000";"         00.0000";
+033833-8;SANTO AGOSTINHO 2;RN;31;NE;"20230810";"          00.0000";"         00.0000";
+033834-6;SANTO AGOSTINHO 3;RN;12.4;NE;"20230710";"          00.0000";"         00.0000";
+033835-4;SANTO AGOSTINHO 4;RN;37.2;NE;"20230504";"          00.0000";"         00.0000";
+033836-2;SANTO AGOSTINHO 5;RN;55.8;NE;"20230518";"          00.0000";"         00.0000";
+033838-9;SANTO AGOSTINHO 6;RN;24.8;NE;"20241208";"          00.0000";"         00.0000";
+033853-2;SANTO AGOSTINHO 13;RN;37.2;NE;"20230425";"          00.0000";"         00.0000";
+033854-0;SANTO AGOSTINHO 14;RN;6.2;NE;"20230425";"          00.0000";"         00.0000";
+033857-5;SANTO AGOSTINHO 17;RN;43.4;NE;"20230425";"          00.0000";"         00.0000";
+033864-8;ACAUA III;RN;16.8;NE;"20230901";"          00.0000";"         00.0000";
+033872-9;SANTO AGOSTINHO 18;RN;31;NE;"20231015";"          00.0000";"         00.0000";
+033875-3;SANTO AGOSTINHO 21;RN;31;NE;"20230706";"          00.0000";"         00.0000";
+RNEMV3;MONTE VERDE III;RN;58.8;NE;"20230201";"          -05.4400";"         -36.2200";Tipo II-B           
+033964-4;BAIXA DO SITIO;RN;46.2;NE;"20230830";"          00.0000";"         00.0000";
+034498-2;ANEMUS WIND 1;RN;37.8;NE;"20230814";"          00.0000";"         00.0000";
+034499-0;ANEMUS WIND 2;RN;46.2;NE;"20230506";"          00.0000";"         00.0000";
+034612-8;PASSAGEM;RN;52;NE;"20240101";"          00.0000";"         00.0000";
+034937-2;VENTOS DE SANTA LEIA 03;RN;67.5;NE;"20230804";"          00.0000";"         00.0000";
+RNEJD2;JANDAIRA II;RN;24.255;NE;"20220904";"          -05.4300";"         -36.0200";Tipo II-C           
+035214-4;SANTO AGOSTINHO 25;RN;24.8;NE;"20230302";"          00.0000";"         00.0000";
+035215-2;SANTO AGOSTINHO 26;RN;43.4;NE;"20230302";"          00.0000";"         00.0000";
+035216-0;SANTO AGOSTINHO 27;RN;37.2;NE;"20230310";"          00.0000";"         00.0000";
+RNEJD3;JANDAIRA III;RN;27.72;NE;"20220715";"          -05.4300";"         -36.0100";Tipo II-C           
+RNEJD4;JANDAIRA IV;RN;27.72;NE;"20220815";"          -05.4500";"         -36.0100";Tipo II-C           
+RNEJR1;JERUSALEM I;RN;29.4;NE;"20221230";"          -05.6100";"         -36.1100";Tipo II-C           
+RNEJR2;JERUSALEM II;RN;29.4;NE;"20221230";"          -05.6300";"         -36.1100";Tipo II-C           
+RNEJR3;JERUSALEM III;RN;29.4;NE;"20221230";"          -05.6500";"         -36.1000";Tipo II-C           
+RNEJR4;JERUSALEM IV;RN;29.4;NE;"20221230";"          -05.6800";"         -36.1000";Tipo II-C           
+RNEJR5;JERUSALEM V;RN;29.4;NE;"20221230";"          -05.6800";"         -36.1200";Tipo II-C           
+RNEJR6;JERUSALEM VI;RN;33.6;NE;"20221230";"          -05.6900";"         -36.1200";Tipo II-C           
+RNEMV4;MONTE VERDE IV;RN;46.2;NE;"20230216";"          -05.4800";"         -36.2300";Tipo II-B           
+RNEMV5;MONTE VERDE V;RN;33.6;NE;"20230211";"          -05.4900";"         -36.2600";Tipo II-B           
+RNEMV6;MONTE VERDE VI;RN;46.2;NE;"20221226";"          -05.5200";"         -36.2800";Tipo II-B           
+RNEBQ1;BOQUEIRAO I;RN;42;NE;"20221230";"          -05.7000";"         -36.1300";Tipo II-C           
+RNEBQ2;BOQUEIRAO II;RN;37.8;NE;"20221230";"          -05.7000";"         -36.0600";Tipo II-C           
+044974-1;OESTE SERIDO I;RN;25.2;NE;"20250101";"          00.0000";"         00.0000";
+044975-0;OESTE SERIDO II;RN;21;NE;"20240101";"          00.0000";"         00.0000";
+044976-8;OESTE SERIDO III;RN;25.2;NE;"20240101";"          00.0000";"         00.0000";
+045010-3;VENTOS DE SANTA LEIA 12;RN;64.9;NE;"20250607";"          00.0000";"         00.0000";
+045011-1;VENTOS DE SANTA LEIA 13;RN;66.1;NE;"20250607";"          00.0000";"         00.0000";
+045012-0;VENTOS DE SANTA LEIA 14;RN;66.1;NE;"20250607";"          00.0000";"         00.0000";
+047161-5;OESTE SERIDO XI;RN;33.6;NE;"20250101";"          00.0000";"         00.0000";
+047162-3;OESTE SERIDO IX;RN;25.2;NE;"20240101";"          00.0000";"         00.0000";
+047165-8;OESTE SERIDO IV;RN;25.2;NE;"20240101";"          00.0000";"         00.0000";
+047166-6;OESTE SERIDO V;RN;25.2;NE;"20250101";"          00.0000";"         00.0000";
+047198-4;VENTOS DE SANTA TEREZA 14;RN;39.2;NE;"20230715";"          00.0000";"         00.0000";
+047235-2;VENTOS DE SANTA TEREZA 01;RN;44.8;NE;"20230723";"          00.0000";"         00.0000";
+047239-5;VENTOS DE SANTA TEREZA 05;RN;44.8;NE;"20230720";"          00.0000";"         00.0000";
+047244-1;VENTOS DE SANTA TEREZA 10;RN;39.2;NE;"20230530";"          00.0000";"         00.0000";
+047247-6;VENTOS DE SANTA TEREZA 13;RN;39.2;NE;"20230715";"          00.0000";"         00.0000";
+049664-2;VENTOS DE SAO RAFAEL 01;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+049665-0;VENTOS DE SAO RAFAEL 02;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+049666-9;VENTOS DE SAO RAFAEL 03;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+049667-7;VENTOS DE SAO RAFAEL 04;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+049668-5;VENTOS DE SAO RAFAEL 05;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+049669-3;VENTOS DE SAO RAFAEL 06;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+049670-7;VENTOS DE SAO RAFAEL 07;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+049671-5;VENTOS DE SAO RAFAEL 08;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+050015-1;VENTOS DE SAO RAFAEL 09;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+050016-0;VENTOS DE SAO RAFAEL 10;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+050017-8;VENTOS DE SAO RAFAEL 11;RN;6;NE;"20240101";"          00.0000";"         00.0000";
+051067-0;ANEMUS WIND 3;RN;54.6;NE;"20230807";"          00.0000";"         00.0000";
