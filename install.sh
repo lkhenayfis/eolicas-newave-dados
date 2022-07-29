@@ -21,7 +21,7 @@ fi
 echo "Criando diretório de instalação..." 
 TMPDIR=$(dirname $(mktemp -u))
 INSTALLDIR=${TMPDIR}/eolicas-newave/dados
-[ ! -d $INSTALLDIR ] && mkdir $INSTALLDIR
+[ ! -d $INSTALLDIR ] && mkdir -p $INSTALLDIR
 
 # Copies necessary files
 echo "Copiando arquivos necessários..."
