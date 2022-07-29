@@ -7,7 +7,7 @@ echo "Instalação da aplicação eolicas-newave-dados"
 echo "Gerência de Metodologias e Modelos Energéticos - PEM / ONS"
 echo "Versão ${VERSION} - ${DATE}"
 
-# Checks if Python 3 is installed
+# Checks if R is installed
 command -v R >/dev/null 2>&1
 R_INSTALLED=$?
 if [ $R_INSTALLED -ne 0 ]; then
@@ -17,11 +17,15 @@ else
     echo "Instalação do R encontrada..."
 fi
 
-# Creates installation directory in /tmp
+# Creates installation directory in /usr
 echo "Criando diretório de instalação..." 
-TMPDIR=$(dirname $(mktemp -u))
-INSTALLDIR=${TMPDIR}/eolicas-newave/dados
+USERINSTALLDIR=/usr/lib
+INSTALLDIR=${USERINSTALLDIR}/eolicas-newave/dados
 [ ! -d $INSTALLDIR ] && mkdir -p $INSTALLDIR
+
+# Installs dependencies
+echo "Instalando dependências..."
+sudo -u $SUDO_USER Rscript -e "renv::restore()"
 
 # Copies necessary files
 echo "Copiando arquivos necessários..."
@@ -36,18 +40,10 @@ cp -r renv/ $INSTALLDIR
 cp renv.lock $INSTALLDIR
 cp .Rprofile $INSTALLDIR
 
-# installs dependencies
-echo "Instalando dependências..."
-CURDIR=$(pwd)
-cd $INSTALLDIR
-Rscript -e "renv::restore()"
-
 # Copies the executable to a folder in the system's PATH
-[ ! -d $HOME/bin ] && mkdir $HOME/bin
-EXECPATH=$HOME/bin/eolicas-newave-dados
+EXECPATH=/usr/bin/eolicas-newave-dados
 echo "Copiando executável para ${EXECPATH}" 
 cp eolicas-newave-dados $EXECPATH
 
-# Deactivates venv
+
 echo "Finalizando instalação..."
-cd $CURDIR
