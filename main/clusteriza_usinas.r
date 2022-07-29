@@ -125,7 +125,8 @@ main <- function(arq_conf, activate = TRUE) {
 
         classe <- getclustclass(clusters)
 
-        out <- data.table(codigo = unique(rean_compac$compact$cenario), cluster = factor(classe))
+        out <- data.table(codigo = unique(rean_compac$compact$cenario),
+            cluster = factor(paste0("cluster_", subsist, "_", classe)))
         out <- merge(out, usinas, by = "codigo")
 
         outarq <- file.path(outdir, paste0(subsist, "_", compac, "_", index_loop$cluster[i], ".csv"))
