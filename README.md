@@ -62,6 +62,13 @@ O script *eolicas-newave-dados* executa os programas em R através de uma chamad
 simples da ferramente *Rscript*. Caso existam múltiplas instalações de R na máquina, é recomendável
 que o usuário modifique esta linha com o qualificador de caminho completo até uma versão adequada.
 
+## Desinstalação
+
+Caso seja desejado eliminar os arquivos de instalação do módulo, pode ser usado o script de desinstalação, existente no mesmo repositório:
+```sh
+sudo ./uninstall.sh
+```
+
 ## Execução
 
 A execução do programa está descrita em detalhes nas páginas da Wiki.
