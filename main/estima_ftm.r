@@ -91,12 +91,16 @@ main <- function(arq_conf, activate = TRUE) {
 
     outmod <- lapply(ftms, function(mod) coef(mod))
     outmod <- lapply(names(outmod), function(nome) {
-        data.table(Cluster = nome, b0 = outmod[[nome]][1], b1 = outmod[[nome]][2])
+        data.table(cluster = nome, b0 = outmod[[nome]][1], b1 = outmod[[nome]][2])
     })
     outmod <- rbindlist(outmod)
 
+    ventomedio <- merge(reanalise, usinas[, .(id, cluster)], by.x = "id_usina", by.y = "id")
+    ventomedio <- ventomedio[, .(vento = mean(vento)), by = c("cluster", "data_hora")]
+    setorder(ventomedio, cluster, data_hora)
+
     outarq <- file.path(outdir, "vento_medio.csv")
-    fwrite(regdata[, .(cluster, vento)], outarq)
+    fwrite(ventomedio, outarq)
 
     outarq <- file.path(outdir, "ftm.csv")
     fwrite(outmod, outarq)

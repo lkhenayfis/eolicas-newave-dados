@@ -1,3 +1,10 @@
+# devel
+
+## Bug fixes
+
+* Corrige nome da coluna `Clusters` -> `clusters` no dado de coeficientes das FTMs
+* Corrige dado de vento medio que estava sem coluna de `data_hora`
+
 # eolicas-newave-dados 1.0.1
 
 ## New
