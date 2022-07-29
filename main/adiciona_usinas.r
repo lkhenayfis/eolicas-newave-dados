@@ -72,6 +72,7 @@ main <- function(arq_conf, activate = TRUE) {
     clusters <- clusters[!duplicated(clusters, fromLast = TRUE)]
     usinas <- getusinas(conn)
     usinas <- merge(usinas, clusters, all = TRUE)
+    usinas[, cluster := sub("cluster_(NE|S)_", "", cluster)]
 
     cmpt_clst <- lapply(CONF$clusters, function(s) sub(".csv", "_cmptclst.rds", s))
     cmpt_clst <- lapply(cmpt_clst, readRDS)

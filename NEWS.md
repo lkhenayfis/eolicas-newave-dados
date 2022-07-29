@@ -4,6 +4,7 @@
 
 * Corrige nome da coluna `Clusters` -> `clusters` no dado de coeficientes das FTMs
 * Corrige dado de vento medio que estava sem coluna de `data_hora`
+* Corrige nomes de clusters em `capinst_acum_cluster.csv`
 
 # eolicas-newave-dados 1.0.1
 
