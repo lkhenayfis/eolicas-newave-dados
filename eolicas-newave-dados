@@ -8,7 +8,7 @@ echo "Gerência de Metodologias e Modelos Energéticos - PEM / ONS"
 echo "Versão ${VERSION} - ${DATE}"
 
 TMPDIR=$(dirname $(mktemp -u))
-INSTALLDIR=${TMPDIR}/eolicas-newave-dados
+INSTALLDIR=${TMPDIR}/eolicas-newave/dados
 
 # Checks if application is installed
 if [ ! -d $INSTALLDIR ]; then
