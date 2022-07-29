@@ -55,26 +55,10 @@ instalação da aplicação. Para executá-lo, o usuário deve navegar pelo term
 repositório e executar o comando
 
 ```sh
-bash install.sh
+sudo ./install.sh
 ```
 
-Isto cria a estrutura necessária para execução da aplicação, instala todas as dependências internas
-do R necessárias e adiciona o programa *eolicas-newave-dados* ao diretório *$HOME/bin*. Para que 
-este script seja executavel, o usuario deve utilizar o comando
-
-```sh
-~$ sudo chmod +x $HOME/bin/eolicas-newave-dados
-```
-
-Este processo assume que *$HOME/bin* se encontra no PATH do sistema. Caso isto não seja verdade, o 
-usuário pode movê-lo para outro diretório, utiliz-a-lo sempre com o caminho completo ou adicionar 
-este diretório ao PATH incluindo a seguinte linha no arquivo *~/.bash_profile*.
-
-```sh
-export PATH=$PATH:$HOME/bin/
-```
-
-Em segundo lugar, o script *eolicas-newave-dados* executa os programas em R através de uma chamada 
+O script *eolicas-newave-dados* executa os programas em R através de uma chamada 
 simples da ferramente *Rscript*. Caso existam múltiplas instalações de R na máquina, é recomendável
 que o usuário modifique esta linha com o qualificador de caminho completo até uma versão adequada.
 
