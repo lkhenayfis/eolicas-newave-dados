@@ -59,7 +59,12 @@ bash install.sh
 ```
 
 Isto cria a estrutura necessária para execução da aplicação, instala todas as dependências internas
-do R necessárias e adiciona o programa *eolicas-newave-dados* ao diretório *$HOME/bin*.
+do R necessárias e adiciona o programa *eolicas-newave-dados* ao diretório *$HOME/bin*. Para que 
+este script seja executavel, o usuario deve utilizar o comando
+
+```sh
+~$ sudo chmod +x $HOME/bin/eolicas-newave-dados
+```
 
 Este processo assume que *$HOME/bin* se encontra no PATH do sistema. Caso isto não seja verdade, o 
 usuário pode movê-lo para outro diretório, utiliz-a-lo sempre com o caminho completo ou adicionar 
