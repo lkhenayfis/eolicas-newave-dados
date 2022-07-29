@@ -40,6 +40,20 @@ main <- function(arq_conf, activate = TRUE) {
             main(auxconf, activate = FALSE)
         })
     }
+
+    outdir <- file.path(CONF$outdir, CONF$tag)
+
+    clusters <- lapply(CONF$clusters, fread)
+    clusters <- rbindlist(clusters)
+    clusters <- clusters[!duplicated(cluster)]
+    clusters[, submercado := sub("_.*", "", sub("cluster_", "", cluster))]
+    clusters[, submercado := sapply(submercado, function(c) switch(sub("_.*", "", c), "S" = 2, "NE" = 3))]
+
+    fwrite(clusters[, .(cluster, submercado)], file.path(outdir, "clusters.csv"))
+    file.copy(file.path(outdir, "estima_ftm", c("vento_medio.csv", "ftm.csv")), outdir, overwrite = TRUE)
+    file.copy(file.path(outdir, "adiciona_usinas", "capinst_acum_cluster.csv"), outdir, overwrite = TRUE)
+
+    cat(outdir, file = "CAMINHO-DECK")
 }
 
 main()
