@@ -58,7 +58,7 @@ main <- function(arq_conf, activate = TRUE) {
 
     CONF <- parseconf_clustusi(CONF)
 
-    outdir <- file.path(CONF$outdir, "clusteriza_usinas", CONF$tag)
+    outdir <- file.path(CONF$outdir, CONF$tag, "clusteriza_usinas")
     if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
     if(CONF$limpadir) inv <- file.remove(list.files(outdir, full.names = TRUE))
 

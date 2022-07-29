@@ -24,7 +24,7 @@ main <- function(arq_conf, activate = TRUE) {
     CONF$clusters <- lapply(subsistemas, function(subsist) {
         arq <- paste(subsist, names(CONF$mod_compact[[subsist]]), names(CONF$mod_clust[[subsist]]), sep = "_")
         arq <- paste0(arq, ".csv")
-        file.path(CONF$outdir, "clusteriza_usinas", CONF$tag, arq)
+        file.path(CONF$outdir, CONF$tag, "clusteriza_usinas", arq)
     })
 
     tmpdir  <- tempdir()

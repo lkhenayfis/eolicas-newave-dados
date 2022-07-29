@@ -60,7 +60,7 @@ main <- function(arq_conf, activate = TRUE) {
         stop("Tipo de 'datasource' nao reconhecido")
     }
 
-    outdir <- file.path(CONF$outdir, "adiciona_usinas", CONF$tag)
+    outdir <- file.path(CONF$outdir, CONF$tag, "adiciona_usinas")
     if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
 
     # LEITURA DOS DADOS ----------------------------------------------------------------------------

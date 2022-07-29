@@ -64,7 +64,7 @@ main <- function(arq_conf, activate = TRUE) {
         stop("Tipo de 'datasource' nao reconhecido")
     }
 
-    outdir <- file.path(CONF$outdir, "estima_ftm", CONF$tag)
+    outdir <- file.path(CONF$outdir, CONF$tag, "estima_ftm")
     if(!dir.exists(outdir)) dir.create(outdir, recursive = TRUE)
 
     # LEITURA DOS DADOS ----------------------------------------------------------------------------
