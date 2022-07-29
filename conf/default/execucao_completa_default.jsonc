@@ -80,7 +80,7 @@
     // As compactacoes e clusterizacoes serao pareadas para formar o processo completo. Caso haja 
     // mais de um do que do outro para algum subsistema, o menor e reciclado ate o tamanho do maior
     // Os metodos de clusterizacao disponiveis sao aqueles implementados em clustcens -- Veja
-    // help("compact_funs", package = "clustcens")
+    // help("clust_funs", package = "clustcens")
     "mod_cluster": {
         "NE": {
             "kmeans_3": {"fun": "kmeans", "n": 3, "nstart": 200}
