@@ -1,3 +1,10 @@
+# devel
+
+## New features
+
+* Adiciona opcao `doplots` nos arquivos de configuracao de `estima_ftm` e `adiciona_usinas`, abrindo
+  a possibilidade de gerar visualizacoes dos resultados obtidos
+
 # eolicas-newave-dados 1.0.2
 
 ## Bug fixes

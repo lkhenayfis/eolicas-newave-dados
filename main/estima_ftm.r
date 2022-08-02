@@ -25,6 +25,7 @@ main <- function(arq_conf, activate = TRUE) {
     source(file.path(root, "R", "utils.r"))
     source(file.path(root, "R", "parseconfs.r"))
     source(file.path(root, "R", "altlogs.r"))
+    source(file.path(root, "R", "visualizacoes.r"))
 
     # INICIALIZACAO ---------------------------------------------------------------------------------
 
@@ -104,6 +105,15 @@ main <- function(arq_conf, activate = TRUE) {
 
     outarq <- file.path(outdir, "ftm.csv")
     fwrite(outmod, outarq)
+
+    if(CONF$doplots) {
+        logprint("REALIZANDO PLOTS")
+        cat("\n")
+
+        plots <- plota_ftms(regdata, ftms)
+        ggsave(file.path(outdir, "pot_evol.jpeg"), plots[[1]], width = 9, height = 6)
+        ggsave(file.path(outdir, "fit_ftms.jpeg"), plots[[2]], width = 9, height = 6)
+    }
 
     if(CONF$log_info$trace > 0) {
         logprint("ESTIMACAO CONCLUIDA")

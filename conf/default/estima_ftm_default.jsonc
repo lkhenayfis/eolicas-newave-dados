@@ -54,5 +54,8 @@
     },
 
     // Janela temporal para considerar na estimacao das funcoes no padrao xts
-    "janela": "/2022-01-01"
+    "janela": "/2022-01-01",
+
+    // Booleano indicando se devem ser salvos plots dos resultados
+    "doplots": true 
 }

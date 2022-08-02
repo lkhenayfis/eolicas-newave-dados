@@ -57,5 +57,8 @@
 
     // Booleano indicando se usinas com coordenadas aproximadas devem ser adicionadas por cluster ou
     // somente por distancia geografica
-    "coord_aprox_by_cluster": true
+    "coord_aprox_by_cluster": true,
+
+    // Booleano indicando se devem ser salvos plots dos resultados
+    "doplots": true 
 }

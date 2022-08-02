@@ -23,6 +23,7 @@ main <- function(arq_conf, activate = TRUE) {
     source(file.path(root, "R", "utils.r"))
     source(file.path(root, "R", "parseconfs.r"))
     source(file.path(root, "R", "altlogs.r"))
+    source(file.path(root, "R", "visualizacoes.r"))
 
     # INICIALIZACAO --------------------------------------------------------------------------------
 
@@ -108,6 +109,17 @@ main <- function(arq_conf, activate = TRUE) {
     pot_evol_cluster <- determina_pot_evol(usinas, as.list(range(usinas$data_inicio_operacao)))
 
     fwrite(pot_evol_cluster, file.path(outdir, "capinst_acum_cluster.csv"))
+
+    if(CONF$doplots) {
+        logprint("REALIZANDO PLOTS")
+        cat("\n")
+
+        shape <- readRDS(file.path(conn[1], "shape.rds"))
+        plots <- plota_clusters(usinas, shape)
+        for(sub in names(plots)) {
+            ggsave(file.path(outdir, paste0("clusters_", sub, ".jpeg")), plots[[sub]], width = 7, height = 7)
+        }
+    }
 
     if(CONF$log_info$trace > 0) {
         logprint("ADICAO CONCLUIDA")
