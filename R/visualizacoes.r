@@ -22,7 +22,7 @@ plota_ftms <- function(regdata, ftms) {
         geom_point(data = regdata, aes(color = Data)) +
         geom_line(data = dd_ftms) +
         scale_color_viridis_c() +
-        labs(x = "Data", y = "Fator de Capacidade") +
+        labs(x = "Velocidade do vento", y = "Fator de Capacidade") +
         facet_wrap(~ cluster) +
         theme_bw()
 
