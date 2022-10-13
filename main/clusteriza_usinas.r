@@ -75,6 +75,8 @@ main <- function(arq_conf, activate = TRUE) {
     usinas <- getusinas(conn)
     usinas <- usinas[data_inicio_operacao <= CONF$data_ref]
 
+    max_data <- usinas[, max(data_inicio_operacao)]
+
     # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
 
     if(CONF$log_info$trace > 0)  logprint("CLUSTERIZACAO DAS USINAS")
@@ -103,7 +105,7 @@ main <- function(arq_conf, activate = TRUE) {
 
         if(track_s != subsist) {
             rean_mensal <- getreanalise(conn, usinas = usinas[subsistema == subsist, codigo],
-                modo = "interp")
+                modo = "interp", datahoras = paste0("/", max_data))
             rean_mensal <- merge(rean_mensal, usinas[, .(id, codigo)], by.x = "id_usina", by.y = "id")
             rean_mensal[, id_usina := NULL]
             rean_mensal[, grupo := subsist]
