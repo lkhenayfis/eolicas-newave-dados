@@ -1,7 +1,7 @@
 #! /bin/bash
 
-VERSION="1.0.2"
-DATE="12/08/2022"
+VERSION="1.0.3"
+DATE="13/10/2022"
 
 echo "Instalação da aplicação eolicas-newave-dados"
 echo "Gerência de Metodologias e Modelos Energéticos - PEM / ONS"
