@@ -21,6 +21,7 @@ plota_ftms <- function(regdata, ftms) {
     gg_ftms <- ggplot(mapping = aes(vento, fator_capacidade)) +
         geom_point(data = regdata, aes(color = Data)) +
         geom_line(data = dd_ftms) +
+        scale_y_continuous(limits = c(0, 1)) +
         scale_color_viridis_c() +
         labs(x = "Velocidade do vento", y = "Fator de Capacidade") +
         facet_wrap(~ cluster) +
