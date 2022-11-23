@@ -1,9 +1,19 @@
-# devel
+# plots
 
 ## New features
 
 * Adiciona opcao `doplots` nos arquivos de configuracao de `estima_ftm` e `adiciona_usinas`, abrindo
   a possibilidade de gerar visualizacoes dos resultados obtidos
+
+# eolicas-newave-dados 1.0.3
+
+## Bug fixes
+
+* Chave `data_ref` nao estava sendo usada completamente. Embora fossem selecionadas apenas as usinas
+  com inicio de operacao ate este valor, os historicos de reanalise e verificados nao estavam sendo
+  restringidos, todo o dado era usado. De fato, isto nao deveria causar grandes impactos dado que a
+  analise e por usina e os comportamentos nao mudam significativamente. De toda forma, isto foi
+  corrigido
 
 # eolicas-newave-dados 1.0.2
 

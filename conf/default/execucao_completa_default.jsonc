@@ -90,9 +90,6 @@
         }
     },
 
-    // Janela temporal para considerar na estimacao das funcoes no padrao xts
-    "janela": "/2022-01-01",
-
     // Booleano indicando se usinas com coordenadas aproximadas devem ser adicionadas por cluster ou
     // somente por distancia geografica
     "coord_aprox_by_cluster": true,

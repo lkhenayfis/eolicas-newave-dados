@@ -53,9 +53,6 @@
         "S": "out/DEFAULT/clusteriza_usinas/S_PCA_09_kmeans_2.csv"
     },
 
-    // Janela temporal para considerar na estimacao das funcoes no padrao xts
-    "janela": "/2022-01-01",
-
     // Booleano indicando se devem ser salvos plots dos resultados
-    "doplots": true 
+    "doplots": true
 }

@@ -56,9 +56,6 @@ main <- function(arq_conf, activate = TRUE) {
         cat(paste0("\n", yaml::as.yaml(CONF), "\n"))
     }
 
-    CONF$janela <- dbrenovaveis:::parsedatas(CONF$janela, "", FALSE)
-    CONF$janela <- lapply(seq(2), function(i) as.Date(CONF$janela[[i]][i]))
-
     if(CONF$datasource$tipo == "csv") {
         conn <- conectalocal(CONF$datasource$diretorio)
     } else {
@@ -78,14 +75,16 @@ main <- function(arq_conf, activate = TRUE) {
     usinas <- getusinas(conn)
     usinas <- merge(usinas, clusters)
 
-    pot_evol <- determina_pot_evol(usinas, CONF$janela)
+    max_data <- round_month(usinas[, max(data_inicio_operacao)])
+
+    pot_evol <- determina_pot_evol(usinas)
 
     # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
 
     if(CONF$log_info$trace > 0)  logprint("ESTIMACAO DAS FUNCOES")
 
-    geracao <- getverificado(conn, campos = "*")
-    reanalise <- getreanalise(conn, modo = "interpolado")
+    geracao <- getverificado(conn, campos = "*", datahoras = paste0("/", max_data))
+    reanalise <- getreanalise(conn, modo = "interpolado", datahoras = paste0("/", max_data))
 
     regdata <- monta_regdata(usinas, geracao, reanalise, pot_evol)
     ftms    <- lapply(split(regdata, regdata$cluster), lm, formula = fator_capacidade ~ vento)
@@ -97,7 +96,7 @@ main <- function(arq_conf, activate = TRUE) {
     outmod <- rbindlist(outmod)
 
     ventomedio <- merge(reanalise, usinas[, .(id, cluster)], by.x = "id_usina", by.y = "id")
-    ventomedio <- ventomedio[, .(vento = mean(vento)), by = c("cluster", "data_hora")]
+    ventomedio <- ventomedio[data_hora <= max_data, .(vento = mean(vento)), by = c("cluster", "data_hora")]
     setorder(ventomedio, cluster, data_hora)
 
     outarq <- file.path(outdir, "vento_medio.csv")
