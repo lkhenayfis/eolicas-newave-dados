@@ -74,6 +74,8 @@ main <- function(arq_conf, activate = TRUE) {
     usinas <- merge(usinas, clusters, all = TRUE)
     usinas[, cluster := sub("cluster_(NE|S)_", "", cluster)]
 
+    max_data <- round_month(usinas[!is.na(cluster), max(data_inicio_operacao)])
+
     cmpt_clst <- lapply(CONF$clusters, function(s) sub(".csv", "_cmptclst.rds", s))
     cmpt_clst <- lapply(cmpt_clst, readRDS)
 
@@ -89,7 +91,8 @@ main <- function(arq_conf, activate = TRUE) {
         usi_sem_cluster <- usinas[(subsistema == subsist) & (is.na(cluster))]
         if(!CONF$coord_aprox_by_cluster) usi_sem_cluster <- usi_sem_cluster[coordenadas_aproximadas == FALSE]
 
-        rean_mensal <- getreanalise(conn, modo = "interpolado", usinas = usi_sem_cluster$codigo)
+        rean_mensal <- getreanalise(conn, modo = "interpolado", usinas = usi_sem_cluster$codigo,
+            datahoras = paste0("/", max_data))
         rean_mensal <- merge(rean_mensal, usinas[, .(id, codigo)], by.x = "id_usina", by.y = "id")
         rean_mensal[, id_usina := NULL]
         rean_mensal[, grupo := subsist]
@@ -105,7 +108,7 @@ main <- function(arq_conf, activate = TRUE) {
     usinas <- add_by_geo(usinas)
 
     usinas[, cluster := paste("cluster", subsistema, cluster, sep = "_")]
-    pot_evol_cluster <- determina_pot_evol(usinas, as.list(range(usinas$data_inicio_operacao)))
+    pot_evol_cluster <- determina_pot_evol(usinas)
 
     fwrite(pot_evol_cluster, file.path(outdir, "capinst_acum_cluster.csv"))
 

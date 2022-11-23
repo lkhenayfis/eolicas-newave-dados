@@ -51,8 +51,5 @@
     "clusters": {
         "NE": "out/DEFAULT/clusteriza_usinas/NE_PCA_09_kmeans_3.csv",
         "S": "out/DEFAULT/clusteriza_usinas/S_PCA_09_kmeans_2.csv"
-    },
-
-    // Janela temporal para considerar na estimacao das funcoes no padrao xts
-    "janela": "/2022-01-01"
+    }
 }

@@ -179,7 +179,11 @@ interp_bilin <- function(x, vals, verts) {
 #' 
 #' @return data.table de tres colunas: data_hora, capacidade_instalada, Cluster
 
-determina_pot_evol <- function(usinas, janela) {
+determina_pot_evol <- function(usinas) {
+
+    janela <- round_month(usinas[, max(data_inicio_operacao)])
+    janela <- dbrenovaveis:::parsedatas(paste0("/", janela), "", FALSE)
+    janela <- lapply(seq(2), function(i) as.Date(janela[[i]][i]))
 
     out <- lapply(split(usinas, usinas$cluster), function(dat) {
         setorder(dat, data_inicio_operacao)
@@ -194,6 +198,13 @@ determina_pot_evol <- function(usinas, janela) {
     })
     out <- rbindlist(out)
 
+    return(out)
+}
+
+round_month <- function(data) {
+    year  <- year(data)
+    month <- month(data)
+    out <- as.Date(paste(year, month, "01", sep = "-"))
     return(out)
 }
 
