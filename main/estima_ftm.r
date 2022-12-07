@@ -76,8 +76,6 @@ main <- function(arq_conf, activate = TRUE) {
 
     max_data <- round_month(usinas[, max(data_inicio_operacao)])
 
-    pot_evol <- determina_pot_evol(usinas)
-
     # EXECUCAO PRINCIPAL ---------------------------------------------------------------------------
 
     if(CONF$log_info$trace > 0)  logprint("ESTIMACAO DAS FUNCOES")
@@ -85,7 +83,8 @@ main <- function(arq_conf, activate = TRUE) {
     geracao <- getverificado(conn, campos = "*", datahoras = paste0("/", max_data))
     reanalise <- getreanalise(conn, modo = "interpolado", datahoras = paste0("/", max_data))
 
-    regdata <- monta_regdata(usinas, geracao, reanalise, pot_evol)
+    regdata <- monta_regdata(usinas, geracao, reanalise)
+    fwrite(regdata, file.path(outdir, "regdata.csv"))
     ftms    <- lapply(split(regdata, regdata$cluster), lm, formula = fator_capacidade ~ vento)
 
     outmod <- lapply(ftms, function(mod) coef(mod))

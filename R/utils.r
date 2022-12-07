@@ -219,7 +219,10 @@ round_month <- function(data) {
 #' 
 #' @return data.table com informacoes necessarias para estimacao das FTMs
 
-monta_regdata <- function(usinas, geracao, reanalise, pot_evol) {
+monta_regdata <- function(usinas, geracao, reanalise) {
+
+    pot_evol <- determina_pot_evol(usinas[id %in% geracao$id_usina])
+
     geracao[, data_hora := as.Date(data_hora)]
     reanalise[, data_hora := as.Date(data_hora)]
 
