@@ -27,6 +27,10 @@ processa_arquivo <- function(arq) {
     dat[, data_hora := as.Date(paste0(data_hora, "-01"))]
     dat[, usina := usi]
 
+    # Garantia de que valores mensais possivelmente espurios sejam retirados da conta
+    # qualquer coisa com media mensal tao baixa certamente era dado errado
+    dat[geracao < 0.1, geracao := NA_real_]
+
     return(dat)
 }
 
@@ -65,4 +69,15 @@ hists[, codigo := NULL]
 setcolorder(hists, c("id", "data_hora", "geracao", "count"))
 colnames(hists)[1] <- "id_usina"
 
+hists[, tira := all(is.na(geracao)), by = id_usina]
+hists <- hists[tira == FALSE]
+hists <- hists[, tira := NULL]
+
 fwrite(hists, "data/verificados.csv")
+
+# ------------------------------------------------------------------------------
+
+usinas <- fread("data/usinas.csv")
+usinas <- usinas[id %in% hists$id_usina]
+
+fwrite(usinas, "data/usinas.csv")
