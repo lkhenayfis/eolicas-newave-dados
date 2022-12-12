@@ -40,17 +40,20 @@ names(pois) <- c("longitude", "latitude", "prec")
 pois[, estado := names(estados)]
 
 confeol <- fread("data-raw/CONF_EOL.csv", fill = TRUE)
-confeol[, V10 := NULL]
+confeol[, FONTE := NULL]
 confeol[] <- lapply(confeol, trimws)
-confeol[, c(4, 7, 8)] <- lapply(confeol[, c(4, 7, 8)], as.numeric)
-confeol <- confeol[!duplicated(ID), ]
+confeol[, SUBSISTEMA := factor(toupper(SUBSISTEMA),
+    levels = c("NORTE", "NORDESTE", "SUL", "SUDESTE"),
+    labels = c("N", "NE", "S", "SE"))]
 
-confeol[LATITUDE == 0, LATITUDE := NA_real_]
-confeol[LONGITUDE == 0, LONGITUDE := NA_real_]
-confeol[, coordernadas_aproximadas := ifelse(is.na(LATITUDE) | is.na(LONGITUDE), TRUE, FALSE)]
+colnames(confeol) <- c("codigo", "nome", "subsistema", "estado", "ceg", "latitude", "longitude")
 
-names(confeol) <- c("codigo", "nome", "estado", "capacidade_instalada", "A", "data_inicio_operacao",
-    "latitude", "longitude", "modalidade", "coordenadas_aproximadas")
+confeol <- confeol[!duplicated(codigo)]
+confeol <- confeol[!duplicated(ceg)]
+
+confeol[latitude == 0, latitude := NA_real_]
+confeol[longitude == 0, longitude := NA_real_]
+confeol[, coordenadas_aproximadas := ifelse(is.na(latitude) | is.na(longitude), TRUE, FALSE)]
 
 confeol <- merge(confeol, pois, by = "estado", suffixes = c("", ".y"))
 confeol[is.na(latitude), latitude := latitude.y]
@@ -60,14 +63,19 @@ confeol[, longitude.y := NULL]
 confeol[, latitude.y := NULL]
 confeol[, prec := NULL]
 confeol[, estado := NULL]
-confeol[, A := NULL]
-confeol[, modalidade := NULL]
 
-confeol[, subsistema := "NE"]
-confeol[grep("^(SC|PR|RS)", codigo), subsistema := "S"]
 confeol[, id := seq(.N)]
-confeol[, data_inicio_operacao := as.Date(as.character(data_inicio_operacao), format = "%Y%m%d")]
 
-setcolorder(confeol, c("id", names(confeol)[-9]))
+dados_data <- fread("data-raw/Dados_Usinas_EOL.csv", na.strings = "NULL")
+dados_data <- dados_data[, .(CEG_ANEEL, DT_ENTRADA_OPER)]
+dados_data <- dados_data[complete.cases(dados_data)]
+colnames(dados_data) <- c("ceg", "data_inicio_operacao")
+
+confeol <- merge(confeol, dados_data)
+confeol[, data_inicio_operacao := as.Date(as.character(data_inicio_operacao), format = "%d/%m/%Y")]
+
+setcolorder(confeol, c("id", "codigo", "nome", "ceg", "subsistema", "latitude", "longitude",
+    "data_inicio_operacao", "coordenadas_aproximadas"))
+setorder(confeol, id)
 
 fwrite(confeol, "data/usinas.csv")
