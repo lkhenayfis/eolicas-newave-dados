@@ -72,6 +72,7 @@ main <- function(arq_conf, activate = TRUE) {
     clusters <- rbindlist(clusters)
     clusters <- clusters[!duplicated(clusters, fromLast = TRUE)]
     usinas <- getusinas(conn)
+    usinas <- usinas[!duplicated(ceg)]
     usinas <- merge(usinas, clusters)
 
     max_data <- round_month(usinas[, max(data_inicio_operacao)])
@@ -93,7 +94,7 @@ main <- function(arq_conf, activate = TRUE) {
     })
     outmod <- rbindlist(outmod)
 
-    ventomedio <- merge(reanalise, usinas[, .(id, cluster)], by.x = "id_usina", by.y = "id")
+    ventomedio <- merge(reanalise, usinas[!duplicated(ceg), .(id, cluster)], by.x = "id_usina", by.y = "id")
     ventomedio <- ventomedio[data_hora <= max_data, .(vento = mean(vento)), by = c("cluster", "data_hora")]
     setorder(ventomedio, cluster, data_hora)
 

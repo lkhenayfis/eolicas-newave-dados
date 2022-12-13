@@ -186,7 +186,7 @@ determina_pot_evol <- function(usinas) {
     janela <- lapply(seq(2), function(i) as.Date(janela[[i]][i]))
 
     out <- lapply(split(usinas, usinas$cluster), function(dat) {
-        setorder(dat, data_inicio_operacao)
+        setorder(dat, data_inicio_operacao, id, capacidade_instalada)
         datas_ini <- dat$data_inicio_operacao
         pot_evol  <- cumsum(dat$capacidade_instalada)
 
@@ -227,7 +227,7 @@ monta_regdata <- function(usinas, geracao, reanalise) {
     reanalise[, data_hora := as.Date(data_hora)]
 
     regdata <- merge(geracao, reanalise, by = c("id_usina", "data_hora"))
-    regdata <- merge(regdata, usinas[, .(id, cluster)], by.x = "id_usina", by.y = "id")
+    regdata <- merge(regdata, usinas[!duplicated(ceg), .(id, cluster)], by.x = "id_usina", by.y = "id")
     regdata[is.na(geracao), vento := NA]
     regdata[, id_usina := NULL]
     regdata <- regdata[, .(geracao = sum(geracao, na.rm = TRUE), vento = mean(vento, na.rm = TRUE),

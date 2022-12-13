@@ -73,6 +73,7 @@ main <- function(arq_conf, activate = TRUE) {
     if(CONF$log_info$trace > 0)  logprint("LEITURA DOS DADOS")
 
     usinas <- getusinas(conn)
+    usinas <- usinas[!duplicated(ceg)]
     usinas <- usinas[data_inicio_operacao <= CONF$data_ref]
 
     max_data <- usinas[, max(data_inicio_operacao)]
@@ -81,7 +82,7 @@ main <- function(arq_conf, activate = TRUE) {
 
     if(CONF$log_info$trace > 0)  logprint("CLUSTERIZACAO DAS USINAS")
 
-    index_loop <- lapply(CONF$subs, function(ss) {
+    index_loop <- lapply(CONF$subsistemas, function(ss) {
         expand.grid(subsistema = ss,
                     compact = names(CONF$mod_compact[[ss]]),
                     cluster = names(CONF$mod_cluster[[ss]]),

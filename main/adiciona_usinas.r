@@ -71,7 +71,10 @@ main <- function(arq_conf, activate = TRUE) {
     clusters <- rbindlist(clusters)
     clusters <- clusters[!duplicated(clusters, fromLast = TRUE)]
     usinas <- getusinas(conn)
+    usinas <- usinas[!duplicated(ceg)]
     usinas <- merge(usinas, clusters, all = TRUE)
+    usinas[, subsistema := sub("_.*", "", sub("cluster_", "", cluster))]
+    usinas <- usinas[complete.cases(usinas)]
     usinas[, cluster := sub("cluster_(NE|S)_", "", cluster)]
 
     max_data <- round_month(usinas[!is.na(cluster), max(data_inicio_operacao)])
