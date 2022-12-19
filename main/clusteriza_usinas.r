@@ -73,7 +73,7 @@ main <- function(arq_conf, activate = TRUE) {
     if(CONF$log_info$trace > 0)  logprint("LEITURA DOS DADOS")
 
     usinas <- getusinas(conn)
-    usinas <- usinas[!duplicated(ceg)]
+    usinas <- usinas[!duplicated(id)]
     usinas <- usinas[data_inicio_operacao <= CONF$data_ref]
 
     max_data <- usinas[, max(data_inicio_operacao)]

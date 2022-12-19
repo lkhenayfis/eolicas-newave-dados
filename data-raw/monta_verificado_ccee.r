@@ -89,7 +89,7 @@ usinas <- merge(cap_inst, usinas, by = "ceg")
 fwrite(usinas, "data/usinas.csv")
 
 # troca ceg por id em ger
-ger <- merge(ger, usinas[!duplicated(ceg), .(id, ceg)], by = "ceg")
+ger <- merge(ger, usinas[!duplicated(id), .(id, ceg)], by = "ceg")
 ger <- ger[, .(id, data_hora, geracao, count)]
 colnames(ger)[1] <- "id_usina"
 

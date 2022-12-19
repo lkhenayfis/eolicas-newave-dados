@@ -6,7 +6,7 @@ source("R/utils.r")
 conn <- conectalocal("data/")
 
 usinas <- getusinas(conn)
-usinas <- usinas[!duplicated(ceg)]
+usinas <- usinas[!duplicated(id)]
 
 # EXTRACAO DOS DADOS DE REANALISE ------------------------------------------------------------------
 

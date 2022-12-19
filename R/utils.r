@@ -227,7 +227,7 @@ monta_regdata <- function(usinas, geracao, reanalise) {
     reanalise[, data_hora := as.Date(data_hora)]
 
     regdata <- merge(geracao, reanalise, by = c("id_usina", "data_hora"))
-    regdata <- merge(regdata, usinas[!duplicated(ceg), .(id, cluster)], by.x = "id_usina", by.y = "id")
+    regdata <- merge(regdata, usinas[!duplicated(id), .(id, cluster)], by.x = "id_usina", by.y = "id")
     regdata[is.na(geracao), vento := NA]
     regdata[, id_usina := NULL]
     regdata <- regdata[, .(geracao = sum(geracao, na.rm = TRUE), vento = mean(vento, na.rm = TRUE),

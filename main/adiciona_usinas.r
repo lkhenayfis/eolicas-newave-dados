@@ -71,7 +71,7 @@ main <- function(arq_conf, activate = TRUE) {
     clusters <- rbindlist(clusters)
     clusters <- clusters[!duplicated(clusters, fromLast = TRUE)]
     usinas <- getusinas(conn)
-    usinas <- usinas[!duplicated(ceg)]
+    usinas <- usinas[!duplicated(id)]
     usinas <- merge(usinas, clusters, all = TRUE)
     usinas[, subsistema := sub("_.*", "", sub("cluster_", "", cluster))]
     usinas <- usinas[complete.cases(usinas)]
