@@ -55,15 +55,16 @@ cap_evol <- lapply(plans_existentes, function(subsist) {
     plan[, mes := tolower(mes)]
 
     plan[, data_inicio_operacao := as.Date(paste0(ano, "-", mes, "-01"), format = "%Y-%b-%d")]
-    plan[, data_inicio_operacao := final_do_mes(data_inicio_operacao)]
+    #plan[, data_inicio_operacao := final_do_mes(data_inicio_operacao)]
     plan[, data_inicio_operacao := as.Date(data_inicio_operacao, origin = "1970-01-01")]
 
     plan[, c("ano", "mes") := .(NULL, NULL)]
 
     # add coisas que faltam pra bater com usinas
     plan[, subsistema := subsist]
-    plan[, codigo := "XXXXXX"]
-    plan[, nome := "XXXXXX"]
+    plan[, codigo := formatC(seq(.N), width = 6, flag = "0")]
+    plan[, codigo := gsub("0", "X", codigo)]
+    plan[, nome := paste0("dummy_", formatC(seq(.N), width = 3, flag = "0"))]
     plan[, ceg := paste0("EOL.CV.", subsist, ".999999-9.", formatC(seq(.N), width = 2, flag = "0"))]
     plan[, estado := estado_aux[subsist]]
     plan <- merge(plan, pois[, .(latitude, longitude, estado)])
