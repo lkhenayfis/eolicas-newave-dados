@@ -70,11 +70,12 @@ main <- function(arq_conf, activate = TRUE) {
     clusters <- lapply(CONF$clusters, fread)
     clusters <- rbindlist(clusters)
     clusters <- clusters[!duplicated(clusters, fromLast = TRUE)]
+
     usinas <- getusinas(conn)
-    usinas <- usinas[!duplicated(id)]
+    usinas <- usinas[subsistema %in% names(CONF$clusters)]
     usinas <- merge(usinas, clusters, all = TRUE)
-    usinas[, subsistema := sub("_.*", "", sub("cluster_", "", cluster))]
-    usinas <- usinas[complete.cases(usinas)]
+    #usinas[, subsistema := sub("_.*", "", sub("cluster_", "", cluster))]
+    #usinas <- usinas[complete.cases(usinas)]
     usinas[, cluster := sub("cluster_(NE|S)_", "", cluster)]
 
     max_data <- round_month(usinas[!is.na(cluster), max(data_inicio_operacao)])
@@ -94,9 +95,14 @@ main <- function(arq_conf, activate = TRUE) {
         usi_sem_cluster <- usinas[(subsistema == subsist) & (is.na(cluster))]
         if(!CONF$coord_aprox_by_cluster) usi_sem_cluster <- usi_sem_cluster[coordenadas_aproximadas == FALSE]
 
+        if(nrow(usi_sem_cluster) == 0) next
+
         rean_mensal <- getreanalise(conn, modo = "interpolado", usinas = usi_sem_cluster$codigo,
             datahoras = paste0("/", max_data))
         rean_mensal <- merge(rean_mensal, usinas[, .(id, codigo)], by.x = "id_usina", by.y = "id")
+
+        if(nrow(rean_mensal) == 0) next
+
         rean_mensal[, id_usina := NULL]
         rean_mensal[, grupo := subsist]
         colnames(rean_mensal)[1:3] <- c("indice", "valor", "cenario")
