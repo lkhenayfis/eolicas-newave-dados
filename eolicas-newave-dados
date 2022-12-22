@@ -7,7 +7,7 @@ echo "eolicas-newave-dados"
 echo "Gerência de Metodologias e Modelos Energéticos - PEM / ONS"
 echo "Versão ${VERSION} - ${DATE}"
 
-USERINSTALLDIR=/usr/lib
+USERINSTALLDIR=fillinstalldir
 INSTALLDIR=${USERINSTALLDIR}/eolicas-newave/dados
 
 # Checks if application is installed

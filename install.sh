@@ -18,8 +18,7 @@ else
 fi
 
 # Creates installation directory in /usr
-echo "Criando diretório de instalação..." 
-USERINSTALLDIR=/usr/lib
+echo "Criando diretório de instalação..."
 INSTALLDIR=${USERINSTALLDIR}/eolicas-newave/dados
 [ ! -d $INSTALLDIR ] && mkdir -p $INSTALLDIR
 
@@ -41,9 +40,10 @@ cp renv.lock $INSTALLDIR
 cp .Rprofile $INSTALLDIR
 
 # Copies the executable to a folder in the system's PATH
-EXECPATH=/usr/bin/eolicas-newave-dados
 echo "Copiando executável para ${EXECPATH}" 
+EXECPATH=/usr/bin/eolicas-newave-dados
 cp eolicas-newave-dados $EXECPATH
+sed -i "s;fillinstalldir;${USERINSTALLDIR};" $EXECPATH
 
 
 echo "Finalizando instalação..."
