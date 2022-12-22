@@ -1,6 +1,5 @@
 #! /bin/bash
 
-USERINSTALLDIR=/usr/lib
 INSTALLDIR=${USERINSTALLDIR}/eolicas-newave/dados
 echo "Removendo arquivos da instalação em ${INSTALLDIR}" 
 [ -d $INSTALLDIR ] && rm -r $INSTALLDIR
