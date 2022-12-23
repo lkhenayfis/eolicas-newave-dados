@@ -51,8 +51,8 @@
     // Todas as usinas no dado de usinas que não constarem na associacao de clusters serao 
     // adicionadas
     "clusters": {
-        "NE": "out/DEFAULT/clusteriza_usinas/NE_PCA_09_kmeans_3.csv",
-        "S": "out/DEFAULT/clusteriza_usinas/S_PCA_09_kmeans_2.csv"
+        "NE": "out/DEFAULT/clusteriza_usinas/NE_PCA_09_kmeans_1.csv",
+        "S": "out/DEFAULT/clusteriza_usinas/S_PCA_09_kmeans_1.csv"
     },
 
     // Booleano indicando se usinas com coordenadas aproximadas devem ser adicionadas por cluster ou

@@ -84,10 +84,10 @@
     // help("compact_funs", package = "clustcens")
     "mod_cluster": {
         "NE": {
-            "kmeans_3": {"fun": "kmeans", "n": 3, "nstart": 200}
+            "kmeans_1": {"fun": "kmeans", "n": 1, "nstart": 200}
         },
         "S": {
-            "kmeans_2": {"fun": "kmeans", "n": 2, "nstart": 200}
+            "kmeans_1": {"fun": "kmeans", "n": 1, "nstart": 200}
         }
     }
 }
