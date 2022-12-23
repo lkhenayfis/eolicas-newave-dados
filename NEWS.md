@@ -1,3 +1,17 @@
+# dados_ccee
+
+## New features
+
+### Minor
+
+* Muda montagem de dados de entrada para usar planilhas da CCEE oficiais do PMO
+  * `usinas.csv` agora tem a coluna `CEG`
+
+## Bug fixes
+
+* O tratamento de modificações na capacidade instalada de usinas foi reformulado para ser mais 
+  robusto, evitando alguns erros possíveis na implementação anterior
+
 # eolicas-newave-dados 1.0.3
 
 ## Bug fixes
