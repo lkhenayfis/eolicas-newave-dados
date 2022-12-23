@@ -1,4 +1,5 @@
 source("data-raw/monta_usinas.r")
+source("data-raw/monta_verificado_ccee.r")
+source("data-raw/add_cap_inst_futura.r")
 source("data-raw/monta_reanalise.r")
 source("data-raw/interpola_reanalise.r")
-source("data-raw/verificado_todas.r")
