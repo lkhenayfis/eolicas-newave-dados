@@ -3,5 +3,5 @@ out
 log
 conf/*json
 conf/*jsonc
-data/reanalise_*.csv
+data*
 CAMINHO-DECK
