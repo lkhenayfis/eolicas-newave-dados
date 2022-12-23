@@ -40,7 +40,7 @@
         // - "hist_reanalise" contendo dados historicos de reanalise
         // - "pontos_reanalise" contendo indexacao dos pontos (lon, lat) da grade de reanalise
         // Pode ser um vetor contendo os caminhos ate cada um dos tres arquivos individualmente
-        "diretorio": "./data"
+        "diretorio": "../app-data/data"
     },
 
     // CONFIGURACOES DE EXECUCAO -------------------------------------------------------------------
