@@ -1,4 +1,4 @@
-# dados_ccee
+# eolicas-newave-dados 1.0.4
 
 ## New features
 
@@ -11,6 +11,12 @@
 
 * O tratamento de modificações na capacidade instalada de usinas foi reformulado para ser mais 
   robusto, evitando alguns erros possíveis na implementação anterior
+
+## Misc
+
+* `data-raw` e `data` foram removidos do repo e agora estao em um repo proprio chamado
+  [eolicas-newave-dados_appdata](https://github.com/lkhenayfis/eolicas-newave-dados_appdata)
+* Arquivos de configuracao default foram modificados para um PEE para o NE e S
 
 # eolicas-newave-dados 1.0.3
 
